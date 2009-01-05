@@ -1,0 +1,71 @@
+<h1>Enregistrer un nouveau membre</h1>
+
+<%= error_messages_for :membre %>
+
+<% form_for(:membre, :url => membres_path) do |f| %>
+  <p>
+    <b>Nom</b><br />
+    <%= f.text_field :nom %>
+  </p>
+
+  <p>
+    <b>Prenom</b><br />
+    <%= f.text_field :prenom %>
+  </p>
+
+  <p>
+    <b>Telephone</b><br />
+    <%= f.text_field :telephone %>
+  </p>
+
+  <p>
+    <b>Mobile</b><br />
+    <%= f.text_field :mobile %>
+  </p>
+
+  <p>
+    <b>Fax</b><br />
+    <%= f.text_field :fax %>
+  </p>
+
+  <p>
+    <b>Is contact</b><br />
+    <%= f.check_box :is_contact %>
+  </p>
+
+  <p>
+    <b>Sexe</b><br />
+    <%= f.text_field :sexe %>
+  </p>
+
+  <p>
+    <b>Tranche age</b><br />
+    <%= f.text_field :tranche_age %>
+  </p>
+
+  <p>
+    <b>Email</b><br />
+    <%= f.text_field :email %>
+  </p>
+
+  <p>
+    <b>Type</b><br />
+    <%= f.text_field :type %>
+  </p>
+
+  <p>
+    <b>Dbt presence</b><br />
+    <%= f.datetime_select :dbt_presence %>
+  </p>
+
+  <p>
+    <b>Fin presence</b><br />
+    <%= f.datetime_select :fin_presence %>
+  </p>
+
+  <p>
+    <%= submit_tag "Enregistrer" %>
+  </p>
+<% end %>
+
+<%= link_to 'Retour à la liste des membres', membres_path %>

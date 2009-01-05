@@ -1,0 +1,15 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  nom: MyString
+  nom_asso: MyString
+  file_url: MyString
+  content_type: MyString
+  filename: MyString
+
+two:
+  nom: MyString
+  nom_asso: MyString
+  file_url: MyString
+  content_type: MyString
+  filename: MyString

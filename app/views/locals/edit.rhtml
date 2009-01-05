@@ -1,0 +1,29 @@
+<div id="colonne1">
+	<h2 class="ficheid">Modifier les données sur un local</h2>
+
+	<%= error_messages_for :local %>
+
+	<% form_for(:local, :url => association_local_path(@association, @local), :html => { :method => :put }) do |f| %>
+
+	  <%= render :partial => "form", :locals => { :f => f } %>
+
+	  <p>
+	    <%= submit_tag "Enregistrer" %>
+	  </p>
+	<% end %>
+
+	<%= link_to 'Retour à la fiche', association_path(@association) %> |
+	<%= link_to 'Liste des locaux', association_locals_path(@association) %>
+</div>
+
+<div id="side-colonne">
+	<div class="topsidemenu">
+		&nbsp;		
+	</div>
+	<div class="side-menu">
+		<%= render :partial => 'shared/sidecolonne' %>
+	</div>
+	<div id="bottomsidemenu">
+		&nbsp;
+	</div>
+</div>

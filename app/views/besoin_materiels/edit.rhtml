@@ -1,0 +1,32 @@
+<div id="side-colonne">
+	<div class="topsidemenu">
+		&nbsp;		
+	</div>
+	<div class="side-menu">
+		<%= render :partial => 'shared/sidecolonne' %>
+	</div>
+	<div id="bottomsidemenu">
+		&nbsp;
+	</div>
+</div>
+
+<div id="colonne1">
+	<h2 class="ficheid">Modification d'un besoin matériel</h2>
+
+	<%= error_messages_for :besoin_materiel %>
+
+	<% form_for(:besoin_materiel, :url => association_besoin_materiel_path(@besoin_materiel.association, @besoin_materiel), :html => { :method => :put }) do |f| %>
+
+		<%= render :partial => 'form', :locals => { :f => f } %>
+
+	  <p>
+	    <%= submit_tag "Enregistrer" %>
+	  </p>
+	<% end %>
+
+	<p><%= link_to 'Voir', association_besoin_materiel_path(@besoin_materiel.association, @besoin_materiel) %> |
+	<%= link_to 'Liste des besoins matériels', association_besoin_materiels_path(@association) %></p>
+	
+	<p><%= link_to 'Retour à la fiche', association_path(@association) %></p>
+	
+</div>

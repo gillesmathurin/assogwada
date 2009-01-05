@@ -1,0 +1,23 @@
+<p>
+  <b>Jour:</b>
+  <%=h @planning.jour %>
+</p>
+
+<p>
+  <b>H debut:</b>
+  <%=h @planning.h_debut %>
+</p>
+
+<p>
+  <b>H fin:</b>
+  <%=h @planning.h_fin %>
+</p>
+
+<p>
+  <b>Activite:</b>
+  <%=h @planning.activite_id %>
+</p>
+
+
+<%= link_to 'Edit', edit_planning_path(@planning) %> |
+<%= link_to 'Back', plannings_path %>

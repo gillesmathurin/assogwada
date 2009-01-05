@@ -1,0 +1,22 @@
+<h1>Editing adhesion</h1>
+
+<%= error_messages_for :adhesion %>
+
+<% form_for(:adhesion, :url => adhesion_path(@adhesion), :html => { :method => :put }) do |f| %>
+  <p>
+    <b>Association</b><br />
+    <%= f.text_field :association_id %>
+  </p>
+
+  <p>
+    <b>Membre</b><br />
+    <%= f.text_field :membre_id %>
+  </p>
+
+  <p>
+    <%= submit_tag "Update" %>
+  </p>
+<% end %>
+
+<%= link_to 'Show', adhesion_path(@adhesion) %> |
+<%= link_to 'Back', adhesions_path %>

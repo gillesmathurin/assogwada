@@ -1,0 +1,21 @@
+<h1>New adhesion</h1>
+
+<%= error_messages_for :adhesion %>
+
+<% form_for(:adhesion, :url => adhesions_path) do |f| %>
+  <p>
+    <b>Association</b><br />
+    <%= f.text_field :association_id %>
+  </p>
+
+  <p>
+    <b>Membre</b><br />
+    <%= f.text_field :membre_id %>
+  </p>
+
+  <p>
+    <%= submit_tag "Create" %>
+  </p>
+<% end %>
+
+<%= link_to 'Back', adhesions_path %>

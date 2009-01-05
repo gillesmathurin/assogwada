@@ -1,0 +1,33 @@
+<div id="side-colonne">
+	<div class="topsidemenu">
+		&nbsp;		
+	</div>
+	<div class="side-menu">
+		<%= render :partial => 'shared/sidecolonne' %>
+	</div>
+	<div id="bottomsidemenu">
+		&nbsp;
+	</div>
+</div>
+
+<div id="colonne1">
+	<h2 class="ficheid">Description d'un besoin matériel</h2>
+	<p>
+	  <b>Categorie:</b>
+	  <%=h @besoin_materiel.categorie %>
+	</p>
+
+	<p>
+	  <b>Description:</b>
+	  <%=h @besoin_materiel.desc %>
+	</p>
+
+	<p>
+	  <b>Quantité:</b>
+	  <%=h @besoin_materiel.quantite %>
+	</p>
+
+	<p><%= link_to 'Modifier', edit_association_besoin_materiel_path(@besoin_materiel.association, @besoin_materiel) %> |
+	<%= link_to 'Liste des besoins matériels', association_besoin_materiels_path(@association) %></p>
+	<p><%= link_to 'Retour à la fiche', association_path(@association) %></p>
+</div>

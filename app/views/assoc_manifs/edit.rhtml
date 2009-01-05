@@ -1,0 +1,22 @@
+<h1>Editing assoc_manif</h1>
+
+<%= error_messages_for :assoc_manif %>
+
+<% form_for(:assoc_manif, :url => assoc_manif_path(@assoc_manif), :html => { :method => :put }) do |f| %>
+  <p>
+    <b>Association</b><br />
+    <%= f.text_field :association_id %>
+  </p>
+
+  <p>
+    <b>Manifestation</b><br />
+    <%= f.text_field :manifestation_id %>
+  </p>
+
+  <p>
+    <%= submit_tag "Update" %>
+  </p>
+<% end %>
+
+<%= link_to 'Show', assoc_manif_path(@assoc_manif) %> |
+<%= link_to 'Back', assoc_manifs_path %>

@@ -1,0 +1,141 @@
+<div id="side-colonne">
+	<div class="topsidemenu">
+		&nbsp;		
+	</div>
+	<div class="side-menu">
+		<p><%= link_to 'Inscrire son association', inscription_associations_path %></p>
+		<p>
+			<b>Dernière Inscription</b><br/>
+			<%= link_to  @last_recorded.nom, recherch_path(@last_recorded) %>,
+			le <%= h @last_recorded.created_at.strftime("%d/%m/%Y") %>
+		</p>
+	</div>
+
+<% if @resultats %>	
+	<div class="topsidemenu">
+		&nbsp;		
+	</div>
+	<div class="side-menu">
+		<p><b>Résultats de votre recherche</b></p>
+		<p>
+			<% for resultat in @resultats %>
+			<b><%= link_to resultat[1], recherch_path(resultat[0]) %></b><br/>
+			<% end %>
+		</p>
+	</div>
+<% end %>
+	
+	<%= render :partial => "shared/sidecolonne2" %>
+</div>
+
+<div id="colonne1">
+	<div class="bloc_fiche">
+		<h3 class="nom-asso"><img src="/images/home-icon.png"><%= has_sigle?(@association) %> <%= @association.nom %></h3>
+		<p>
+			<b>Adresse :</b> <%= @association.adresse_siegesocial %> <%= @association.ville %><br/>
+			<b>Telephone :</b> <%= @association.telephone if @association.telephone %><br/>
+			<!-- CHANGED : ajout des liens email(mailto) et website à la fiche résultat -->
+			<b>Site internet :</b> <%= has_website?(@association) %><br/>
+			<%= has_email?(@association) %><br/>
+			<b>Date Creation :</b> <%= @association.date_creation.strftime("%m/%Y") if @association.date_creation %><br/>
+			<!-- <b>Nombre d'adhérents :</b> <%# h @association.total_adherent %><br/> -->
+		</p>
+	</div>
+
+	<div class="bloc_fiche">
+		<h3 class="objetsocial"><img src="/images/objetsocial-icon.png"><%= objet_or_cis(@association) %></h3>
+		<p>
+			<%= h @association.objet_social %> <%= objet_social_or_cis(@association) %>
+		</p>
+	</div>
+	
+	<div class="bloc_fiche">
+		<h3 class="contact"><img src="/images/contact-icon.png">Contacts</h3>
+		<% if @association.conseiladmin %>
+		<p>
+			<b>President :</b> <%= @association.conseiladmin.president.nom %> <%= @association.conseiladmin.president.prenom %>
+			<!-- CHANGED : affichage des autres membres du CA -->
+			<b></b>
+		</p>
+		<% end %>
+		<p>
+			<b>Nom :</b> <%=h @association.nom_contact %><br/>
+			<b>Coordonnées :</b> <%= h @association.coordonnees_contact %>
+		</p>
+	</div>
+
+	<div class="bloc_fiche">
+		<h3 class="horaire"><img src="/images/reception-icon.png">Lieu et Horaires de réception</h3>
+
+		<ol>	
+			<% for local in @association.locals %>
+					<li>
+						<%=h local.adresse %> <%= h local.cp %> <%= h local.ville %> <br/>
+						<% for planning in local.planning_locals %>
+							<% unless planning_absent?(planning) %>
+						Le : <%= h planning.jour %> de <%= planning.hmat_debut.strftime("%H:%M")  if planning.hmat_debut %> à <%= h planning.hmat_fin.strftime("%H:%M") if planning.hmat_fin %> et de <%= planning.hapm_debut.strftime("%H:%M") if planning.hapm_debut %> à <%= planning.hapm_fin.strftime("%H:%M")  if planning.hapm_fin%><br/>
+							<% end %>
+						<% end %>
+					</li>
+			<% end %>
+		</ol>
+	</div>
+
+	<div class="bloc_fiche">
+		<h3 class="activite"><img src="/images/activite-icon.png">Activités</h3>
+		<% unless @association.activites.empty? %>
+			<% for activite in @association.activites %>
+			<p>
+				<b>Nom :</b> <%= h activite.nom %><br/>
+				<b>Public :</b> <%= h activite.spectateur %> <%= h activite.spectage %><br/>
+				<%= link_to_function "+/- d'infos", "$('act_#{activite.id}').toggle()" %> 
+			</p>
+			<div id ="act_<%= activite.id %>" style="display: none">
+				<p>
+					<b>Tarif mensuel :</b> <%= h number_to_currency(activite.tarif_mensuel, :precision => 2, :unit => "€ ") %><br/>
+					<% unless activite.tarif_seance.blank? %>
+					<b>Tarif par séance :</b> <%= h number_to_currency(activite.tarif_seance, :precision => 2, :unit => "€ ") %>
+					<% else %>
+					<b>Tarif par séance :</b> Aucun
+					<% end %>
+				</p>
+				<p>
+					<b>Modalités d'inscription :</b> <%= h activite.modalite_inscription %>
+				</p>
+			</div>
+			<% end %>
+		<% end %>
+	</div>
+
+	<div class="bloc_fiche">
+		<h3 class="manif"><img src="/images/manif-icon.png">Manifestations</h3>
+		<% unless @association.manifestations.empty? %>
+			<% for manifestation in @association.manifestations %>
+			<p>
+				<b>Nom :</b> <%= h manifestation.nom %><br/>
+				<b>Public :</b> <%= h manifestation.spectateur_to_str %> <%= h manifestation.spectage_to_str %><br/>
+				<b>Nature :</b> <%= h manifestation.nature %><br/>				
+				<%= link_to_function "+/- d'infos", "$('manif_#{manifestation.id}').toggle()" %>
+			</p>
+			<div id="manif_<%= manifestation.id %>" style="display: none">
+				<p>
+					<b>Lieu :</b> <%= h manifestation.lieu %><br/>
+					<% unless manifestation.gratuit == false %>
+					<b>Gratuit :</b> <%= h manifestation.gratuit_to_str %><br/>
+					<% else %>
+					<b>Prix</b> <%= h manifestation.prix %>
+					<% end %>			
+				</p>
+				<p>
+					<b>Lieu de l'inscription :</b> <%= h manifestation.lieu_inscription %><br/>
+					<b>Modalités d'inscription :</b> <%= h manifestation.modalite_inscription %>
+				</p>
+				<p>
+					<b>Nom du responsable :</b> <%= manifestation.nom_resp %>
+					<b>Coordonnées :</b> <%= h manifestation.coordonees %>
+				</p>
+			</div>
+			<% end %>
+		<% end %>
+	</div>
+</div>

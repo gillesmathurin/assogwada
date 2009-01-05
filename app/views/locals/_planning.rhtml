@@ -1,0 +1,19 @@
+<div class="planning">
+ <% fields_for "local[planning_attributes][]", planning do |p| %>
+ <p>
+ 	<b>Jour :</b> <%= p.select :jour, Planning::JOURS,
+ 	 {:prompt => "Sélectionner un jour"}, :index => nil %><br/>
+ 	<b>Matin</b> De : <%= p.text_field :hmat_debut, :size => 10, :index => nil %>
+ 	A : <%= p.text_field :hmat_fin, :size => 10, :index => nil %> <i>"Ex: 12:00"</i><br/>
+	<b>Après Midi</b> De : <%= p.text_field :hapm_debut, :size => 10, :index => nil %>
+	A : <%= p.text_field :hapm_fin, :size => 10, :index => nil %><br/>
+	<% if planning.new_record? %>
+		<%= link_to_function "supprimer", "this.up('.planning').remove()" %>
+	<% else %>
+		<%= link_to_function "Supprimer ce planning", "mark_for_destroy(this)" %>
+		<%= p.hidden_field :id, :index => nil %>
+		<%= p.hidden_field :should_destroy, :index => nil, :class => 'should_destroy' %>
+	<% end %>
+ </p>
+ <% end %>
+</div>

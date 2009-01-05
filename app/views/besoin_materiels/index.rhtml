@@ -1,0 +1,41 @@
+<div id="side-colonne">
+	<div class="topsidemenu">
+		&nbsp;		
+	</div>
+	<div class="side-menu">
+		<%= render :partial => 'shared/sidecolonne' %>
+	</div>
+	<div id="bottomsidemenu">
+		&nbsp;
+	</div>
+</div>
+
+<div id="colonne1">
+	<h2 class="ficheid">Besoins Matériels</h2>
+	
+ <% unless @association.besoin_materiels.empty? %>
+	<table cellspacing="0", cellpadding="0">
+	  <tr>
+	    <td class="entete-2">Categorie</td>
+	    <td class="entete-2">Description</td>
+	    <td class="entete-2">Quantité</td>
+		<td class="entete-2" colspan="3">Actions</td>
+	  </tr>
+  
+	<% for besoin_materiel in @besoin_materiels %>
+	  <tr>
+	    <td><%=h besoin_materiel.categorie %></td>
+	    <td><%=h besoin_materiel.desc %></td>
+	    <td><%=h besoin_materiel.quantite %></td>
+	    <td><%= link_to 'Voir', association_besoin_materiel_path(besoin_materiel.association, besoin_materiel) %></td>
+	    <td><%= link_to 'Modifier', edit_association_besoin_materiel_path(besoin_materiel.association, besoin_materiel) %></td>
+	    <td><%= link_to 'Supprimer', association_besoin_materiel_path(besoin_materiel.association, besoin_materiel), :confirm => 'Etes vous sur ?', :method => :delete %></td>
+	  </tr>
+	<% end %>
+	</table>
+ <% else %>
+	<p>Cette association n'a pas de besoin materiel à ce jour</p>
+ <% end %>
+
+	<p>	<%= link_to 'Ajoutez un besoin matériel', new_association_besoin_materiel_path(@association) %></p>
+</div>

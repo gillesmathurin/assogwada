@@ -1,0 +1,45 @@
+<div id="side-colonne">
+	<div id="topsidemenu">
+		&nbsp;		
+	</div>
+	<div id="side-menu">
+		<%= render :partial => 'shared/sidecolonne2' %>
+	</div>
+	<div id="bottomsidemenu">
+		&nbsp;
+	</div>
+</div>
+
+<div id="colonne1">
+	<h2 class="ficheid">Ajouter un champ d'intervention</h2>
+
+	<%= error_messages_for :champ_intervention %>
+
+	<% if @association %>
+
+		<% form_for(:champ_intervention, :url => association_champ_interventions_path) do |f| %>
+
+		  <%= render :partial => 'form', :locals => { :f => f } %>
+
+		  <p>
+		    <%= submit_tag "Enregistrer" %>
+		  </p>
+		<% end %>
+
+		<%= link_to "Listing des Champs d'intervention", association_champ_interventions_path(@association) %>
+
+	<% else %>
+
+		<% form_for(:champ_intervention, :url => champ_interventions_path) do |f| %>
+
+		  <%= render :partial => 'form', :locals => { :f => f } %>
+
+		  <p>
+		    <%= submit_tag "Enregistrer" %>
+		  </p>
+		<% end %>
+
+		<%= link_to "Listing des champs d'intervention", champ_interventions_path %>
+
+	<% end %>
+</div>

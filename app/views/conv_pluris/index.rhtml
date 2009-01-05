@@ -1,0 +1,66 @@
+<div id="side-colonne">
+	<div class="topsidemenu">
+		&nbsp;		
+	</div>
+	<div class="side-menu">
+		<%= render :partial => 'shared/sidecolonne' %>
+	</div>
+	<div id="bottomsidemenu">
+		&nbsp;
+	</div>
+</div>
+
+<div id="colonne1">
+	
+<h2 class="ficheid">Conventions</h2>
+
+<% if @association %>
+  <% unless @association.conv_pluris.empty? %>
+	<table cellspacing="0", cellpadding="0">
+	  <tr>
+	    <td class="entete-2">Orgahab</td>
+		<td class="entete-2">Nom Convention</td>
+		<td class="entete-2", colspan ="3">Actions</td>
+	  </tr>
+
+	 <% for conv_pluri in @conv_pluris %>
+	  <tr>
+		    <td><%=h conv_pluri.orgahab.nom %></td>
+			<td><%= h conv_pluri.nom_conv %></td>
+		    <td align="center">
+			<%= link_to 'Voir', association_conv_pluri_path(conv_pluri.association_id, conv_pluri) %>
+			</td>
+		    <td align="center"><%= link_to 'Modifier', edit_association_conv_pluri_path(conv_pluri.association_id, conv_pluri) %></td>
+		    <td align="center"><%= link_to 'Supprimer', association_conv_pluri_path(conv_pluri.association_id, conv_pluri),
+		 	:confirm => 'En êtes vous sur ?', :method => :delete %>
+			</td>
+		  </tr>
+		<% end %>
+	</table>
+  <% else %>
+	<p>Cette association n'a signé aucune convention.</p>
+  <% end %>
+
+	<p><%= link_to 'Déclarer une nouvelle convention pour cette association', new_association_conv_pluri_path(@association) %></p>
+	
+<% else %>
+
+	<table cellspacing="0", cellpadding="0">
+	  <tr>
+	    <td class="entete-2">Orgahab</td>
+		<td class="entete-2", colspan ="3">Actions</td>
+	  </tr>
+		<% for conv_pluri in @conv_pluris %>
+	  <tr>
+		    <td><%=h conv_pluri.orgahab.nom %></td>
+		    <td align="center"><%= link_to 'Voir', conv_pluri_path(conv_pluri) %></td>
+		    <td align="center"><%= link_to 'Modifier', edit_conv_pluri_path(conv_pluri) %></td>
+		    <td align="center"><%= link_to 'Supprimer', conv_pluri_path(conv_pluri), :confirm => 'Are you sure?', :method => :delete %></td>
+		  </tr>
+		<% end %>
+	</table>
+
+	<p><%= link_to 'Déclarer une nouvelle convention pluriannuelle', new_conv_pluri_path %></p>
+	
+<% end %>
+</div>

@@ -1,0 +1,211 @@
+<div id="colonne1">								
+	<h2 class="ficheid">INSCRIRE SON ASSOCIATION</h2>
+	<p class="notice">
+		Après validation du formulaire vous serez redirigés vers une page qui vous permettra de remplir en ligne un questionnaire et ainsi de nous fournir de plus amples informations sur votre association.
+	</p>
+	<em>Champs obligatoires marqués d'un "*"</em>
+	<% form_for :association, :url => envoi_inscription_associations_path() do |f| %>
+	
+	<table>
+		<tr>
+			<td valign="top"><b>Nom*</b></td><td><%= f.text_field :nom %></td>
+		</tr>
+		<tr>
+			<td><b>Sigle</b></td><td><%= f.text_field :sigle %></td>
+		</tr>
+		<tr>
+			<td><b>Adresse du siege social*</b></td><td><%= f.text_field :adresse_siegesocial %></td>
+		</tr>
+		<tr>
+			<td><b>Code Postal*</b></td><td><%= f.text_field :code_postal %></td>
+		</tr>
+		<tr>
+			<td><b>Ville*</b></td><td><%= f.select :ville, Association::VILLE, :prompt => "Sélectionner une ville" %></td>
+		</tr>
+		<tr>
+			<td><b>Téléphone</b></td><td><%= f.text_field :telephone %></td>
+		</tr>
+		<tr>
+			<td><b>Fax</b></td><td><%= f.text_field :fax %></td>
+		</tr>
+		<tr>
+			<td><b>Email</b></td><td><%= f.text_field :email %></td>
+		</tr>
+		<tr>
+			<td><b>Adresse internet</b></td><td><%= f.text_field :website_url %></td>
+		</tr>
+		<tr>
+			<td><b>Objet social</b></td><td><%= f.text_area :objet_social, :rows => 5 %></td>
+		</tr>
+		<tr>
+			<td><b>Personne ressource</b></td><td><%= f.text_field :nom_contact, :size => 30 %></td>
+		</tr>
+		<tr>
+			<td><b>Telephone personne ressource</b></td><td><%= f.text_field :coordonnees_contact %></td>
+		</tr>
+		<tr>
+			<td><b>Date de création :</b></td><td><%= f.date_select :date_creation, :order=> [:day, :month, :year], :start_year => 1930 %></td>
+		</tr>
+		<tr>
+			<td><b>Nombre d'adhérents masculins</b></td>
+			<td><%= f.text_field :nb_adherent_homme, :size => 10 %></td>
+		</tr>
+		<tr>
+			<td><b>Nombre d'adhérent féminins</b></td>
+			<td><%= f.text_field :nb_adherent_femme, :size => 10 %></td>
+		</tr>
+		<tr>
+			<td><b>Nombre d'enfants adhérents</b></td>
+			<td><%= f.text_field :nb_adherent_enfant, :size => 10 %></td>
+		</tr>
+		<tr>
+			<td><b>Nombre d'adultes adhérents</b></td>
+			<td><%= f.text_field :nb_adherent_adulte, :size => 10 %></td>
+		</tr>
+		<tr>
+			<td><b>Nombre total d'adhérents</b></td>
+			<td><%= f.text_field :total_adherent, :size => 10 %></td>
+		</tr>
+		<tr>
+			<td><b>Motivation à la création</b></td>
+			<td><%= f.text_area :motivation_creation, :rows=>15 %></td>
+		</tr>
+		<tr>
+			<td><b>Est employeur</b></td>
+			<td>
+				<div onclick="$('convention').show();">
+				  	Oui : <%= f.radio_button :est_employeur, true %>
+				</div>
+				<div onclick="$('convention').hide(); $('champconv').hide();">
+					Non : <%= f.radio_button :est_employeur, false %>
+				</div>
+			</td>
+		</tr>
+		<tr>
+			<td></td>
+			<td>
+				<div id="convention", style="display: none">
+					<b>Appliquez vous une convention collective ?</b>
+					<div onclick="$('nom_convention').show();">
+						Oui : <%= f.radio_button :app_conv, true %>
+					</div>
+					<div onclick="$('nom_convention').hide();">
+						Non : <%= f.radio_button :app_conv, false %>
+					</div>
+				</div>
+			</td>
+		</tr>
+		<tr>
+			<td></td>
+			<td>
+				<fieldset id="nom_convention", style="display: none">
+					<legend>Convention collective</legend>
+					<%= f.select :convention_id, @conventions, { :include_blank => true } %><br/><br/>
+					Si votre convention ne figure pas dans la liste, <%= link_to_function("ajoutez la", "$('champconv').toggle();") %>
+					<div id="champconv", style="display: none">
+						<p><%= text_field_tag :conv_co %></p>
+					</div>
+				</fieldset>
+			</td>
+		</tr>
+		<tr>
+			<td><b>Chiffre d'affaire annuel</b></td>
+			<td><%= f.select(:chiffre_affaire, Association::CHIFFRE_AFFAIRE, :prompt => "Sélectionner une chiffre d'affaire") %></td>
+		</tr>
+		<tr>
+			<td><b>Part des ressources propres</b></td>
+			<td><%= f.text_field :part_ressource_propre %></td>
+		</tr>
+		<tr>
+			<td><b>Part des subventions publiques</b></td>
+			<td><%= f.text_field :part_subvention_public %></td>
+		</tr>
+		<tr>
+			<td><b>Part des subventions privées</b></td>
+			<td><%= f.text_field :part_subvention_prive %></td>
+		</tr>
+		<tr>
+			<td><b>Pourcentage des subventions reçues par rapport aux subventions sollicités</b></td>
+			<td><%= f.text_field :pcent_subvrecu_subvsoll %></td>
+		</tr>
+	</table>
+	
+	<fieldset>	
+		<legend><b><em>OBLIGATOIRE - Champ(s) d'intervention en ordre prioritaire</em></b></legend>
+			<div id="champs">
+				<% if @association.champ_interventions.empty? %>
+					<%= render :partial => 'champinterv_fields',
+					 :locals => { :ci => @ci, :index => @index } %>
+				<% end %>
+			</div>
+		<%= render :partial=>'add_ci_link', :locals => { :index => ( @index + 1) } %>
+	</fieldset>
+			
+ 	  <p>
+ 	    <%= submit_tag "S'inscrire" %>
+ 	  </p>
+ 	<% end %>
+
+	<p class="notice">
+		Après validation du formulaire vous serez redirigés vers une page qui vous permettra de remplir en ligne le questionnaire disponible en téléchargement ci-dessous, et ainsi, de nous fournir de plus amples informations sur votre association.
+	</p>
+	
+	<h2 class="ficheid">Téléchargez le questionnaire.</h2>
+	
+	<p>Afin de mieux identifier les besoins de la vie associative, nous vous invitons à télécharger le questionnaire suivant et à nous le retourner par le biais du formulaire d'envoi. Merci d'avance :-). </p>
+	
+	<p><strong>Télécharger le questionnaire ci-dessous, remplissez le et renvoyez le, afin de compléter les informations disponibles en ligne pour votre association.</strong></p>
+	
+	<p><strong><%= link_to "Questionnaire", :action => "download_quest", :controller => "associations" %></strong> - format MSWord (.doc)</p>
+	
+
+	
+	<h2 class="ficheid">Formulaire d'envoi du questionnaire rempli.</h2>
+		
+	<% form_for :questionnaire, :url => envoi_associations_path(),
+	 :html => {:multipart => true} do |f| %>
+		<table>
+			<tr>
+				<td>Nom :</td><td><%= f.text_field :nom %></td>
+			</tr>
+			<tr>
+				<td>Association :</td><td><%= f.text_field :nom_asso %></td>
+			</tr>
+			<tr>
+				<td>Fichier à envoyer</td>
+				<td><%= f.file_field :upload_questionnaire %></td>
+			</tr>
+			<tr>
+				<td colspan="2"><%= submit_tag "Envoyer" %></td>
+			</tr>
+		</table>
+	<% end %>
+	
+</div>
+
+<div id="side-colonne">
+	<%= render :partial => "shared/sidecolonne2" %>
+	<div class="topsidemenu">
+		&nbsp;		
+	</div>
+	<div class="side-menu">
+		<p>
+			<b>Partenaires :</b>
+		</p>
+		<p>
+			<a href="http://www.club1901.asso.fr" class="image">
+			<img src="/images/Logo-club1901.gif"
+			border="0" alt="logo-club1901"></a>
+		</p>
+		<p>
+			<a href="#" class="image">
+			<img src="/images/Logo-agouti.gif"
+			border="0" alt="logo-agouti"></a>
+		</p>
+		<p>
+			<a href="#" class="image">
+			<img src="/images/Logo-crajep.gif"
+			border="0" alt="logo-agouti"></a>
+		</p>
+	</div>
+</div>

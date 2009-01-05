@@ -1,0 +1,13 @@
+  <p>
+    <b>Dispositif</b><br />
+    <%= f.select :dispositif_id, @dispositif_list, { :prompt => "Sélectionner un dispositif"} %>
+  </p>
+
+  <p>  	
+	<fieldset>
+		<legend>Si le dispositif n'est pas dans la liste, ajoutez le</legend>
+		<% fields_for :dispositif do |d| %>
+			Dispositif : <%= d.text_field :nom %>
+		<% end %>
+	</fieldset>
+  </p>

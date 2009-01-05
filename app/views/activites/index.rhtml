@@ -1,0 +1,44 @@
+<div id="colonne1">
+	<h2 class="ficheid">Liste des activites de <%= @association.nom %></h2>
+	
+<% unless @association.activites.empty? %>
+	<table cellspacing="0", cellpadding="0">
+	  <tr>
+	    <td class="entete-2">Nom</td>
+	    <td class="entete-2">Tarif mensuel</td>
+		<td class="entete-2">Tarif par séance</td>
+	    <td class="entete-2">Public</td>
+	    <td class="entete-2">Besoin habilitation</td>
+		<td class="entete-2", colspan="3">Actions</td>
+	  </tr>
+  
+	<% for activite in @activites %>
+	  <tr>
+	    <td><%=h activite.nom %></td>
+	    <td><%=h activite.tarif_mensuel %></td>
+		<td><%= h activite.tarif_seance %></td>
+	    <td><%=h activite.spectateur %> | <%= h activite.spectage %></td>
+	    <td><%=h activite.besoin_habilitation_to_str %></td>
+		<td><%= link_to 'Voir', association_activite_path(activite.association, activite) %></td>
+	    <td><%= link_to 'Modifier', edit_association_activite_path(activite.association, activite) %></td>
+	    <td><%= link_to 'Supprimer', association_activite_path(activite.association, activite), :confirm => 'En êtes vous sur?', :method => :delete %></td>
+	  </tr>
+	<% end %>
+	</table>
+<% else %>
+	<p>Il n'y a pas d'activités enregistrées pour <%= h @association.nom %></p>
+<% end %>
+	<p><%= link_to 'Ajouter une activité', new_association_activite_path(@association) %></p>
+</div>
+
+<div id="side-colonne">
+	<div class="topsidemenu">
+		&nbsp;		
+	</div>
+	<div class="side-menu">
+		<%= render :partial => 'shared/sidecolonne' %>
+	</div>
+	<div id="bottomsidemenu">
+		&nbsp;
+	</div>
+</div>

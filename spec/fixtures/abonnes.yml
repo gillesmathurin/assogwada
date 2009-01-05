@@ -1,0 +1,9 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  nom_abonne: MyString
+  email_abonne: MyString
+
+two:
+  nom_abonne: MyString
+  email_abonne: MyString

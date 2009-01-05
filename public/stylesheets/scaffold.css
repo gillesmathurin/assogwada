@@ -1,0 +1,164 @@
+html {
+	background-color: #73a0cc;
+}
+
+body { background-color: white; color: #333;
+	width: 800px;
+	margin-right: auto;
+	margin-left: auto;
+	padding: 10px;
+}
+
+body, p, ol, ul, td {
+  font-family: verdana, arial, helvetica, sans-serif;
+  font-size:   13px;
+  line-height: 18px;
+}
+
+pre {
+  background-color: #eee;
+  padding: 10px;
+  font-size: 11px;
+}
+
+h1 {
+	font-size: 18px;
+}
+
+h1, h2, h3 {
+	background-color: #213c90;
+	line-height: 1.5;
+	display: block;
+	color: white;
+	text-align: center;
+}
+
+table {
+	text-align: left;
+	color: navy;
+	width: 95%;
+}
+
+td {
+	vertical-align: top;
+}
+
+a { color: #000; }
+a:visited { color: #666; }
+a:hover { color: #fff; background-color: #2849b7; }
+
+#contenu {
+	
+}
+
+/* @group colonne1 */
+
+#colonne1 {
+	font-size: 0.8em;
+	line-height: 1.5em;
+	text-align: justify;
+	margin-right: 250px;
+	position: relative;
+	height: auto;
+}
+
+#colonne1 h2 {
+	display: block;
+	width: 150px;
+}
+
+/* @end */
+
+/* @group Colonne 2 */
+
+#colonne2 {
+	position: absolute;
+	margin-left: 550px;
+	top: 25px;
+	background-color: silver;
+	width: 225px;
+	padding-left: 10px;
+	padding-right: 10px;
+}
+
+#colonne2 .actions-fiche {
+	background-color: #4251b7;
+	padding: 10px;
+	color: #fff;
+	margin-top: 10px;
+}
+
+#colonne2 .actions-fiche a {
+	color: #fff;
+}
+
+#colonne2 .actions-fiche p {
+	color: white;
+}
+
+div p span {
+	color: #4251b7;
+}
+
+/* @end */
+
+/* @group elements de base */
+
+.fieldWithErrors {
+  padding: 2px;
+  background-color: red;
+  display: table;
+}
+
+#errorExplanation {
+  width: 400px;
+  border: 2px solid red;
+  padding: 7px;
+  padding-bottom: 12px;
+  margin-bottom: 20px;
+  background-color: #f0f0f0;
+}
+
+#errorExplanation h2 {
+  text-align: left;
+  font-weight: bold;
+  padding: 5px 5px 5px 15px;
+  font-size: 12px;
+  margin: -7px;
+  background-color: #c00;
+  color: #fff;
+}
+
+#errorExplanation p {
+  color: #333;
+  margin-bottom: 0;
+  padding: 5px;
+}
+
+#errorExplanation ul li {
+  font-size: 12px;
+  list-style: square;
+}
+
+div.uploadStatus {
+  margin: 5px;
+}
+
+div.progressBar {
+  margin: 5px;
+}
+
+div.progressBar div.border {
+  background-color: #fff;
+  border: 1px solid grey;
+  width: 100%;
+}
+
+div.progressBar div.background {
+  background-color: #333;
+  height: 18px;
+  width: 0%;
+}
+
+/* @end */
+

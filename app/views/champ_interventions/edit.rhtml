@@ -1,0 +1,49 @@
+<div id="side-colonne">
+	<div id="topsidemenu">
+		&nbsp;		
+	</div>
+	<div id="side-menu">
+		<%= render :partial => 'shared/sidecolonne2' %>
+	</div>
+	<div id="bottomsidemenu">
+		&nbsp;
+	</div>
+</div>
+
+<div id="colonne1">
+	<h2 class="ficheid">Modifier un champ d'intervention</h2>
+
+	<%= error_messages_for :champ_intervention %>
+
+	<% if @association %>
+
+	<% form_for(:champ_intervention,
+	 :url => association_champ_intervention_path(@association, @champ_intervention), :html => { :method => :put }) do |f| %>
+
+	  <%= render :partial => 'form', :locals => { :f => f } %>
+
+	  <p>
+	    <%= submit_tag "Mettre à jour" %>
+	  </p>
+	<% end %>
+
+	<%= link_to 'Voir', association_champ_intervention_path(@association, @champ_intervention) %> |
+	<%= link_to 'Retour', association_champ_interventions_path(@association) %>
+
+	<% else %>
+
+	<% form_for(:champ_intervention,
+	 :url => champ_intervention_path(@champ_intervention), :html => { :method => :put }) do |f| %>
+
+	  <%= render :partial => 'form', :locals => { :f => f } %>
+
+	  <p>
+	    <%= submit_tag "Mettre à jour" %>
+	  </p>
+	<% end %>
+
+	<%= link_to 'Voir', champ_intervention_path(@champ_intervention) %> |
+	<%= link_to 'Retour', champ_interventions_path() %>
+
+	<% end %>
+</div>

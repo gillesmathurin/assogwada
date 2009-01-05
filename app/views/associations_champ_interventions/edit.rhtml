@@ -1,0 +1,22 @@
+<h1>Editing associations_champ_intervention</h1>
+
+<%= error_messages_for :associations_champ_intervention %>
+
+<% form_for(:associations_champ_intervention, :url => associations_champ_intervention_path(@associations_champ_intervention), :html => { :method => :put }) do |f| %>
+  <p>
+    <b>Association</b><br />
+    <%= f.text_field :association_id %>
+  </p>
+
+  <p>
+    <b>Champ intervention</b><br />
+    <%= f.text_field :champ_intervention_id %>
+  </p>
+
+  <p>
+    <%= submit_tag "Update" %>
+  </p>
+<% end %>
+
+<%= link_to 'Show', associations_champ_intervention_path(@associations_champ_intervention) %> |
+<%= link_to 'Back', associations_champ_interventions_path %>

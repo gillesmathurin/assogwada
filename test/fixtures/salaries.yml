@@ -1,0 +1,13 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+one:
+  id: 1
+  poste: MyString
+  sexe: MyString
+  contrat_classique: false
+  contrat_aide: false
+two:
+  id: 2
+  poste: MyString
+  sexe: MyString
+  contrat_classique: false
+  contrat_aide: false

@@ -1,0 +1,2 @@
+module AssociationsChampInterventionsHelper
+end

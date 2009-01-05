@@ -1,0 +1,25 @@
+Bonjour Administrateur,
+
+Vous avez reçu une demande d'inscription de : 
+
+Nom de l'association : <%= @association.nom %>
+Sigle				 : <%= @association.sigle %>
+Adresse siege social : <%= @association.adresse_siegesocial %>
+Ville				 : <%= @association.ville %>
+Telephone			 : <%= @association.telephone %>
+Fax					 : <%= @association.fax %>
+Email				 : <%= @association.email %>
+Adresse site web 	 : <%= @association.website_url %>
+Personne ressource	 : <%= @association.nom_contact %>
+Tel Personne ressou  : <%= @association.coordonnees_contact %>
+Date de création	 : <%= @association.date_creation %>
+Champs d'activité : 
+
+<% @association.inscription_cis.each do |ci| %>
+	<%= ci.nom %><br/>
+<% end %>
+
+Objet social : <%= @association.objet_social %>
+
+Veuillez vérifier la pertinence de ces informations avant de les intégrer dans la base de données.
+Merci.

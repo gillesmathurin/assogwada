@@ -1,0 +1,16 @@
+<h2 class="ficheid">Inscrire une association</h2>
+
+<%= error_messages_for :association %>
+<%= error_messages_for :champ_intervention %>
+
+<% form_for(:association, :url => associations_path) do |f| %>
+
+  	<%= render :partial => 'form', :locals => { :f => f } %>
+
+	  <p>
+	    <%= submit_tag "Enregistrer" %>
+	  </p>
+	
+<% end %>
+
+<p><%= link_to "Retour au listing d'associations", associations_path %></p>

@@ -1,0 +1,49 @@
+<div id="side-colonne">
+	<div class="topsidemenu">
+		&nbsp;		
+	</div>
+	<div class="side-menu">
+		<%= render :partial => 'shared/sidecolonne' %>
+	</div>
+	<div id="bottomsidemenu">
+		&nbsp;
+	</div>
+</div>
+
+<div id="colonne1">
+	<h2 class="ficheid">Listing des Dispositifs mis en place pour <%= h @association.nom %></h2>
+
+	<table>
+	  <tr>
+		<th>Nom</th>
+	  </tr>
+	<% if @association %>
+  
+	<% for dispositif in @dispositifs %>
+	  <tr>
+		<td><%= h dispositif.nom %></td>
+	    <td><%= link_to 'Voir', association_dispositif_path(@association, dispositif) %></td>
+	    <td><%= link_to 'Modifier', edit_association_dispositif_path(@association, dispositif) %></td>
+	    <td><%= link_to 'Supprimer', association_dispositif_path(@association, dispositif), :confirm => 'En êtes vous sur ?', :method => :delete %></td>
+	  </tr>
+	<% end %>
+	</table>
+
+<p>	<%= link_to 'Ajouter un dispositif', new_association_regroupement_path(@association) %> | <%= link_to 'Retour Menu principal', associations_path %></p>
+
+	<% else %>
+
+	<% for dispositif in @dispositifs %>
+	  <tr>
+		<td><%= h dispositif.nom %></td>
+	    <td><%= link_to 'Voir', dispositif_path(dispositif) %></td>
+	    <td><%= link_to 'Modifier', edit_dispositif_path(dispositif) %></td>
+	    <td><%= link_to 'Supprimer', dispositif_path(dispositif), :confirm => 'En êtes vous sur ?', :method => :delete %></td>
+	  </tr>
+	<% end %>
+	</table>
+
+	<%= link_to 'Ajouter un dispositif', new_dispositif_path() %> <br/>
+	<%= link_to 'Retour Menu principal', associations_path %>
+	<% end %>
+</div>

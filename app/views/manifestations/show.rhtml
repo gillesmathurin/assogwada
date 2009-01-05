@@ -1,0 +1,62 @@
+<div id="side-colonne">
+	<div class="topsidemenu">
+		&nbsp;		
+	</div>
+	<div class="side-menu">
+		<%= render :partial => 'shared/sidecolonne' %>
+	</div>
+	<div id="bottomsidemenu">
+		&nbsp;
+	</div>
+</div>
+
+<div id="colonne1">
+	<h2 class="ficheid">Manifestation : <%= h @manifestation.nom %></h2>
+
+	<table border="0" cellspacing="0" cellpadding="0">
+		<tr>
+			<td class="entete">NOM :</td>
+			<td><%=h @manifestation.nom %></td>	
+		</tr>
+		<tr>
+			<td class="entete">Public :</td>
+			<td><%= @manifestation.spectateur %> | <%=  @manifestation.spectage %></td>
+		</tr>
+		<tr>
+			<td class="entete">Prix :</td>
+			<td><%=h number_to_currency(@manifestation.prix, :precision => 2, :unit => "€ ") %></td>
+		</tr>
+		<tr>
+			<td class="entete", valign="top">Modalite inscription :</td>
+			<td><%=h @manifestation.modalite_inscription %></td>
+		</tr>
+		<tr>
+			<td class="entete", valign="top">Infos sup :</td>
+			<td><%=h @manifestation.infos_sup %></td>
+		</tr>
+		<tr>
+			<td class="entete">Nom du responsable :</td>
+			<td><%= h @manifestation.nom_resp %></td>
+		</tr>
+		<tr>
+			<td class="entete">Coordonnées du responsable :</td>
+			<td><%= h @manifestation.coordonees %></td>
+		</tr>
+		<tr>
+			<td class="entete">Partenaires :</td>
+			<td><p><%= h @manifestation.partenaires %></p></td>
+		</tr>
+		<tr>
+			<td class="entete">Planning :</td>
+			<td>
+				<% for planning in @manifestation.planning_manifs %>
+				<b>Date :</b> <%= planning.date.strftime("%d/%m/%Y") %>	<b>De :</b> <%= planning.hmat_debut.strftime("%H:%M") %> <b>A :</b> <%= planning.hapm_fin.strftime("%H:%M") %><br/>
+				<% end %>
+			</td>
+		</tr>
+	</table>
+
+
+	<%= link_to 'Modifier', edit_association_manifestation_path(@association, @manifestation) %> |
+	<%= link_to 'Retour', association_manifestations_path(@association) %>
+</div>

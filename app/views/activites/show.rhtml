@@ -1,0 +1,72 @@
+<div id="side-colonne">
+	<div class="topsidemenu">
+		&nbsp;		
+	</div>
+	<div class="side-menu">
+		<%= render :partial => 'shared/sidecolonne' %>
+	</div>
+	<div id="bottomsidemenu">
+		&nbsp;
+	</div>
+</div>
+
+<div id="colonne1">
+	<h2 class="ficheid">Informations sur l'activité</h2>
+	<p>
+	  <b>Nom:</b>
+	  <%=h @activite.nom %>
+	</p>
+
+	<p>
+	  <b>Tarif mensuel:</b>
+	  <%=h number_to_currency(@activite.tarif_mensuel, :precision => 2, :unit => "€ ") %>
+	</p>
+
+	<p>
+		<b>Tarif par séance :</b>
+		<%= h number_to_currency(@activite.tarif_seance, :precision =>2, :unit => "€") %>
+	</p>
+
+	<p>
+	  <b>Modalite inscription:</b>
+	  <%=h @activite.modalite_inscription %>
+	</p>
+
+	<p>
+	  <b>Info supp:</b>
+	  <%=h @activite.info_supp %>
+	</p>
+
+	<p>
+	  <b>Public:</b>
+	  <%=h @activite.spectateur %> | <%= h @activite.spectage %>
+	</p>
+
+	<p>
+	  <b>Besoin habilitation:</b>
+	  <%=h @activite.besoin_habilitation_to_str %>
+	</p>
+
+	<fieldset><p>
+		<legend><b>Planning :</b></legend>
+		<% if !@activite.plannings.blank? %>
+		<% for planning in @activite.plannings.in_day_order %>
+			<p>
+				<b>Jour : </b><%= planning.jour %>
+				<% if !planning.hmat_debut.nil? || !planning.hmat_fin.nil? %>
+				<b>De : </b> <%= planning.hmat_debut.strftime("%H:%M") %>
+				<b>A :</b><%= planning.hmat_fin.strftime("%H:%M") %>
+				<% end %>
+				<% if !planning.hapm_debut.nil? || !planning.hapm_fin.nil? %>
+				<b>Et de</b> : <%= planning.hapm_debut.strftime("%H:%M") %>
+				<b>A</b> : <%= planning.hapm_fin.strftime("%H:%M") %>
+				<% end %>
+			</p>
+		<% end %>
+		<% end %>
+	</p></fieldset>
+
+	<p><%= link_to 'Modifier', edit_association_activite_path(@association, @activite) %> |
+	<%= link_to 'Liste des activités', association_activites_path(@association) %></p>
+	<p><%= link_to 'Retour Fiche Association', association_path(@association) %></p>
+</div>

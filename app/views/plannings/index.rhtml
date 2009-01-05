@@ -1,0 +1,26 @@
+<h1>Listing plannings</h1>
+
+<table>
+  <tr>
+    <th>Jour</th>
+    <th>H debut</th>
+    <th>H fin</th>
+    <th>Activite</th>
+  </tr>
+  
+<% for planning in @plannings %>
+  <tr>
+    <td><%=h planning.jour %></td>
+    <td><%=h planning.h_debut %></td>
+    <td><%=h planning.h_fin %></td>
+    <td><%=h planning.activite_id %></td>
+    <td><%= link_to 'Show', planning_path(planning) %></td>
+    <td><%= link_to 'Edit', edit_planning_path(planning) %></td>
+    <td><%= link_to 'Destroy', planning_path(planning), :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New planning', new_planning_path %>

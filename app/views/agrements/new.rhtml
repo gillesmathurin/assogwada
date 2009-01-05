@@ -1,0 +1,29 @@
+<div id="side-colonne">
+	<div class="topsidemenu">
+		&nbsp;		
+	</div>
+	<div class="side-menu">
+		<%= render :partial => 'shared/sidecolonne' %>
+	</div>
+	<div id="bottomsidemenu">
+		&nbsp;
+	</div>
+</div>
+
+<div id="colonne1">
+<h2 class="ficheid">Ajout d'un agrément pour <%= h @association.nom %></h2>
+
+<%= error_messages_for :agrement %>
+
+<% form_for(:agrement, :url => association_agrements_path) do |f| %>
+
+  <%= render :partial => 'form', :locals => { :f => f } %>
+
+  <p>
+    <%= submit_tag "Enregistrer" %>
+  </p>
+<% end %>
+
+<p><%= link_to 'Retour au listing des agréments', association_agrements_path(@association) %></p>
+<p><%= link_to "Retour à la fiche de l'association", association_path(@association) %></p>
+</div>

@@ -1,0 +1,63 @@
+<p>
+  <b>Nom:</b>
+  <%=h @membre.nom %>
+</p>
+
+<p>
+  <b>Prenom:</b>
+  <%=h @membre.prenom %>
+</p>
+
+<p>
+  <b>Telephone:</b>
+  <%=h @membre.telephone %>
+</p>
+
+<p>
+  <b>Mobile:</b>
+  <%=h @membre.mobile %>
+</p>
+
+<p>
+  <b>Fax:</b>
+  <%=h @membre.fax %>
+</p>
+
+<p>
+  <b>Is contact:</b>
+  <%=h @membre.is_contact %>
+</p>
+
+<p>
+  <b>Sexe:</b>
+  <%=h @membre.sexe %>
+</p>
+
+<p>
+  <b>Tranche age:</b>
+  <%=h @membre.tranche_age %>
+</p>
+
+<p>
+  <b>Email:</b>
+  <%=h @membre.email %>
+</p>
+
+<p>
+  <b>Type:</b>
+  <%=h @membre.class %>
+</p>
+
+<p>
+  <b>Dbt presence:</b>
+  <%=h @membre.dbt_presence %>
+</p>
+
+<p>
+  <b>Fin presence:</b>
+  <%=h @membre.fin_presence %>
+</p>
+
+
+<%= link_to 'Modifier', edit_membre_path(@membre) %> |
+<%= link_to 'Retour à la liste des membres', membres_path %>

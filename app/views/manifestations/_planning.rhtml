@@ -1,0 +1,20 @@
+
+<div class="planning">
+	<% fields_for_planning(planning) do |p| %>
+		<table border="0" cellspacing="5" cellpadding="5">
+			<tr>
+				<td><b>Date :</b></td>
+				<td><%= p.date_select( :date, :order => [:day, :month, :year], :index => {} ) %></td>
+			</tr>
+			<tr>
+				<td>Heure début :</td>
+				<td><%= p.text_field :hmat_debut, :size => 15 %> <i>/ Ex : "9:00"</i></td>
+			</tr>
+			<tr>
+				<td>Heure fin :</td>
+				<td><%= p.text_field :hapm_fin, :size => 15 %> <i>/ Ex : "17:00"</i></td>
+			</tr>
+		</table>
+		<%= link_to_function "Supprimer", "this.up('.planning').remove()" %>
+	<% end %>
+</div>

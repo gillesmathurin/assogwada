@@ -1,0 +1,22 @@
+<h1>Listing associations_champ_interventions</h1>
+
+<table>
+  <tr>
+    <th>Association</th>
+    <th>Champ intervention</th>
+  </tr>
+  
+<% for associations_champ_intervention in @associations_champ_interventions %>
+  <tr>
+    <td><%=h associations_champ_intervention.association_id %></td>
+    <td><%=h associations_champ_intervention.champ_intervention_id %></td>
+    <td><%= link_to 'Show', associations_champ_intervention_path(associations_champ_intervention) %></td>
+    <td><%= link_to 'Edit', edit_associations_champ_intervention_path(associations_champ_intervention) %></td>
+    <td><%= link_to 'Destroy', associations_champ_intervention_path(associations_champ_intervention), :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New associations_champ_intervention', new_associations_champ_intervention_path %>

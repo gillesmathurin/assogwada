@@ -1,0 +1,95 @@
+<div id="side-colonne">
+	<div class="topsidemenu">
+		&nbsp;		
+	</div>
+	<div class="side-menu">
+		<%= render :partial => 'shared/sidecolonne' %>
+	</div>
+	<div id="bottomsidemenu">
+		&nbsp;
+	</div>
+</div>
+
+<div id="colonne1">
+	<h2 class="ficheid">FICHE D'IDENTITE</h2>
+	<table border="0" cellspacing="0">
+		<tr>
+			<td class="entete">Nom :</td>
+			<td><%=h @association.nom %></td>
+		</tr>
+		<tr>
+			<td class="entete">Adresse siege social :</td>
+			<td><%=h @association.adresse_siegesocial %></td>		
+		</tr>
+		<tr>
+			<td class="entete">Code postal - Ville :</td>
+			<td><%= h @association.code_postal %> <%=h @association.ville %></td>
+		</tr>
+		<tr>
+			<td class="entete">N° Siret :</td>
+			<td><%= h @association.siret %></td>
+		</tr>
+		<tr>
+			<td class="entete">Code APE :</td>
+			<td><%= h @association.ape %></td>
+		</tr>
+		<tr>
+			<td class="entete">Telephone :</td>
+			<td><%=h @association.telephone %></td>
+		</tr>
+		<tr>
+			<td class="entete">Fax :</td>
+			<td><%=h @association.fax %></td>
+		</tr>
+		<tr>
+			<td class="entete">Email :</td>
+			<td><%=h @association.email %></td>
+		</tr>
+		<tr>
+			<td class="entete">Site internet :</td>
+			<td><a href="<%=h @association.website_url %>"> <%=h @association.website_url %></a></td>
+		</tr>
+		<tr>
+			<td class="entete">Objet social :</td>
+			<td><p><%=h @association.objet_social %></p></td>
+		</tr>
+		<tr>
+			<td class="entete">Champs d'intervention :</td>
+			<td>
+				<ol>
+					<% for ci in @association.champ_interventions %>
+					<li><%= ci.nom %></li>
+					<% end %>
+				</ol>
+			</td>
+		</tr>
+		<tr>
+			<td class="entete">Cotisation annuelle :</td>
+			<td><%=h number_to_currency(@association.cotisation_annuelle, :precision=>2, :unit => "€ ") %></td>
+		</tr>
+		<tr>
+			<td class="entete">Droit entree :</td>
+			<td><%=h number_to_currency(@association.droit_entree, :precision=>2, :unit => "€ ") %></td>
+		</tr>
+		<tr>
+			<td class="entete">Personne ressource :</td>
+			<td><%= h @association.nom_contact %></td>
+		</tr>
+		<tr>
+			<td class="entete">Tel personne ressource :</td>
+			<td><%= h @association.coordonnees_contact %></td>
+		</tr>
+		<tr>
+			<td class="entete">Est employeur :</td>
+			<td><%=h @association.employeur_to_str %></td>
+		</tr>
+		<tr>
+			<td class="entete">Nb salaries :</td>
+			<td><%=h @association.salaries.size() %></td>
+		</tr>
+	</table>
+</div>
+
+<div id="footer">
+
+</div>

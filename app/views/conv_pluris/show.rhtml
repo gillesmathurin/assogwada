@@ -1,0 +1,30 @@
+<div id="side-colonne">
+	<div class="topsidemenu">
+		&nbsp;		
+	</div>
+	<div class="side-menu">
+		<%= render :partial => 'shared/sidecolonne' %>
+	</div>
+	<div id="bottomsidemenu">
+		&nbsp;
+	</div>
+</div>
+
+<div id="colonne1">
+	<h2 class="ficheid">Convention</h2>
+
+	<p>
+		<b>Association</b> : <%= h @conv_pluri.association.nom %>
+	</p>
+
+	<p>
+	  <b>Nom de l'organisme signataire :</b>
+	  <%=h @conv_pluri.orgahab.nom %>
+	</p>
+
+
+<p>	<%= link_to 'Modifier', edit_association_conv_pluri_path(@conv_pluri.association_id, @conv_pluri) %> |
+	<%= link_to 'Liste des conventions', association_conv_pluris_path(@association) %></p>
+	
+	<p><%= link_to 'Retour à la fiche', association_path(@association) %></p>
+</div>

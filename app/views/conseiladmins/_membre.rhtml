@@ -1,0 +1,16 @@
+<div class="membres">
+	<% fields_for "conseiladmin[membre_attributes][]", membre do |m| %>
+		Nom : <%= m.text_field :nom, :index => nil %>
+		Prenom : <%= m.text_field :prenom, :index => nil %> |
+		
+		<% if membre.new_record? %>
+			<%= link_to_function "supprimer", "this.up('.membres').remove()" %>
+		<% else %>
+			<%= link_to_function "supprimer", "mark_membre_for_destroy(this)" %>
+			<%= m.hidden_field :id, :index => nil %>
+			<%= m.hidden_field :should_destroy, :index => nil, :class => 'should_destroy' %>
+		<% end %>
+
+	<% end %>
+</div>
+

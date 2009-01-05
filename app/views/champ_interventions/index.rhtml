@@ -1,0 +1,36 @@
+<div id="side-colonne">
+	<div id="topsidemenu">
+		&nbsp;		
+	</div>
+	<div id="side-menu">
+		<%= render :partial => 'shared/sidecolonne2' %>
+	</div>
+	<div id="bottomsidemenu">
+		&nbsp;
+	</div>
+</div>
+
+<div id="colonne1">
+	<h2 class="ficheid">Liste des Champs d'intervention</h2>
+
+	<table>
+	  <tr>
+	    <th>Nom</th>
+		<th colspan="3">Actions</th>
+	  </tr>
+
+	<% for champ_intervention in @champ_interventions %>
+	  <tr>
+	    <td><%=h champ_intervention.nom %></td>
+	    <td><%= link_to 'Voir', champ_intervention_path(champ_intervention) %></td>
+	    <td><%= link_to 'Modifier', edit_champ_intervention_path(champ_intervention) %></td>
+	    <td><%= link_to 'Supprimer', champ_intervention_path(champ_intervention), :confirm => 'Etes vous certain ?', :method => :delete %></td>
+	  </tr>
+	<% end %>
+	</table>
+
+	<br />
+
+	<%= link_to "Ajouter un champ d'intervention", new_champ_intervention_path %>
+</div>
+

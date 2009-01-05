@@ -1,0 +1,33 @@
+<h1>Editing dispositif</h1>
+
+<%= error_messages_for :dispositif %>
+
+<% if @association %>
+
+	<% form_for(:dispositif, :url => association_dispositif_path(@association, @dispositif), :html => { :method => :put }) do |f| %>
+
+	  <%= render :partial => 'form', :locals => { :f => f } %>
+
+	  <p>
+	    <%= submit_tag "Enregistrer" %>
+	  </p>
+	<% end %>
+
+	<%= link_to 'Voir', association_dispositif_path(@association, @dispositif) %> |
+	<%= link_to 'Retour', association_dispositifs_path(@association) %>
+
+<% else %>
+
+	<% form_for(:dispositif, :url => dispositif_path(@dispositif), :html => { :method => :put }) do |f| %>
+
+	  <%= render :partial => 'form', :locals => { :f => f } %>
+
+	  <p>
+	    <%= submit_tag "Enregistrer" %>
+	  </p>
+	<% end %>
+
+	<%= link_to 'Voir', dispositif_path(@dispositif) %> |
+	<%= link_to 'Retour', dispositifs_path %>
+
+<% end %>

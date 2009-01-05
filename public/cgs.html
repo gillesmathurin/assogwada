@@ -1,0 +1,227 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+  <head>
+    <meta http-equiv="Content-type" content="text/html; charset=utf-8" />
+    <title>Annuaire des Associations</title>
+	<link href="/stylesheets/base.css" media="screen" rel="Stylesheet" type="text/css" />
+	<script type="text/javascript" src="javascripts/prototype.js"></script>
+    <script type="text/javascript" src="javascripts/effects.js"></script>
+  	<script type="text/javascript">
+
+	function newImage(arg) {
+		if (document.images) {
+			rslt = new Image();
+			rslt.src = arg;
+			return rslt;
+		}
+	}
+
+	function changeImages() {
+		if (document.images && (preloadFlag == true)) {
+			for (var i=0; i<changeImages.arguments.length; i+=2) {
+				document[changeImages.arguments[i]].src = changeImages.arguments[i+1];
+			}
+		}
+	}
+
+	var preloadFlag = false;
+	function preloadImages() {
+		if (document.images) {
+			Layout_Accueil_over = newImage("images/Layout_Accueil-over.png");
+			Layout_RECHERCHER_over = newImage("images/Layout_RECHERCHER-over.png");
+			Layout_SE_REFERENCER_over = newImage("images/Layout_SE-REFERENCER-over.png");
+			Layout_Administration_over = newImage("images/Layout_Administration-over.png");
+			preloadFlag = true;
+		}
+	}
+
+	</script>
+  </head>
+
+<body onload="preloadImages();">
+	<div id="contenu">
+		<div id="header">
+			<div id="LogoTitre">
+					<!-- <img src="/images/Logo2.gif" class="logo"> -->
+					<!-- <h1>Guadeloupe Asso Annuaire</h1> -->
+					<!-- <p><img src="/images/Titre_Site.gif"></p> -->
+					<!-- <p class="sous-titre"><strong>L'annuaire des associations de la Guadeloupe</strong></p> -->
+			</div>
+			<!-- Menu principal -->
+			<div class="menubar">
+				<ul>
+					<li class="accueil"><a href="/associations/accueil">Accueil</a></li>
+					<li class="recherche"><a href="/recherches/new">Recherche</a></li>
+					<li class="inscription"><a href="/associations/inscription">Inscrire son association</a></li>
+					<li class="services"><a href="/services.html">Nos Services</a></li>
+					<li class="admin"><a href="/associations">Administration</a></li>
+				</ul>
+			</div>
+		</div>
+		
+		<div id="main">
+			<div class="shadow1">
+				<div class="shadow2">
+				<div class="shadow3">				
+				<div class="yield">
+					<!-- <div id="colonne1">								 -->
+						<h2 class="ficheid">CONDITIONS GENERALES DE SERVICE</h2>
+
+            <h2><b>CREATION DE SITE WEB ASSOCIATIF</b></h2>
+
+
+            <p><b>PREAMBULE :</b> Les éléments décrits dans le préambule font partie intégrale des conditions 
+            générales de service. Les parties déclarent savoir que le fonctionnement de l'Internet repose sur la 
+            coopération entre les opérateurs des différents réseaux sans qu'il y ait aucune obligation de 
+            fourniture ou de qualité de fourniture entre eux. 
+            Les réseaux peuvent avoir des capacités de transmission inégales et des politiques d'utilisation 
+            propres. Nul ne peut garantir le fonctionnement de l'Internet dans son ensemble. En application de 
+            la loi informatique et liberté 78-17 du 6 janvier 1978 modifié par la loi 2004-801 du 6 août 2004, 
+            l'informatique ne doit porter atteinte ni à l'identité humaine, ni aux droits de l'homme, ni à la vie 
+            privée, ni aux libertés individuelles ou publiques.</p>
+
+            <p><b>1 - OBJET</b> : Les présentes Conditions Générales de Service ont pour objet de définir les termes et conditions d’abonnement du CLIENT au service dénommé ”CREATION SITE WEB ASSOCIATIF” (ci-après le SERVICE) fournit par l’association Agouti (N° Siret 41055196400027), ci-après le PRESTATAIRE. Les présentes conditions sont complétées par des conditions particulières formalisées dans le bon de commande et ont pour objet de définir les modalités dans lesquelles le client bénéficie de la prestation. L'ensemble de ces services est soumis aux conditions générales suivantes, sauf disposition contraire de certaines conditions particulières explicitement définies et acceptées par les partie. Les conditions générales complétées des conditions particulières forment le contrat (ci- après le CONTRAT). Le client reconnaît avoir pris connaissance des conditions générales et déclare les accepter sans réserve.</p>
+
+            <p><b>2 - DESCRIPTION DU SERVICE</b> : Le SERVICE consiste en la création d’un site web et en l’abonnement à celui-ci. La charte graphique du site sera adaptée au logo et à l’activité du CLIENT. Les fonctionnalités du site sont prédéfinies et non modifiables. 
+            Ces fonctionnalités prédéfinies sont :
+            <ul>
+            <li>une page de présentation de l’association dont le contenu sera fournit par le CLIENT</li>
+            <li>une section Actualités qui permet la publication d’articles avec inclusion possible de photos,</li>
+            <li>une section Annonces qui permet la publication d’annonces et d’évènement</li>
+            <li>une section Trucs&Astuces</li>
+            <li>un forum de discussion</li>
+            <li>une section Membres qui permet de voir le profil de toutes les personnes inscrites au site</li>
+            <li>une section d’administration qui permet de gérer le contenu des différentes sections, les membres inscrits, les photos publiées et le forum de discussion</li>
+            </ul>
+            <li>un nom de domaine de la forme : “nomassociations.guadeloupe-asso.fr”</li>
+            </p>
+
+            <p><b>3 - DUREE DE L’OFFRE - ENTREE EN VIGUEUR:</b> Le CLIENT s’engage pour une durée d’abonnement minimum de 12 mois. L’abonnement au SERVICE prend effet à la date d’activation du service par le PRESTATAIRE pour le CLIENT.  L’activation a lieu conformément au Retro-planning défini dans les conditions particulières qui généralement s’étend sur une durée de 15 jours.
+            Un mois avant l’expiration de l’abonnement le PRESTATAIRE entrera en contact avec le CLIENT pour une éventuelle reconduction de la souscription au service. La confirmation du renouvellement se fera par courrier du CLIENT au PRESTATAIRE au plus tard 15 jours après la date de fin d’abonnement. A défaut de confirmation l’accès du CLIENT à la section d’administration du site crée sera suspendu mais le site demeurera consultable encore trois mois.</p>
+
+            <p><b>4 - TARIFICATION ET CONDITIONS DE PAIEMENT</b> : Le prix du SERVICE est de ___ € TTC (___________ toutes taxes comprises) pour la première année. Ce tarif correspond aux frais de mise en place et à une année d’abonnement. Pour les années suivantes le prix du SERVICE sera de _____ € TTC/An. Ces sommes sont payables en une seule fois à la souscription et au renouvellement de l’abonnement.</p>
+
+            <p><b>5 - RETRO PLANNING (CALENDRIER DES TRAVAUX)</b>
+            Le prestataire s’engage à réaliser le site dans un délai convenu aux conditions particulières, lequel court à compter de l’acceptation de la commande par le PRESTATAIRE et du paiement du SERVICE. Le CLIENT s’engage à donner les éléments (textes, images, informations nécessaires) à la signature des présentes.</p>
+
+            <p><b>6 - RÉSILIATION DE L’ABONNEMENT OU CLAUSE DE SORTIE </b>
+            Le CLIENT pourra résilier son abonnement et donc le présent contrat par lettre recommandée avec accusé de réception sans préavis.
+            Si le CLIENT résilie un abonnement en cours, c’est à dire avant sa date d’échéance, aucun remboursement ne sera effectué au titre des mois non consommés.</p>
+
+            <p><b>7 - CONFIDENTIALITE :</b> Les parties signataires des présentes s'obligent mutuellement à la 
+            confidentialité au titre des informations auxquelles elles pourraient avoir accès dans le cadre de 
+            l'exécution des présentes et concernant tant les données techniques, commerciales, informatiques ou 
+            autres. 
+            Les parties s'engagent ainsi à préserver la confidentialité de toutes les informations et documents 
+            qu'elles pourront détenir du fait de l'exécution du présent contrat. Cette clause de confidentialité 
+            s'étend à tous les membres du personnel auprès duquel toutes mesures nécessaires devront être 
+            prises pour respecter la présente obligation.</p>
+
+            <p>8<b> - SAUVEGARDE ET ARCHIVAGE DES DONNEES :</b> Le PRESTATAIRE s'engage à procéder à une sauvegarde mensuelle des données du CLIENT. Aucune responsabilité du PRESTATAIRE ne pourra être retenue en cas de perte desdites données ou en cas de mauvais fonctionnement du SERVICE lorsque cette perte ou ce dysfonctionnement aura été occasionné par un usage non conforme du SERVICE ou par un cas de force majeure. </p>
+
+            <p><b>9 - PROPRIETES INCORPORELLES</b>
+            Signature du site : Les coordonnées du PRESTATAIRE figureront en « signature sur le site » mais celles-ci peuvent être retirées à tout moment à la demande du PRESTATAIRE. Notamment, le CLIENT qui souhaite faire modifier le site devra en informer le PRESTATAIRE afin que celui-ci puisse décider s'il souhaite ou non laisser ses coordonnées sur le site modifié. Le CLIENT concède le droit d'utiliser son nom de société comme référence client sur le site du PRESTATAIRE.</p>
+
+            <p><b>9.1. Droits d'auteur</b></p>
+            <ul>
+              <li>- Les textes ou documents transmis pour l'élaboration du site et sa mise à jour sont la propriété exclusive de leurs auteurs et ne peuvent être réutilisés même à titre non public et non commercial qu'avec l'accord écrit de l'auteur concerné.</li>
+            <li>- Le CLIENT n'est pas propriétaire des installations (Data center, Réseau,Serveurs, Disques durs..) ni des logiciels mis à sa disposition pour l'utilisation des services pendant la durée du contrat.</li>
+            <li>- Le PRESTATAIRE cède à titre exclusif au CLIENT une licence pour une exploitation sur tout réseau de télécommunication, national ou international, privatif ou ouvert, tels que l'Internet, les Intranets ou Extranet, tous droits de reproduction, de représentation et d'adaptation du site internet dans son ensemble et des éléments qui le composent.</li>
+            </ul>
+           <p> La licence est accordée au client pour la durée légale de la protection des droits d'auteurs. Cette cession est accordée de manière à garantir à son bénéficiaire une jouissance paisible du site internet qui lui est destiné sans pouvoir la céder, la concéder à des tiers sans l'accord expresse du PRESTATAIRE. La cession de licence est expressément soumise au paiement du prix des présentes et plus généralement à leur bonne exécution.
+            Clause résolutoire de la cession de licence : Si pour une raison quelconque le présent contrat venait à être résilié avant son terme ou si le CLIENT faisait directement ou indirectement un usage illicite, immoral ou contraire aux lois et règlements ou aux bonnes moeurs des droits qui lui sont cédés, la présente cession de licence serait révoquée de plein droit, huit jours (8 jours) après l'envoi d'une mise en demeure demeurée infructueuse. Dans ce cas, le PRESTATAIREPRESTATAIRE retrouverait ses droits sur l'oeuvre créée et aucun dommage et intérêt ne sera dû au CLIENT fautif.</p>
+
+            <p><b>10 - MAINTENANCE :</b>
+
+            Maintenance corrective : Le PRESTATAIRE s'engage à assurer les corrections techniques à 
+            apporter au SERVICE concernant les éventuelles anomalies de fonctionnement du SERVICE et notamment : conformités des liens hypertextes par rapport au cahier des charges et bon fonctionnement des installations faites par le PRESTATAIRE. Cette maintenance corrective sera assurée pendant une durée de 6 mois après la mise en ligne du site sans facturation supplémentaire.</p>
+
+            <p><b>11 - OBLIGATION DU CLIENT :</b>
+            Le CLIENT concède le droit d’utiliser son nom de société et/ou de personnes morales comme référence client sur le site du SERVICE et sur le site du PRESTATAIRE.
+            Le CLIENT s’oblige à fournir au PRESTATAIRE l’ensemble des documents et données devant être intégrés dans le site en respectant le calendrier arrêté entre les parties.
+            Le CLIENT s’oblige à répondre dans un délai suffisamment court aux demandes d’informations complémentaires, en cas contraire le non-respect des délais de livraison ne saurait être imputable au PRESTATAIRE.
+            Le CLIENT doit être titulaire d’un droit de propriété ou d’utilisation des œuvres artistiques, de l’esprit, des dessins, graphiques, logos, musiques, photographies… ainsi que tous les droits de propriété incorporelles ou intellectuelles pouvant porter sur les données.
+            Le CLIENT doit avoir effectuer toutes les déclarations obligatoires auprès de la CNIL (protection des données personnelles collectées).
+            Le CLIENT s’engage à ne pas faire des offres aux personnels, collaborateurs ou partenaires en relation avec le PRESTATAIRE ou avec l’un de ses sous-traitants, ou de le prendre à son service sous quelque forme que ce soit et ce pendant la durée du présent contrat ainsi que durant l’année suivant son expiration.</p>
+
+            <p><b>12 - OBLIGATION DU PRESTATAIRE DE SERVICE :</b>
+            Le PRESTATAIRE s’oblige à :
+            former le CLIENT à la bonne utilisation du SERVICE par le biais de 3 séances de 1 heures de formation soit un total de 3 heures de formation,
+            avoir effectué pour son propre site toutes les déclarations obligatoires auprès de la CNIL,
+            effectuer des tests avant toutes mise en ligne de versions améliorées et/ou corrigés du SERVICE
+            assurer la maintenance corrective aux conditions prévues.
+            harmoniser l’apparence du SERVICE de manière à ce qu’il ait une présentation constante quelque soit le navigateur utilisé.
+            procéder à l’enregistrement du nom de domaine du CLIENT, sous réserve des disponibilités, le client le déchargeant de toute responsabilité au regard du droit des marques, le PRESTATAIRE n’étant pas habilité ni structuré pour réaliser des recherches d’antériorité.
+            fourninr sur CD ou autre média, après paiement de la totalité des sommes dues, les codes d’accès à l’interface d’adminitsration. L’accès total à l’administration du site ne sera donné qu’après complet règlement de la prestation.
+            assurer la maintenance corrective aux conditions prévues,
+            ne pas faire des offres aux personnels, collaborateurs ou partenaires en relation avec le CLIENT ou avec l’un de ses sous-traitants, ou de le prendre à son service sous quelque forme que ce soit et ce pendant la durée du présent contrat ainsi que durant l’année suivant son expiration.</p>
+
+            <p><b>13 - MORALIT ET RESPECT DES LOIS DES REGLEMENTS ET DES DROITS DES TIERS</b>
+            Si le client présente sur son site des éléments immoraux, en apparente violation des lois, règlements ou des droits des tiers le PRESTATAIRE a la possibilité d'interrompre immédiatement sa prestation. Dans les cas graves (pédophilie, trafic ou vente de produits ou substances illégales ou de marchandises interdites ou hors commerce...) le PRESTATAIRE du site concerné aura la possibilité sans délai d'avertir les services de police et cela sans qu'aucune demande d'indemnité ou de dommages et intérêts ne puisse lui être réclamée sous quelque forme que ce soit. Les sommes dues au titre du présent contrat seront alors immédiatement exigibles. En cas de litige sur l'appréciation des faits ayant donné lieu à l'arrêt de l'exécution du présent contrat, le client s'adressera au juge des référés afin que soit éventuellement ordonnée la reprise de l'exécution des présentes après contrôle par l'autorité judiciaire.
+
+            Même en cas de mise en conformité du CLIENT, le PRESTATAIRE pourra refuser de poursuivre ses relations contractuelles avec le CLIENT sans qu'aucune demande de dommages et intérêts ne puisse être réclamée par le CLIENT, et sans qu'il puisse y être contraint. Les parties rappellent à cet égard qu'elles établissent les présentes sur la base de rapports de confiance mutuelle et qu'en cas de violation de la moralité, des lois ou des droits des tiers, la rupture de confiance justifie un arrêt immédiat et définitif des relations contractuelles existantes entre les parties lesquelles ne pourront être renouées qu'avec l'accord express des deux parties et sur des bases contractuelles nouvelles.</p>
+
+            <p><b>14 - SUPPORT TECHNIQUE :</b> Le PRESTATAIRE propose un support technique par courrier électronique et par téléphone, gratuit et limité à un nombre raisonnable d'appels téléphoniques et messages par mois. Le numéro de téléphone du PRESTATAIRE est le 0690911748 et son adresse de messagerie électronique : contact@gmwebagency.com. Le support e-mail est fourni en permanence, sans garantie de réponse le week-end et jours fériés. Le support technique concerne uniquement l'utilisation du SERVICE.</p>
+
+            <p><b>15 - CONTENU DU SERVICE - RESPONSABILITE :</b>
+            Le CLIENT engage seul sa responsabilité par rapport aux lois en vigueurs concernant la légalité du 
+            contenu inséré et/ou modifié par lui-même.
+            En aucune façon il ne peut être opposé au PRESTATAIRE une quelconque responsabilité 
+            en cas de modification de contenu du SERVICE par le CLIENT ou un tiers. Il ne pourra en outre n'être demandé aucune réparation et dommages et intérêts au titre d'un éventuel préjudice moral et 
+            financier subit. 
+            En outre, le CLIENT déclare connaître la nature et la complexité du réseau internet et en particulier 
+            de ses performances techniques et des temps de réponses pour consulter, interroger ou transférer des 
+            informations. 
+            De même le CLIENT reconnaît que les données circulant sur internet ne sont pas à l'abri de 
+            détournement éventuels. De ce fait, les communications de mots de passe, code confidentiel et d'une 
+            manière générale de toutes informations qu'il juge confidentiel sont faites à ses risques et périls. 
+            Le CLIENT est seul responsable des données qu'il consulte, interroge et transfère sur internet, étant 
+            précisé que ces données peuvent être réglementées en terme d'usage ou être protégées par un droit 
+            de propriété.</p>
+
+            <p><b>16 - HEBERGEMENT DU SERVICE :</b>
+            Le PRESTATAIRE fait appel à une société spécialisée dans l’hébergement de sites internet pour héberger le SERVICE. Le PRESTATAIRE ne peut en aucuns cas fournir d’autres garanties que celles fournies par la société d’hébergement. Par l’acceptation de ces conditions générales de service, le CLIENT accepte également le contrat de la société d’hébergement choisie par le PRESTATAIRE. Le PRESTATAIRE pourra en cas de problème sur le SERVICE, rétablir la dernière sauvegarde de la base de donnée ou la dernière sauvegarde effectuée par la société d’hébergement si celle-ci est plus récente.</p>
+
+            <p><b>17 - FORCE MAJEURE :</b> Les parties ne sont pas responsables en cas de force majeure et notamment en cas de défaillance du réseau public de distribution d'électricité, grèves, guerres, tempêtes, tremblements de terre, défaillance du réseau public des télécommunications, pertes de connectivité Internet dues aux opérateurs publics ou privés. </p>
+
+            <p><b>18 - CLAUSE DE DIVISIBILITE CONTRACTUELLE</b> 
+            Si l'une des clauses du présent contrat était contraire à une loi d'ordre public nationale ou 
+            internationale, seule la clause en question sera annulée, le contrat demeurant valable pour le surplus. 
+            Les parties négocieront de bonne foi la rédaction d'une nouvelle clause destinée à remplacer celle 
+            qui était nulle.</p>
+
+            <p><b>19 - CLAUSE D'INTEGRALITE OU DES QUATRE COINS </b>
+            Il est convenu que le présent contrat renferme toutes les conditions et obligations que les parties ont 
+            adoptées, et qu'il ne peut pas être contredit ni complété par des déclarations ou des documents 
+            antérieurs. 
+            Ce contrat se substitue à tout autre document qui aurait pu être signé antérieurement ou échangé 
+            entre les parties à une date précédent la conclusion du présent accord.</p>
+
+            <p><b>20 - LITIGE ET COMPETENCE D'ATTRIBUTION </b>
+            En cas de litige entre les parties, celles-ci s'engagent à rechercher préalablement une solution 
+            amiable.</p>
+
+            
+
+				</div>
+				</div>
+				</div>
+			</div>
+			
+			<div id="footer">
+				<table border="0" cellspacing="5" cellpadding="5" align="center" width="100%">
+					<tr>
+						<td><img src="/images/Logo-DDJS.gif"></td>
+						<td><img src="/images/Logo-club1901.gif"></td>
+						<td><img src="/images/Logo-agouti.gif"></td>						
+					</tr>
+				</table>
+				<p><a href="#">Agouti</a> ©2007 : tous droits réservé | WebDesign : GM</p>
+			</div>
+		</div>
+		
+
+	</div>
+</body>
+</html>

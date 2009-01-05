@@ -1,0 +1,18 @@
+<!-- formulaire partiel de saisie des InterPlanning -->
+<div class="interplanning">
+	<% fields_for "activite[interplanning_attributes][]", inter_planning do |ip| %>
+		<p>
+			<b>Jours</b> :
+			<% @jours.each do |jour| %>
+				<%= jour.capitalize %> <%= ip.check_box "#{jour}" %>
+			<% end %>
+			<b>Matin</b><br/>
+			Heure début : <%= ip.text_field :stime_mat %> "Ex : 9:00"<br/>
+			Heure fin : <%= ip.text_field :etime_mat %> "Ex : 12:30"<br/>
+			<b>Après-midi</b><br/>
+			Heure début : <%= ip.text_field :stime_apm %> "Ex : 14:00"<br/>
+			Heure fin : <%= ip.text_field :etime_apm %> "Ex : 17:00"<br/>
+		</p>
+			<%= link_to_function "supprimer", "this.up('.interplanning').remove()" %>
+	<% end %>	
+</div>

@@ -1,0 +1,32 @@
+<h1>Editing planning</h1>
+
+<%= error_messages_for :planning %>
+
+<% form_for(:planning, :url => planning_path(@planning), :html => { :method => :put }) do |f| %>
+  <p>
+    <b>Jour</b><br />
+    <%= f.text_field :jour %>
+  </p>
+
+  <p>
+    <b>H debut</b><br />
+    <%= f.datetime_select :h_debut %>
+  </p>
+
+  <p>
+    <b>H fin</b><br />
+    <%= f.datetime_select :h_fin %>
+  </p>
+
+  <p>
+    <b>Activite</b><br />
+    <%= f.text_field :activite_id %>
+  </p>
+
+  <p>
+    <%= submit_tag "Update" %>
+  </p>
+<% end %>
+
+<%= link_to 'Show', planning_path(@planning) %> |
+<%= link_to 'Back', plannings_path %>

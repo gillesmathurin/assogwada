@@ -1,0 +1,13 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+one:
+  id: 1
+  jour: MyString
+  h_debut: 2007-10-05 15:57:33
+  h_fin: 2007-10-05 15:57:33
+  activite_id: 1
+two:
+  id: 2
+  jour: MyString
+  h_debut: 2007-10-05 15:57:33
+  h_fin: 2007-10-05 15:57:33
+  activite_id: 1

@@ -1,0 +1,52 @@
+<div id="colonne1">
+	<h2 class="ficheid">Enregistrement Local</h2>
+
+	<%= error_messages_for :local %>
+
+	<% form_for(:local, :url => association_locals_path) do |f| %>
+
+		<table border="0" cellspacing="5" cellpadding="5">
+			<tr>
+				<td class="entete">Adresse :</td>
+				<td><%= f.text_field :adresse %></td>
+			</tr>
+			<tr>
+				<td class="entete">Code Postal :</td>
+				<td><%= f.text_field :cp %></td>
+			</tr>
+			<tr>
+				<td class="entete">Ville :</td>
+				<td><%= f.text_field :ville %></td>
+			</tr>
+		</table>
+	
+	  <p>
+	  	<fieldset>
+	  		<legend><strong>Planning d'ouverture du local</strong></legend>
+			<div id="interplannings">
+			<%= render :partial => 'inter_planning', :collection => @inter_plannings %>
+			</div>
+			<%= lien_ajout_interplanning "Ajouter un planning de réception" %>
+	  	</fieldset>
+	  </p>
+
+	  <p>
+	    <%= submit_tag "Enregistrer" %>
+	  </p>
+<% end %>
+
+<p><%= link_to 'Retour à la fiche', association_path(@association) %></p>
+
+</div>
+
+<div id="side-colonne">
+	<div class="topsidemenu">
+		&nbsp;		
+	</div>
+	<div class="side-menu">
+		<%= render :partial => 'shared/sidecolonne' %>
+	</div>
+	<div id="bottomsidemenu">
+		&nbsp;
+	</div>
+</div>

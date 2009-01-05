@@ -1,0 +1,23 @@
+<table border="0" cellspacing="5" cellpadding="5">
+	<tr>
+		<td class="entete">Adresse :</td>
+		<td><%= f.text_field :adresse %></td>
+	</tr>
+	<tr>
+		<td class="entete">Code Postal :</td>
+		<td><%= f.text_field :cp %></td>
+	</tr>
+	<tr>
+		<td class="entete">Ville :</td>
+		<td><%= f.text_field :ville %></td>
+	</tr>
+</table>
+<p>
+	<fieldset>
+		<legend><b>Spécifier le planning d'ouverture</b></legend>
+		<div id="planning_locals">	
+		<%= render :partial => 'planning', :collection => @local.planning_locals %>
+		</div>
+		<%= ajout_planning_local "Ajouter un jour d'ouverture" %>
+	</fieldset>
+</p>

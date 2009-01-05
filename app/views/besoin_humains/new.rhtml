@@ -1,0 +1,29 @@
+<div id="side-colonne">
+	<div class="topsidemenu">
+		&nbsp;		
+	</div>
+	<div class="side-menu">
+		<%= render :partial => 'shared/sidecolonne' %>
+	</div>
+	<div id="bottomsidemenu">
+		&nbsp;
+	</div>
+</div>
+
+<div id="colonne1">
+<h2 class="ficheid">Enregistrer un besoin humain</h2>
+
+<%= error_messages_for :besoin_humain %>
+
+<% form_for(:besoin_humain, :url => association_besoin_humains_path) do |f| %>
+
+	<%= render :partial => 'form', :locals => {:f => f} %>
+
+  <p>
+    <%= submit_tag "Enregistrer" %>
+  </p>
+
+<% end %>
+
+<%= link_to 'Liste des Besoins humains', association_besoin_humains_path(@association) %> | <%= link_to 'Retour à la fiche', association_path(@association) %>
+</div>

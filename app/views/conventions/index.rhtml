@@ -1,0 +1,20 @@
+<h1>Listing conventions</h1>
+
+<table>
+  <tr>
+    <th>Nom</th>
+  </tr>
+  
+<% for convention in @conventions %>
+  <tr>
+    <td><%=h convention.nom %></td>
+    <td><%= link_to 'Show', convention_path(convention) %></td>
+    <td><%= link_to 'Edit', edit_convention_path(convention) %></td>
+    <td><%= link_to 'Destroy', convention_path(convention), :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New convention', new_convention_path %>

@@ -1,0 +1,8 @@
+<% @association.champ_interventions.each_with_index do | ci, index| %>
+	<div id="champ_<%= index %>">
+		<% fields_for "champ_interventions[#{index}]", ci do |f| %>
+			<p<%= (index.to_i - 1) %>- <%= f.select :id, @ci_liste, {:prompt=>"Sélectionner un champ d'intervention"} %>
+			<%= link_to_remote 'supprimer', :url => { :action=>'remove_ci', :index => index.to_i, :asso_id => @association.id, :ci_id => ci.id } %>
+		<% end %>
+	</div>
+<% end %>

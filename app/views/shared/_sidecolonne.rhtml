@@ -1,0 +1,61 @@
+<!-- transformation de la colonne de droite (menu) en shared partial -->
+		<div class="actions-fiche">
+			<% if logged_in? %>
+			<p><%= link_to "Déconnexion", logout_path %></p>
+			<p><%= link_to 'Listing des associations', associations_path %></p>
+			<% end %>
+			<p><%= link_to 'Modifier la fiche', edit_association_path(@association) %></p>
+		</div>
+		<div class="salaries">
+			<p>
+				<%= link_to "Salariés", association_salaries_path(@association) %><br/>
+			<span>Nombre de salariés : <%= @association.salaries.size %></span>
+			</p>
+		</div>
+		<div class="locaux">
+			<p>		
+			<%= link_to "Locaux", association_locals_path(@association) %><br/>
+			<span>Nombre de locaux : <%= @association.locals.size %></span>
+			</p>
+		</div>
+		<div class="activités">
+			<p>		
+			<%= link_to "Activités", association_activites_path(@association) %><br/>
+			<span><%= @association.activites.size %> activité(s) proposée(s) </span>
+			</p>
+		</div>
+		<div class="manifestations">
+			<p>
+				<%= link_to "Manifestations", association_manifestations_path(@association) %><br/>
+				<span><%= @association.manifestations.size %> manifestation(s) proposée(s) </span>
+			</p>
+		</div>
+		<div class="conseil">
+			<p>
+				<%= link_to "Conseil d'administration", association_conseiladmins_path(@association) %><br/>
+			</p>
+		</div>
+		<div class="besoins_humains">
+			<p><%= link_to "Voir les besoins humains", association_besoin_humains_path(@association) %><br/>
+			<span><%= h @association.besoin_humains.size %> besoin(s) humain(s)</span>
+			</p>
+		</div>
+		<div class="besoins_materiels">
+			<p><%= link_to "Voir les besoins matériels", association_besoin_materiels_path(@association) %><br/>
+			<span><%= h @association.besoin_materiels.size %> besoin(s) matériel(s)</span>
+			</p>
+		</div>
+		<div class="convpluri">
+			<p><%= link_to "Conventions", association_conv_pluris_path(@association) %><br/>
+			</p>
+		</div>
+		<div class="agrement">
+			<p><%= link_to "Agrements", association_agrements_path(@association) %><br/>
+				<span>L'association dispose de : <%= @association.agrements.size %> agrement(s)</span>
+			</p>
+		</div>
+		<div class="dispositifs">
+			<p><%= link_to "Voir les dispositifs associés", association_regroupements_path(@association) %><br/>
+				<span>Association affiliée à : <%= h @association.regroupements.size %> dispositif(s)</span>
+			</p>
+		</div>

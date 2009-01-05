@@ -1,0 +1,42 @@
+<div id="side-colonne">
+	<div class="topsidemenu">
+		&nbsp;		
+	</div>
+	<div class="side-menu">
+		<%= render :partial => 'shared/sidecolonne' %>
+	</div>
+	<div id="bottomsidemenu">
+		&nbsp;
+	</div>
+</div>
+
+<div id="colonne1">
+	<h2 class="ficheid">Liste des besoins humains</h2>
+	
+	 <% unless @association.besoin_humains.empty? %>
+		<table>
+		  <tr>
+		    <td class="entete-2">Categorie</td>
+		    <td class="entete-2">Quantite</td>
+			<td class="entete-2">Description</td>
+			<td class="entete-2" colspan="2">Actions</td>
+		  </tr>
+  
+		<% for besoin_humain in @besoin_humains %>
+		  <tr>
+		    <td><%=h besoin_humain.categorie %></td>
+		    <td><%=h besoin_humain.quantite %></td>
+			<td><%= h truncate(besoin_humain.description, 15) %></td>
+		    <td><%= link_to 'Modifier', edit_association_besoin_humain_path(besoin_humain.association, besoin_humain) %></td>
+		    <td><%= link_to 'Supprimer', association_besoin_humain_path(besoin_humain.association, besoin_humain), :confirm => 'Etes vous certain ?', :method => :delete %></td>
+		  </tr>
+		<% end %>
+		</table>
+	 <% else %>
+		<p>Il n'y pas de besoins humains enregistrés pour cette association.</p>
+	 <% end %>
+
+	<p>	<%= link_to 'Enregistrer un Besoin Humain', new_association_besoin_humain_path(@association) %></p>
+
+	<p><%= link_to 'Retour à la fiche', association_path(@association) %></p>
+</div>

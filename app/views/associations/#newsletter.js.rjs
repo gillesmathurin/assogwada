@@ -1,0 +1,1 @@
+page.replace_html("merci", 'Vous êtes maintenant inscrit, merci !')

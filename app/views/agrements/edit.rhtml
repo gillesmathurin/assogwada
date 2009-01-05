@@ -1,0 +1,30 @@
+<div id="side-colonne">
+	<div class="topsidemenu">
+		&nbsp;		
+	</div>
+	<div class="side-menu">
+		<%= render :partial => 'shared/sidecolonne' %>
+	</div>
+	<div id="bottomsidemenu">
+		&nbsp;
+	</div>
+</div>
+
+<div id="colonne1">
+	<h2 class="ficheid">Modifier un agrément pour <%= h @association.nom %></h2>
+
+	<%= error_messages_for :agrement %>
+
+	<% form_for(:agrement, :url => association_agrement_path(@agrement.association, @agrement), :html => { :method => :put }) do |f| %>
+
+	  <%= render :partial => 'form', :locals => { :f => f } %>
+
+	  <p>
+	    <%= submit_tag "Enregistrer" %>
+	  </p>
+	<% end %>
+
+	<p>	<%= link_to 'Liste des agréments', association_agrement_path(@agrement.association, @agrement) %> |
+		<%= link_to 'Retour à la fiche', association_path(@association) %>
+	</p>
+</div>

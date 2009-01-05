@@ -1,0 +1,51 @@
+
+<p>
+  <b>Association:</b>
+  <%=h @conseiladmin.association_id %>
+</p>
+
+<p>
+	<b>President :</b>
+	<%= h @conseiladmin.president.nom if @conseiladmin.president%>
+</p>
+
+<p>
+	<b>Vice-President :</b>
+	<%= h @conseiladmin.premier_vicepresident if @conseiladmin.premier_vicepresident %>
+</p>
+
+<p>
+	<b>Second Vice-President :</b>
+	<%= h @conseiladmin.second_vicepresident if @conseiladmin.second_vicepresident %>
+</p>
+
+<p>
+	<b>Tresorier :</b>
+	<%= h @conseiladmin.tresorier.nom if @conseiladmin.tresorier%>
+</p>
+
+<p>
+	<b>Trésorier adjoint :</b>
+	<%= h @conseiladmin.tresorier_adjoint if @conseiladmin.tresorier_adjoint %>
+</p>
+
+<p>
+	<b>Secretaire :</b>
+	<%= h @conseiladmin.secretaire.nom if @conseiladmin.secretaire%>
+</p>
+
+<p>
+	<b>Secrétaire adjoint</b>
+	<%= h @conseiladmin.secretaire_adjoint if @conseiladmin.secretaire_adjoint %>
+</p>
+
+<p>
+	<b>Autres Membres</b> <br/>
+	<% for membre in @conseiladmin.membres.only_membres %>
+	<%= h membre.nom %> <%= h membre.prenom %> <br/>
+	<% end %>
+</p>
+
+
+<%= link_to 'Edit', edit_association_conseiladmin_path(@conseiladmin.association, @conseiladmin) %> |
+<%= link_to 'Back', association_conseiladmins_path(@association) %>

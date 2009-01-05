@@ -1,0 +1,22 @@
+<h1>Listing assoc_manifs</h1>
+
+<table>
+  <tr>
+    <th>Association</th>
+    <th>Manifestation</th>
+  </tr>
+  
+<% for assoc_manif in @assoc_manifs %>
+  <tr>
+    <td><%=h assoc_manif.association_id %></td>
+    <td><%=h assoc_manif.manifestation_id %></td>
+    <td><%= link_to 'Show', assoc_manif_path(assoc_manif) %></td>
+    <td><%= link_to 'Edit', edit_assoc_manif_path(assoc_manif) %></td>
+    <td><%= link_to 'Destroy', assoc_manif_path(assoc_manif), :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New assoc_manif', new_assoc_manif_path %>

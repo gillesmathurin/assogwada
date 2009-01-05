@@ -1,0 +1,17 @@
+<h1>Editing convention</h1>
+
+<%= error_messages_for :convention %>
+
+<% form_for(:convention, :url => convention_path(@convention), :html => { :method => :put }) do |f| %>
+  <p>
+    <b>Nom</b><br />
+    <%= f.text_field :nom %>
+  </p>
+
+  <p>
+    <%= submit_tag "Update" %>
+  </p>
+<% end %>
+
+<%= link_to 'Show', convention_path(@convention) %> |
+<%= link_to 'Back', conventions_path %>

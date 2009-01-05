@@ -1,0 +1,42 @@
+<h1>Listing membres</h1>
+
+<table>
+  <tr>
+    <th>Nom</th>
+    <th>Prenom</th>
+    <th>Telephone</th>
+    <th>Mobile</th>
+    <th>Fax</th>
+    <th>Is contact</th>
+    <th>Sexe</th>
+    <th>Tranche age</th>
+    <th>Email</th>
+    <th>Type</th>
+    <th>Dbt presence</th>
+    <th>Fin presence</th>
+  </tr>
+  
+<% for membre in @membres %>
+  <tr>
+    <td><%=h membre.nom %></td>
+    <td><%=h membre.prenom %></td>
+    <td><%=h membre.telephone %></td>
+    <td><%=h membre.mobile %></td>
+    <td><%=h membre.fax %></td>
+    <td><%=h membre.is_contact %></td>
+    <td><%=h membre.sexe %></td>
+    <td><%=h membre.tranche_age %></td>
+    <td><%=h membre.email %></td>
+    <td><%=h membre.class %></td>
+    <td><%=h membre.dbt_presence %></td>
+    <td><%=h membre.fin_presence %></td>
+    <td><%= link_to 'Show', membre_path(membre) %></td>
+    <td><%= link_to 'Edit', edit_membre_path(membre) %></td>
+    <td><%= link_to 'Destroy', membre_path(membre), :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New membre', new_membre_path %>

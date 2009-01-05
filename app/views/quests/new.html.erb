@@ -1,0 +1,36 @@
+<h1>Enregistrement Infos sur Questionnaire envoyé</h1>
+
+<%= error_messages_for :quest %>
+
+<% form_for(@quest) do |f| %>
+  <p>
+    <b>Nom</b><br />
+    <%= f.text_field :nom %>
+  </p>
+
+  <p>
+    <b>Nom asso</b><br />
+    <%= f.text_field :nom_asso %>
+  </p>
+
+  <p>
+    <b>File url</b><br />
+    <%= f.text_field :file_url %>
+  </p>
+
+  <p>
+    <b>Content type</b><br />
+    <%= f.text_field :content_type %>
+  </p>
+
+  <p>
+    <b>Filename</b><br />
+    <%= f.text_field :filename %>
+  </p>
+
+  <p>
+    <%= f.submit "Enregistrer" %>
+  </p>
+<% end %>
+
+<%= link_to 'Retour', quests_path %>

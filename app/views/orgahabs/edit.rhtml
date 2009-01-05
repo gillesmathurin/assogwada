@@ -1,0 +1,17 @@
+<h1>Editing orgahab</h1>
+
+<%= error_messages_for :orgahab %>
+
+<% form_for(:orgahab, :url => orgahab_path(@orgahab), :html => { :method => :put }) do |f| %>
+  <p>
+    <b>Nom</b><br />
+    <%= f.text_field :nom %>
+  </p>
+
+  <p>
+    <%= submit_tag "Update" %>
+  </p>
+<% end %>
+
+<%= link_to 'Show', orgahab_path(@orgahab) %> |
+<%= link_to 'Back', orgahabs_path %>

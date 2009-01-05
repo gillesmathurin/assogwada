@@ -1,0 +1,46 @@
+<h2 class="ficheid">Demande de Création de Site Web</h2>
+
+<p align="center">
+  <b>Veuillez remplir le formulaire suivant afin que nous puissions entrer en contact avec vous</b>
+</p>
+
+<% form_for :contact, :url => envoi_formabonnement_associations_path do |f| -%>
+  <table class="resultats">
+    <tr>
+      <td><b><%= f.label :Nom, "Nom" %> : </b></td>
+      <td><%= f.text_field :nom %></td>
+    </tr>
+    <tr>
+      <td><b><%= f.label :Prenom, "Prénom" %> :</b> </td>
+      <td><%= f.text_field :prenom %></td>
+    </tr>
+    <tr>
+      <td><b><%= f.label :statut, "Statut dans l'association" %> :</b> </td>
+      <td><%= f.select :statut, @status, :include_blank => true %></td>
+    </tr>
+    <tr>
+      <td><b><%= f.label :NomAssociation, "Nom de l'association" %> :</b> </td>
+      <td><%= f.text_field :association %></td>
+    </tr>
+    <tr>
+      <td><b><%= f.label :Telephone, "Téléphone" %> :</b> </td>
+      <td><%= f.text_field :telephone %></td>
+    </tr>
+    <tr>
+      <td><b><%= f.label :email, "Email" %> :</b></td>
+      <td><%= f.text_field :email %></td>
+    </tr>
+    <tr>
+      <td><b>Veuillez accepter les</b> <a href="/public/cgs.html" target="new">Conditions Générales de Service</a> : </td>
+      <td><%= f.check_box :accepted %></td>
+    </tr>
+    <tr>
+      <td>&nbsp;</td>
+      <td><%= submit_tag "Envoyer" %></td>
+    </tr>
+  </table>
+  
+  <p align="center">
+   <b>Merci et à bientôt !</b>
+  </p>
+<% end -%>

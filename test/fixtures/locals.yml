@@ -1,0 +1,21 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+one:
+  id: 1
+  adresse: MyString
+  cp: 1
+  ville: MyString
+  jour_recep_debut: 2007-09-13
+  jour_recep_fin: 2007-09-13
+  h_recep_debut: 2007-09-13 16:30:16
+  h_recep_fin: 2007-09-13 16:30:16
+  association_id: 1
+two:
+  id: 2
+  adresse: MyString
+  cp: 1
+  ville: MyString
+  jour_recep_debut: 2007-09-13
+  jour_recep_fin: 2007-09-13
+  h_recep_debut: 2007-09-13 16:30:16
+  h_recep_fin: 2007-09-13 16:30:16
+  association_id: 1

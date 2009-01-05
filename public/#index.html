@@ -1,0 +1,118 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+  <head>
+    <meta http-equiv="Content-type" content="text/html; charset=utf-8" />
+    <title>Annuaire des Associations</title>
+	<link href="/stylesheets/base.css" media="screen" rel="Stylesheet" type="text/css" />
+	<script type="text/javascript" src="javascripts/prototype.js"></script>
+    <script type="text/javascript" src="javascripts/effects.js"></script>
+  	<script type="text/javascript">
+
+	function newImage(arg) {
+		if (document.images) {
+			rslt = new Image();
+			rslt.src = arg;
+			return rslt;
+		}
+	}
+
+	function changeImages() {
+		if (document.images && (preloadFlag == true)) {
+			for (var i=0; i<changeImages.arguments.length; i+=2) {
+				document[changeImages.arguments[i]].src = changeImages.arguments[i+1];
+			}
+		}
+	}
+
+	var preloadFlag = false;
+	function preloadImages() {
+		if (document.images) {
+			Layout_Accueil_over = newImage("images/Layout_Accueil-over.png");
+			Layout_RECHERCHER_over = newImage("images/Layout_RECHERCHER-over.png");
+			Layout_SE_REFERENCER_over = newImage("images/Layout_SE-REFERENCER-over.png");
+			Layout_Administration_over = newImage("images/Layout_Administration-over.png");
+			preloadFlag = true;
+		}
+	}
+
+	</script>
+  </head>
+
+<body onload="preloadImages();">
+	<div id="contenu">
+		<!-- <div id="header"> -->
+			<!-- <div id="LogoTitre"> -->
+					<!-- <img src="/images/Logo2.gif" class="logo"> -->
+					<!-- <h1>Guadeloupe Asso Annuaire</h1> -->
+					<!-- <p><img src="/images/Titre_Site.gif"></p> -->
+					<!-- <p class="sous-titre"><strong>L'annuaire des associations de la Guadeloupe</strong></p> -->
+			<!-- </div> -->
+			<!-- Menu principal -->
+			<!-- <div class="menubar">
+				<ul>
+					<li class="accueil"><a href="/index.html">Accueil</a></li>
+					<li class="recherche"><a href="/recherches/new">Recherche</a></li>
+					<li class="inscription"><a href="/associations/inscription">Inscrire son association</a></li>
+					<li class="services"><a href="/services.html">Nos Services</a></li>
+					<li class="admin"><a href="/associations">Administration</a></li>
+				</ul>
+			</div> -->
+		<!-- </div> -->
+		
+		<div id="main">
+			<div class="shadow1">
+				<div class="shadow2">
+				<div class="shadow3">				
+				<div class="yield">
+					<p align="center">
+						<a href="recherches/new"><h2 class="ficheid">TROUVEZ L'ASSOCIATION QUE VOUS RECHERCHEZ</h2></a>
+						<a href="recherches/new"><img src="/images/ImgAccueil.gif"></a><br/><br/>
+						<a href="associations/inscription"><h2 class="ficheid">INSCRIVEZ VOTRE ASSOCIATION !!!</h2></a>
+					</p>
+					<!-- <div id="colonne1">								 -->
+						<h3 class="">SITE EN CONSTRUCTION v.0.9.7</h3>
+						<p>Date de mise en ligne : 27/02/2007 à 11H00</p>
+						
+						<h3 class="">NOUVEAUTES DE CETTE VERSION</h3>
+						<p>
+							<strong>Optimisations diverses</strong> : 
+								<ul>
+								<li>Mise en place d'un formulaire de recherche rapide dans la colonne de droite du listing des associations dans la section Administration.</li>
+								<li>Mise en place du formulaire d'inscription pour le visiteur qui souhaiterait référencer son association dans l'annuaire (page inscrire son association)</li>
+								<li>Optimisation du formulaire de recherche : meilleures résultats retournés et affichage d'une roue d'attente pour informer que la recherche est en cours.</li>							
+							</ul>
+						</p>
+												
+						<h3 class=""> A VENIR :</h3>
+						<p>
+							<ul>
+								<li>Mise en place du compteur de visite.</li>
+								<li><strong>Intégration du questionnaire définitif</strong></li>
+							</ul>
+						</p>
+					<!-- </div> -->
+					<!-- <div id="side-colonne">
+											
+						 </div> -->
+				</div>
+				</div>
+				</div>
+			</div>
+			
+			<div id="footer">
+				<table border="0" cellspacing="5" cellpadding="5" align="center">
+					<tr>
+						<td><img src="/images/Logo-agouti.gif"></td>
+						<td><img src="/images/Logo-club1901.gif"></td>
+						<td><img src="/images/Logo-DDJS.gif"></td>
+					</tr>
+				</table>
+				<p><a href="#">Agouti</a> ©2007-2008 : tous droits réservés | Conception : Gilles MATHURIN</p>
+			</div>
+		</div>
+		
+
+	</div>
+</body>
+</html>

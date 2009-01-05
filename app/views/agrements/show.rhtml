@@ -1,0 +1,34 @@
+<div id="side-colonne">
+	<div class="topsidemenu">
+		&nbsp;		
+	</div>
+	<div class="side-menu">
+		<%= render :partial => 'shared/sidecolonne' %>
+	</div>
+	<div id="bottomsidemenu">
+		&nbsp;
+	</div>
+</div>
+
+<div id="colonne1">
+	<h2 class="ficheid">Agrément</h2>
+	<p>
+	  <b>Association:</b>
+	  <%=h @agrement.association.nom %>
+	</p>
+
+	<p>
+	  <b>Organisme habilitant:</b>
+	  <%=h @agrement.orgahab.nom %>
+	</p>
+
+	<p>
+	  <b>Nom:</b>
+	  <%=h @agrement.nom %>
+	</p>
+
+
+	<p><%= link_to 'Modifier', edit_association_agrement_path(@agrement.association, @agrement) %> |
+	<%= link_to 'Retour au listing des agréments', association_agrements_path(@association) %></p>
+	<p><%= link_to 'Retour à la fiche', association_path(@association) %></p>
+</div>

@@ -1,0 +1,45 @@
+<div id="side-colonne">
+	<div class="topsidemenu">
+		&nbsp;		
+	</div>
+	<div class="side-menu">
+		<%= render :partial => 'shared/sidecolonne' %>
+	</div>
+	<div id="bottomsidemenu">
+		&nbsp;
+	</div>
+</div>
+
+<div id="colonne1">
+	<h2 class="ficheid">C.A. de <%= @association.nom %></h2>
+
+	<% if @conseiladmins %>
+	
+		<table>
+			<tr>
+				<td class="entete-2">Statut</td>
+				<td class="entete-2">Nom</td>
+				<td class="entete-2">Téléphone</td>
+			</tr>
+
+		<% unless @conseiladmins.membres.empty? %>
+			<% for membre in @conseiladmins.membres do %>
+			<tr>
+				<td><%= h membre.class %></td>
+				<td><%= h membre.nom_prenom %></td>
+				<td><%= h membre.telephone %></td>
+			</tr>
+			<% end %>
+		<% end %>
+		</table>
+		
+		<p>
+		<%= link_to 'Voir', association_conseiladmin_path(@conseiladmins.association, @conseiladmins) %> | <%= link_to 'Modifier', edit_association_conseiladmin_path(@conseiladmins.association, @conseiladmins) %> | <%= link_to 'Supprimer', association_conseiladmin_path(@conseiladmins.association, @conseiladmins), :confirm => 'Are you sure?', :method => :delete %>
+		</p>
+		
+	<% else %>
+
+	<p>	<%= link_to "Ajouter un conseil d'administration", new_association_conseiladmin_path(@association) %></p>
+	
+	<% end %>
+</div>

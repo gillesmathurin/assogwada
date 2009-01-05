@@ -1,0 +1,35 @@
+<div id="side-colonne">
+	<div class="topsidemenu">
+		&nbsp;		
+	</div>
+	<div class="side-menu">
+		<%= render :partial => 'shared/sidecolonne' %>
+	</div>
+	<div id="bottomsidemenu">
+		&nbsp;
+	</div>
+</div>
+
+<div id="colonne1">
+	
+	<h2 class="ficheid">Dispositif</h2>
+	
+	<% if @association %>
+	<p>
+	  <b>Association:</b>
+	  <%=h @regroupement.association.nom %>
+	</p>
+
+	<p>
+	  <b>Dispositif :</b>
+	  <%=h @regroupement.dispositif.nom %>
+	</p>
+
+	<p><%= link_to 'Modifier', edit_association_regroupement_path(@association, @regroupement) %> |
+	<%= link_to 'Liste des dispositifs', association_regroupements_path(@association) %></p>
+	
+	<p><%= link_to 'Retour à la fiche', association_path(@association) %></p>
+
+	<% end %>
+
+</div>

@@ -1,0 +1,44 @@
+<div id="colonne1">
+
+	<h2 class="ficheid">Locaux de <%= h @association.nom %></h2>
+	<% unless @association.locals.empty? %>
+		<table>
+		  <tr>
+		    <td class="entete-2">Adresse</td>
+		    <td class="entete-2">Cp</td>
+		    <td class="entete-2">Ville</td>
+			<td class="entete-2" colspan="2">Actions</td>
+		  </tr>
+  
+		<% for local in @locals %>
+		  <tr>
+		    <td><%=h local.adresse %></td>
+		    <td><%=h local.cp %></td>
+		    <td><%=h local.ville %></td>
+		    <td><%= link_to 'Modifier', edit_association_local_path(@association, local) %></td>
+		    <td><%= link_to 'Supprimer', association_local_path(@association, local), :confirm => 'Are you sure?', :method => :delete %></td>
+		  </tr>
+		<% end %>
+		</table>
+	
+		<p><%= link_to 'Ajouter un local', new_association_local_path(@association) %></p>
+	
+	<% else %>
+	
+		<p>Il n'y a pas de locaux enregistrés pour cette association</p>
+		<p><%= link_to 'Ajouter un local', new_association_local_path(@association) %></p>
+	
+	<% end %>
+</div>
+
+<div id="side-colonne">
+	<div class="topsidemenu">
+		&nbsp;		
+	</div>
+	<div class="side-menu">
+		<%= render :partial => 'shared/sidecolonne' %>
+	</div>
+	<div id="bottomsidemenu">
+		&nbsp;
+	</div>
+</div>

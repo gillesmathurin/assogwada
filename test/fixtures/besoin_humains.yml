@@ -1,0 +1,11 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+one:
+  id: 1
+  categorie: MyString
+  quantite: 1
+  association_id: 1
+two:
+  id: 2
+  categorie: MyString
+  quantite: 1
+  association_id: 1

@@ -1,0 +1,26 @@
+<p>
+  <b>Poste:</b>
+  <%=h @salarie.poste %>
+</p>
+
+<p>
+  <b>Sexe:</b>
+  <%=h @salarie.sexe %>
+</p>
+
+<% unless @salarie.contrat_classique.blank? %>
+<p>
+  <b>Contrat classique:</b>
+  <%=h @salarie.contrat_classique %>
+</p>
+<% end %>
+
+<% unless @salarie.contrat_aide.blank? %>
+<p>
+  <b>Contrat aide:</b>
+  <%=h @salarie.contrat_aide %>
+</p>
+<% end %>
+
+<%= link_to 'Modifier', edit_association_salarie_path(@association, @salarie) %> |
+<%= link_to 'Retour au listing des salariés', association_salaries_path(@association) %>

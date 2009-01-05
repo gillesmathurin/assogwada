@@ -1,0 +1,39 @@
+<div id="side-colonne">
+	<div class="topsidemenu">
+		&nbsp;		
+	</div>
+	<div class="side-menu">
+		<%= render :partial => 'shared/sidecolonne' %>
+	</div>
+	<div id="bottomsidemenu">
+		&nbsp;
+	</div>
+</div>
+
+<div id="colonne1">
+	<h2 class="ficheid">Agréments pour <%= h @association.nom %></h2>
+	
+	<% if @association.agrements.empty? %>
+		<p>Pas d'agréments pour cette association</p>
+	<% end %>
+
+	<table>
+	  <tr>
+	    <td class="entete-2">Organisme habilitant</td>
+	    <td class="entete-2">Nom</td>
+		<td class="entete-2", colspan="3">Actions</td>
+	  </tr>
+  
+	<% for agrement in @agrements %>
+	  <tr>
+	    <td><%=h agrement.orgahab.nom %></td>
+	    <td><%=h agrement.nom %></td>
+	    <td align="center"><%= link_to 'Voir', association_agrement_path(agrement.association, agrement) %></td>
+	    <td align="center"><%= link_to 'Modifier', edit_association_agrement_path(agrement.association, agrement) %></td>
+	    <td align="center"><%= link_to 'Supprimer', association_agrement_path(agrement.association, agrement), :confirm => 'êtes vous sur ?', :method => :delete %></td>
+	  </tr>
+	<% end %>
+	</table>
+
+	<p><%= link_to 'Ajouter un agrément', new_association_agrement_path(@association) %></p>
+</div>

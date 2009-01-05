@@ -1,0 +1,33 @@
+<p>
+  <b>Adresse:</b>
+  <%=h @local.adresse %>
+</p>
+
+<p>
+  <b>Cp:</b>
+  <%=h @local.cp %>
+</p>
+
+<p>
+  <b>Ville:</b>
+  <%=h @local.ville %>
+</p>
+
+<p>
+	<b>Planning</b><br/>
+	<% for planning in @local.planning_locals.in_day_order %>
+		<b><%= planning.jour.capitalize %></b>
+		<% if !planning.hmat_debut.nil? || !planning.hmat_fin.nil? %>
+		Matin
+		De : <b> <%= planning.hmat_debut.strftime("%H:%M") %></b>
+		A : <b><%= planning.hmat_fin.strftime("%H:%M") %></b>
+		<% end %>
+		<% if !planning.hapm_debut.nil? || !planning.hapm_fin.nil? %>
+		Après-midi
+		De : <b><%= planning.hapm_debut.strftime("%H:%M") %></b>
+		A : <b><%= planning.hapm_fin.strftime("%H:%M") %></b><br/>
+		<% end %>
+	<% end %>
+</p>
+<%= link_to 'Edit', edit_association_local_path(@association, @local) %> |
+<%= link_to 'Back', association_locals_path(@association) %>

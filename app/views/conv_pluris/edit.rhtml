@@ -1,0 +1,33 @@
+<div id="side-colonne">
+	<div class="topsidemenu">
+		&nbsp;		
+	</div>
+	<div class="side-menu">
+		<%= render :partial => 'shared/sidecolonne' %>
+	</div>
+	<div id="bottomsidemenu">
+		&nbsp;
+	</div>
+</div>
+
+<div id="colonne1">
+	<h2 class="ficheid">Modifier une convention pluriannuelle</h2>
+
+	<%= error_messages_for :conv_pluri %>
+
+	<% if @association %>
+
+	<% form_for(:conv_pluri, :url => association_conv_pluri_path(@association, @conv_pluri), :html => { :method => :put }) do |f| %>
+
+	  <%= render :partial => 'form', :locals => { :f => f } %>
+
+	  <p>
+	    <%= submit_tag "Enregistrer" %>
+	  </p>
+	<% end %>
+
+	<p><%= link_to 'Liste des conventions', association_conv_pluris_path(@association) %> |
+	<%= link_to 'Retour à la fiche', association_path(@association) %></p>
+
+	<% end %>
+</div>

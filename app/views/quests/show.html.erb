@@ -1,0 +1,28 @@
+<p>
+  <b>Nom:</b>
+  <%=h @quest.nom %>
+</p>
+
+<p>
+  <b>Nom asso:</b>
+  <%=h @quest.nom_asso %>
+</p>
+
+<p>
+  <b>File url:</b>
+  <%=h @quest.file_url %>
+</p>
+
+<p>
+  <b>Content type:</b>
+  <%=h @quest.content_type %>
+</p>
+
+<p>
+  <b>Filename:</b>
+  <%=h @quest.filename %>
+</p>
+
+
+<%= link_to 'Modifier', edit_quest_path(@quest) %> |
+<%= link_to 'Retour', quests_path %>

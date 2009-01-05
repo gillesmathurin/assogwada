@@ -1,0 +1,11 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+one:
+  id: 1
+  annee_dbt: 2007-09-13
+  annee_fin: 2007-09-13
+  association_id: 1
+two:
+  id: 2
+  annee_dbt: 2007-09-13
+  annee_fin: 2007-09-13
+  association_id: 1

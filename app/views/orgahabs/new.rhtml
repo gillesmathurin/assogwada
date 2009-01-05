@@ -1,0 +1,48 @@
+<%= error_messages_for :orgahab %>
+
+<% if @association %>
+
+<h2>Specifier le nouvel organisme d'habilitation et l'agrement associé pour l'association : <%= @association.nom %></h2>
+
+
+<% form_for(:orgahab, :url => association_orgahabs_path) do |f| %>
+
+	  <p>
+	    <b>Organisme</b><br />
+	    <%= f.text_field :nom %>
+	  </p>
+	
+	<fieldset>
+		<legend>Specifier l'agrément</legend>
+		<%= error_messages_for :agrement %>
+		<% fields_for :agrement do |agrement| %>
+			Nom : <%= agrement.text_field :nom %>
+		<% end %>
+	</fieldset>
+	
+	
+	  <p>
+	    <%= submit_tag "Create" %>
+	  </p>
+	<% end %>
+
+<%= link_to 'Back', association_orgahabs_path(@association) %>
+
+<% else %>
+
+<% form_for(:orgahab, :url => orgahabs_path) do |f| %>
+
+	  <p>
+	    <b>Nom</b><br />
+	    <%= f.text_field :nom %>
+	  </p>
+
+	  <p>
+	    <%= submit_tag "Create" %>
+	  </p>
+	<% end %>
+
+<%= link_to 'Back', orgahabs_path() %>
+
+<% end %>
+

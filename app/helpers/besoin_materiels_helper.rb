@@ -1,0 +1,2 @@
+module BesoinMaterielsHelper
+end

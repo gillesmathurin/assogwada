@@ -1,0 +1,19 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+one:
+  id: 1
+  nom: MyString
+  tarif_mensuel: 9.99
+  modalite_inscription: MyText
+  info_supp: MyText
+  spectateur: MyString
+  licence: 50
+  besoin_habilitation: false
+two:
+  id: 2
+  nom: MyString
+  tarif_mensuel: 9.99
+  modalite_inscription: MyText
+  spectateur: MyString
+  licence: 50
+  info_supp: MyText
+  besoin_habilitation: false

@@ -1,0 +1,28 @@
+<h1>Listing des questionnaires envoyés</h1>
+
+<table>
+  <tr>
+    <th>Nom</th>
+    <th>Nom asso</th>
+    <th>File url</th>
+    <th>Content type</th>
+    <th>Filename</th>
+  </tr>
+
+<% for quest in @quests %>
+  <tr>
+    <td><%=h quest.nom %></td>
+    <td><%=h quest.nom_asso %></td>
+    <td><%=h quest.file_url %></td>
+    <td><%=h quest.content_type %></td>
+    <td><%=h quest.filename %></td>
+    <td><%= link_to 'Voir', quest %></td>
+    <td><%= link_to 'Modifier', edit_quest_path(quest) %></td>
+    <td><%= link_to 'Supprimer', quest, :confirm => 'Êtes vous sur ?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'Nouveau questionnaire à envoyer', new_quest_path %>

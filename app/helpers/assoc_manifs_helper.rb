@@ -1,0 +1,2 @@
+module AssocManifsHelper
+end

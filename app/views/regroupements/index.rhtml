@@ -1,0 +1,61 @@
+<div id="side-colonne">
+	<div class="topsidemenu">
+		&nbsp;		
+	</div>
+	<div class="side-menu">
+		<%= render :partial => 'shared/sidecolonne' %>
+	</div>
+	<div id="bottomsidemenu">
+		&nbsp;
+	</div>
+</div>
+
+<div id="colonne1">
+	<% if @association %>  
+	<h2 class="ficheid">Dispositifs utilisés par <%= h @association.nom %></h2>
+	
+	<% if @association.regroupements.empty? %>
+		<p>Pas de dispositifs associés à cet association</p>
+	<% end %>
+	
+	<table>
+	  <tr>
+	    <td class="entete-2">Nom du dispositif</td>
+		<td class="entete-2", colspan="3">Actions</td>
+	  </tr>
+
+	<% for regroupement in @regroupements %>
+	  <tr>
+	    <td><%=h regroupement.dispositif.nom %></td>
+	    <td><%= link_to 'Voir', association_regroupement_path(regroupement.association, regroupement) %></td>
+	    <td><%= link_to 'Modifier', edit_association_regroupement_path(regroupement.association, regroupement) %></td>
+	    <td><%= link_to 'Supprimer', association_regroupement_path(regroupement.association, regroupement), :confirm => 'Are you sure?', :method => :delete %></td>
+	  </tr>
+	<% end %>
+	</table>
+
+	<p><%= link_to "Nouveau dipositif utilisé par l'association", new_association_regroupement_path(@association) %></p>
+	<% else %>
+
+	<h2 class="ficheid">Listing des dispositifs utilisés</h2>
+
+	<table>
+	  <tr>
+	    <td class="entete-2">Nom du dispositif</td>
+		<td class="entete-2">Actions</td>
+	  </tr>
+
+	<% for regroupement in @regroupements %>
+	  <tr>
+	    <td><%=h regroupement.dispositif.nom %></td>
+	    <td><%= link_to 'Voir', regroupement_path(regroupement) %></td>
+	    <td><%= link_to 'Modifier', edit_regroupement_path(regroupement) %></td>
+	    <td><%= link_to 'Supprimer', regroupement_path(regroupement), :confirm => 'Are you sure?', :method => :delete %></td>
+	  </tr>
+	<% end %>
+	</table>
+
+	<p><%= link_to "Nouveau dipositif", new_regroupement_path() %></p>
+
+	<% end %>
+</div>

@@ -1,0 +1,59 @@
+<div id="side-colonne">
+	<div class="topsidemenu">
+		&nbsp;		
+	</div>
+	<div class="side-menu">
+		<p>
+			<b><%= @count %></b> associations inscrites		
+		</p>
+	</div>
+	<div class="topsidemenu">
+		&nbsp;		
+	</div>
+	<div class="side-menu">
+		<p>
+			<b>Partenaires :</b>
+		</p>
+		<p>
+			<a href="http://www.club1901.asso.fr" class="image">
+			<img src="/images/Logo-club1901.gif"
+			border="0" alt="logo-club1901"></a>
+		</p>
+		<p>
+			<a href="#" class="image">
+			<img src="/images/Logo-agouti.gif"
+			border="0" alt="logo-agouti"></a>
+		</p>
+		<p>
+			<a href="#" class="image">
+			<img src="/images/Logo-crajep.gif"
+			border="0" alt="logo-agouti"></a>
+		</p>
+	</div>
+</div>
+
+<div id="colonne1">
+	<h2 class="ficheid">Identifiez vous !!!</h2>
+	<p class="login">
+		<% form_tag session_path, :class=>"login" do -%>
+		<table border="1" cellspacing="2" cellpadding="2" class="login">
+			<tr>
+				<td>Identifiant :</td>
+				<td><%= text_field_tag 'login' %></td>
+			</tr>
+			<tr>
+				<td>Mot de passe :</td>
+				<td><%= password_field_tag 'password' %></td>
+			</tr>
+		</table>
+	</p>
+
+	<!-- Uncomment this if you want this functionality
+	<p><label for="remember_me">Remember me:</label>
+	<%= check_box_tag 'remember_me' %></p>
+	-->
+
+	<p><%= submit_tag 'Connexion' %></p>
+	<% end -%>
+</div>
+

@@ -1,0 +1,60 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+       "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="fr" lang="fr">
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+  <title>Annuaire Associations de Guadeloupe</title>
+  <%= stylesheet_link_tag 'base', :cache => true %>
+  <%= javascript_include_tag :defaults, :cache => true %>
+</head>
+<body onload="preloadImages();">
+	<div id="contenu">
+		<div id="header">
+			<div id="LogoTitre">
+				<!-- <img src="/images/Logo2.gif" class="logo"> -->
+				<!-- <h1>Guadeloupe Asso Annuaire</h1> -->
+				<!-- <p><img src="/images/Titre_Site.gif"></p> -->
+				<!-- <p class="sous-titre"><strong>L'annuaire des associations de la Guadeloupe</strong></p> -->
+			</div>
+			<!-- Menu principal -->
+			<div class="menubar">
+				<ul>
+					<li class="accueil"><a href="/associations/accueil">Accueil</a></li>
+					<li class="recherche"><a href="/recherches/new">Recherche</a></li>
+					<li class="inscription"><a href="/associations/inscription">Inscrire son association</a></li>
+					<li class="services"><a href="/services.html">Nos Services</a></li>
+					<li class="admin"><a href="/associations">Administration</a></li>
+				</ul>
+			</div>
+		</div>
+		
+		<div id="main">
+			<p style="color: green"><%= flash[:notice] %></p>
+			<div class="shadow1">
+				<div class="shadow2">
+				<div class="shadow3">				
+				<div class="yield">			
+					<%= yield  %>
+				</div>
+				</div>
+				</div>
+			</div>
+			
+			<div id="footer">
+				<table border="0" cellspacing="5" cellpadding="5" align="center" width="100%">
+					<tr>
+						<td><img src="/images/Logo-DDJS.gif"></td>
+						<td><img src="/images/Logo-club1901.gif"></td>
+						<td><img src="/images/Logo-agouti.gif"></td>						
+					</tr>
+				</table>
+				<p><a href="#">Agouti</a> ©2007-2008 : tous droits réservés | Conception : Gilles MATHURIN	</p>
+				<p class="cnil">Conformément à la loi «informatique et libertés» du 6 janvier 1978, vous bénéficiez d’un droit d’accès et de rectification aux informations qui vous concernent.<br/> Si vous souhaitez exercer ce droit et obtenir communication des informations vous concernant, veuillez vous adresser au <%= mail_to "guadeloupe.asso@orange.fr", "service administratif", :encode => "hex" %> </p>
+			</div>
+		</div>
+		
+
+	</div>
+</body>
+</html>

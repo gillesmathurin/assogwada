@@ -1,0 +1,86 @@
+<div id="side-colonne">
+	<div class="topsidemenu">
+		&nbsp;		
+	</div>
+	<div class="side-menu">
+		<%= render :partial => 'shared/sidecolonne' %>
+	</div>
+	<div id="bottomsidemenu">
+		&nbsp;
+	</div>
+</div>
+
+<div id="colonne1">
+	<h2 class="ficheid">Ajouter une activité</h2>
+
+	<%= error_messages_for :activite %>
+
+	<% form_for(:activite, :url => association_activites_path) do |f| %>
+
+	  <p>
+	    <b>Nom</b><br />
+	    <%= f.text_field :nom %>
+	  </p>
+
+	  <p>
+	    <b>Tarif mensuel</b><br />
+	    <%= f.text_field :tarif_mensuel %>
+	  </p>
+
+	  <p>
+	  	<b>Tarif par séance</b><br/>
+		<%= f.text_field :tarif_seance %>
+	  </p>
+
+	  <p>
+	    <b>Modalite inscription</b><br />
+	    <%= f.text_area :modalite_inscription, :rows => 10 %>
+	  </p>
+
+	  <p>
+	    <b>Info supp</b><br />
+	    <%= f.text_area :info_supp, :rows => 10 %>
+	  </p>
+
+	  <p>
+	  	<b>Licence</b><br/>
+		<%= f.text_field :licence, :size => 30 %>
+	  </p>
+
+	  <p>
+	    <b>Public</b><br />
+		Vous pouvez sélectionner plusieurs "types" et plusieurs "âges"
+		<table>
+			<tr>
+				<td>Type :</td><td>Age :</td>
+			</tr>
+			<tr>
+				<td><%= select_tag "spectateurs[]", options_for_select(Activite::PUBLIC), {:multiple => true} %></td>
+				<td><%= select_tag "spectages[]", options_for_select(Activite::PUBLIC_AGE), {:multiple => true} %></td>
+			</tr>
+		</table>
+	  </p>
+
+	  <p>
+	    <b>Besoin habilitation</b><br />
+	    Cochez la case s'il faut une habilitation : <%= f.check_box :besoin_habilitation %>
+	  </p>
+
+<!-- appel au partiel de formulaire InterPlanning -->
+	  <p>
+	  	<fieldset>
+	  		<legend><strong>Planning de l'activité</strong></legend>
+			<div id="interplannings">
+			<%= render :partial => 'inter_planning', :collection => @inter_plannings %>
+			</div>
+			<%= lien_ajout_interplanning "Ajouter un planning d'activité" %>
+	  	</fieldset>
+	  </p>
+	
+	  <p>
+	    <%= submit_tag "Enregistrer" %>
+	  </p>
+	<% end %>
+
+	<%= link_to 'Retour à la liste des activités', association_activites_path(@association) %>
+</div>

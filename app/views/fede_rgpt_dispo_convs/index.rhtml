@@ -1,0 +1,22 @@
+<h1>Listing fede_rgpt_dispo_convs</h1>
+
+<table>
+  <tr>
+    <th>Categorie</th>
+    <th>Nom</th>
+  </tr>
+  
+<% for fede_rgpt_dispo_conv in @fede_rgpt_dispo_convs %>
+  <tr>
+    <td><%=h fede_rgpt_dispo_conv.categorie %></td>
+    <td><%=h fede_rgpt_dispo_conv.nom %></td>
+    <td><%= link_to 'Show', fede_rgpt_dispo_conv_path(fede_rgpt_dispo_conv) %></td>
+    <td><%= link_to 'Edit', edit_fede_rgpt_dispo_conv_path(fede_rgpt_dispo_conv) %></td>
+    <td><%= link_to 'Destroy', fede_rgpt_dispo_conv_path(fede_rgpt_dispo_conv), :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New fede_rgpt_dispo_conv', new_fede_rgpt_dispo_conv_path %>

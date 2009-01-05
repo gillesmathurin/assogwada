@@ -1,0 +1,182 @@
+<table>
+	<tr>
+		<td valign="top">
+			<p>
+			  <b>Nom</b><br />
+			  <%= f.text_field :nom %>
+			</p>
+			<p>
+				<b>Sigle</b><br/>
+				<%= f.text_field :sigle %>
+			</p>
+			<p>
+				<b>N° Siret</b><br/>
+				<%= f.text_field :siret %>
+			</p>
+			<p>
+				<b>Code APE</b><br/>
+				<%= f.text_field :ape %>
+			</p>
+			<p>
+			  <b>Adresse du siege social</b><br />
+			  <%= f.text_field :adresse_siegesocial %>
+			</p>
+			<p>
+				<b>Code Postal</b><br/>
+				<%= f.text_field :code_postal, :size => 30 %>
+			</p>
+			<p>
+			  <b>Ville</b><br />
+			  <%= f.select :ville, Association::VILLE, :prompt => "Sélectionner une ville" %>
+			</p>
+			
+			<p>
+			  <b>Téléphone</b><br />
+			  <%= f.text_field :telephone %>
+			</p>
+
+			<p>
+			  <b>Fax</b><br />
+			  <%= f.text_field :fax %>
+			</p>
+
+			<p>
+			  <b>Email</b><br />
+			  <%= f.text_field :email %>
+			</p>
+
+			<p>
+			  <b>Adresse internet</b><br />
+			  <%= f.text_field :website_url %>
+			</p>
+
+			<p>
+			<fieldset>	
+				<legend><b>Champ(s) d'intervention en ordre prioritaire</b></legend>
+					<div id="champs">
+						<% if @association.champ_interventions.empty? %>
+							<%= render :partial => 'champinterv_fields',
+							 :locals => { :ci => @ci, :index => @index, :asso_id => @association.id } %>
+						<% else %>
+							<%= render :partial => 'update_champintervs',
+							 :locals => { :f => f, :asso_id => @association.id}
+							  %>
+						<% end %>
+					</div>
+				<%= render :partial=>'add_ci_link', :locals => { :index => ( @index) } %>
+			</fieldset>		
+			</p>
+			
+			<p>
+			  <b>Cotisation annuelle</b><br />
+			  <%= f.text_field :cotisation_annuelle, :size => 10 %> €
+			</p>
+
+			<p>
+			  <b>Droit d'entrée</b><br />
+			  <%= f.text_field :droit_entree, :size => 10 %> €
+			</p>
+			<p>
+				<b>Date de création :</b><br/>
+				<%= f.date_select :date_creation, :order=> [:day, :month, :year], :start_year => 1930 %>
+			</p>
+			<p>
+				<b>Personne ressource</b><br/>
+				<%= f.text_field :nom_contact, :size => 30 %>
+			</p>
+			<p>
+				<b>Telephone personne ressource</b>
+				<%= f.text_field :coordonnees_contact %>
+			</p>
+		</td>
+		<td valign="top">
+			<p>
+			  <b>Nombre d'adhérents masculins</b><br />
+			  <%= f.text_field :nb_adherent_homme, :size => 10 %>
+			</p>
+			
+			<p>
+			  <b>Nombre d'adhérent féminins</b><br />
+			  <%= f.text_field :nb_adherent_femme, :size => 10 %>
+			</p>
+			
+			<p>
+			  <b>Nombre d'enfants adhérents</b><br />
+			  <%= f.text_field :nb_adherent_enfant, :size => 10 %>
+			</p>
+
+			<p>
+			  <b>Nombre d'adultes adhérents</b><br />
+			  <%= f.text_field :nb_adherent_adulte, :size => 10 %>
+			</p>
+			<p>
+				<b>Nombre total d'adhérents</b><br/>
+				<%= f.text_field :total_adherent, :size => 10 %>
+			</p>
+			<p>
+			  <b>Objet social</b><br />
+			  <%= f.text_area :objet_social, :rows=>15 %>
+			</p>
+
+			<p>
+			  <b>Motivation à la création</b><br />
+			  <%= f.text_area :motivation_creation, :rows=>15 %>
+			</p>
+
+			<p>
+			  <b>Est employeur</b><br />
+				<div onclick="$('convention').show();">
+				  	Oui : <%= f.radio_button :est_employeur, true %>
+				</div>
+				<div onclick="$('convention').hide(); $('champconv').hide();">
+					Non : <%= f.radio_button :est_employeur, false %>
+				</div>
+			</p>
+			
+			<div id="convention", style="display: none">
+				<b>Appliquez vous une convention collective ?</b>
+				<div onclick="$('nom_convention').show();">
+					Oui : <%= f.radio_button :app_conv, true %>
+				</div>
+				<div onclick="$('nom_convention').hide();">
+					Non : <%= f.radio_button :app_conv, false %>
+				</div>
+			</div>
+			
+			<fieldset id="nom_convention", style="display: none">
+				<legend>Convention collective</legend>
+				<%= f.select :convention_id, @conventions, { :include_blank => true } %><br/><br/>
+				Si votre convention ne figure pas dans la liste, <%= link_to_function ("ajoutez la", "$('champconv').toggle();") %>
+				<div id="champconv", style="display: none">
+					<p><%= text_field_tag :conv_co %></p>
+				</div>
+			</fieldset>
+
+			<p>
+				<b>Chiffre d'affaire annuel</b>
+				<%= f.select(:chiffre_affaire, Association::CHIFFRE_AFFAIRE, :prompt => "Sélectionner une chiffre d'affaire") %>
+			</p>
+
+			<p>
+			  <b>Part des ressources propres</b><br />
+			  <%= f.text_field :part_ressource_propre %>
+			</p>
+			
+			<p>
+			  <b>Part des subventions publiques</b><br />
+			  <%= f.text_field :part_subvention_public %>
+			</p>
+			
+			<p>
+				<b>Part des subventions privées</b><br/>
+				<%= f.text_field :part_subvention_prive %>
+			</p>
+			
+			<p>
+			  <b>Pourcentage des subventions reçues par rapport aux subventions sollicités</b><br />
+			  <%= f.text_field :pcent_subvrecu_subvsoll %>
+			</p>			
+		</td>
+	</tr>
+</table>
+

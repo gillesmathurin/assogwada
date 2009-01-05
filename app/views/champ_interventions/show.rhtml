@@ -1,0 +1,23 @@
+<div id="side-colonne">
+	<div id="topsidemenu">
+		&nbsp;		
+	</div>
+	<div id="side-menu">
+		<%= render :partial => 'shared/sidecolonne2' %>
+	</div>
+	<div id="bottomsidemenu">
+		&nbsp;
+	</div>
+</div>
+
+<div id="colonne1">
+	<h2 class="ficheid">Champ d'intervention</h2>
+	<p>
+	  <b>Nom:</b>
+	  <%=h @champ_intervention.nom %>
+	</p>
+
+
+	<%= link_to 'Modifier', edit_champ_intervention_path(@champ_intervention) %> |
+	<%= link_to 'Retour', champ_interventions_path %>
+</div>

@@ -1,0 +1,6 @@
+:address => "mail.asso-guadeloupe.fr", 
+:port => 26, 
+:domain => "asso-guadeloupe.fr",
+:authentication => :login, 
+:user_name => "gilles+asso-guadeloupe.fr", 
+:password => "$rv+&c77ul&9"

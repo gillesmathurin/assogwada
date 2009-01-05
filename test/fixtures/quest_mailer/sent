@@ -1,0 +1,3 @@
+QuestMailer#sent
+
+Find me in app/views/quest_mailer/sent.erb

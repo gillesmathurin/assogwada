@@ -1,0 +1,4 @@
+page.insert_html :bottom, :champs, :partial => 'champinterv_fields',
+ :locals => { :ci => @ci, :index => params[:index] }
+page.replace :add_ci_link, :partial => 'add_ci_link',
+ :locals => { :index => (params[:index].to_i + 1) }

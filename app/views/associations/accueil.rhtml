@@ -1,0 +1,123 @@
+<div id="side-colonne">
+	<div class="topsidemenu">
+		&nbsp;		
+	</div>
+	<div class="side-menu">
+		<p>
+			<b><%= @count %></b> associations inscrites		
+		</p>
+	</div>
+	
+	<div class="topsidemenu">
+	 &nbsp;
+	</div>
+	<div class="side-menu">
+	 <p class="logo">
+	   <b>Newsletter</b>	   
+	 </p>
+	   <%# error_messages_for :abonne %>
+	   <% form_remote_for @abonne, :url => newsletter_associations_path, :html => {:method => :post, :class => "newsletter"}, :success => "Element.toggle('merci'); Element.toggle('error')", :failure => "Element.toggle('error')" do |f| %>
+	   <fieldset>
+	     <legend>Inscrivez-vous :</legend>
+	     <table cellspacing="0", cellpadding="0">
+	       <tr bgcolor="silver">
+	         <td><p class="newsletter"><b>Nom :</b></p></td>
+	         <td> <%= f.text_field :nom_abonne, :size => 12 %></td>
+	       </tr>
+	       <tr bgcolor="silver">
+	         <td><p class="newsletter"><b>Email :</b></p></td>
+	         <td><%= f.text_field :email_abonne, :size => 12 %></td>
+	       </tr>
+	     </table>
+	     <p align="right"><%= submit_tag "S'inscrire" %></p>
+	   </fieldset>
+	   <% end %>
+	   <div id="merci", style="display: none">
+	     <p>Vous êtes maintenant inscrit, merci ! Un email de confirmation vous a été envoyé</p>
+	   </div>
+	   <div id="error", style="display: none">
+	     <p>Erreurs de saisie</p>
+	   </div>
+	</div>
+	
+	<div class="topsidemenu">
+		&nbsp;		
+	</div>
+	<% cache 'accueil_sidecol' do %>
+	<div class="side-menu">
+		<p class="logo">
+			<b>Partenaires :</b>
+		</p>
+		<p class="logo">
+			<a href="http://www.club1901.asso.fr" class="image">
+			<img src="/images/Logo-club1901.gif"
+			border="0" alt="logo-club1901"></a>
+		</p>
+		<p class="logo">
+			<%= mail_to "guadeloupe.asso@orange.fr", image_tag("Logo-agouti.gif",
+			:alt=>"logo-agouti"), :encode => "hex" %>
+		</p>
+		<p class="logo">
+			<%= mail_to "crajep971@orange.fr", image_tag("Logo-crajep.gif",
+			:alt=>"logo-crajep"), :encode => "hex" %>
+		</p>
+		<p class="logo">
+			<a href="http://www.jeunesse-sports.gouv.fr" class="image">
+			<img src="/images/Logo-DDJS.gif"
+			border="0" alt="logo-DDJS"></a>
+		</p>
+		<p class="logo">
+			<a href="http://www.cr-guadeloupe.fr" class="image">
+			<img src="/images/logo-Region-Guadeloupe.jpg"
+			border="0" alt="logo-region guadeloupe"></a>
+		</p>
+	</div>
+	<% end %>
+</div>
+
+<!-- CHANGED mise en place des fragments de code à mettre en cache -->
+<% cache 'accueil_maincol' do %>
+<div id="colonne1">
+  <div class="bloc_fiche">
+    <h3 class="actu_title">ACTUALITES</h3>
+    <p>
+      <%= link_to image_tag("badge_newoff.gif", :mouseover => "/images/badge_newon.gif", :class =>"badge"), "/services.html" %>  
+      <span class="div_title">Découvrez notre service de création de site web !</span><br/>
+      <ul>
+        <li>Charte graphique personnalisable</li>
+        <li>Site communautaire</li>
+        <li>Forums de discussion</li>
+      </ul>
+      <table>
+        <tr>
+          <td><a href="/services.html" class="moreinfo">En savoir plus >></a></td>
+        </tr>
+      </table>
+    </p>
+  </div>
+	<div class="bloc_fiche">
+		<h3 class="nom-asso">BIENVENUE</h3>	
+		<p>
+			Vous voulez mettre vos compétences ou votre disponibilité au service d' une ou plusieurs associations.<br/><br/>
+			Vous souhaitez vous distraire, échanger, vous défouler, découvrir votre environnement culturel ou géographique, ou tout simplement sortir de l'isolement.<br/><br/>
+			Dans le cadre d'une recherche vous souhaitez avoir une une vue d'ensemble sur le tissu associatif de votre commune ou de l'ensemble du département.
+		</p>
+		<p class="emphase">
+			L'annuaire des associations de la Guadeloupe répond à ces besoins
+		</p>
+		<p>
+			<b>Evolutif par sa conception, gratuit pour les associations et gratuit pour les visiteurs, il vous permettra de vous faire connaître mais aussi de faciliter vos recherches de partenariat.</b>
+		</p>
+	
+	
+		<a href="/recherches/new" class="accueil"><img src="/images/invit-1.gif" border="0"></a>
+		<a href="/associations/inscription" class="accueil"><img src="/images/invit-2.gif" border="0"></a><br/>
+		<p align="center">
+		<table cellpadding="0" cellspacing="0"><tr><td align=center><a href="http://www.free-counter.com/"><img src="http://www.free-counter.com/counter.php?b=86604" border="0" alt="Search Engine Optimisation"></a><br><a style="font-size:12" href="http://www.comcorp.com/search-engine-optimization.html">Search Engine Optimisation</a></td></tr></table>
+		</p>
+	</div>
+	<div class="annonces">
+		
+	</div>
+</div>
+<% end %>

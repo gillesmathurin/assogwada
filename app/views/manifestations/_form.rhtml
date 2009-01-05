@@ -1,0 +1,63 @@
+<table border="0" cellspacing="5" cellpadding="5">
+	<tr>
+		<td><b>Nom :</b></td>
+		<td><%= f.text_field :nom %></td>
+	</tr>
+	<tr>
+		<td><b>Lieu de la manifestation :</b></td>
+		<td><%= f.text_field :lieu %></td>
+	</tr>
+	<tr>
+		<td><b>Nature de la manifestation :</b></td>
+		<td><%= f.text_field :nature %></td>
+	</tr>
+	<tr>
+		<td><b>Public :</b></td>
+		<td>
+		<%= select_tag "spectateurs[]", options_for_select(Manifestation::SPECTATEUR), {:multiple => true} %>
+		<%= select_tag "spectages[]", options_for_select(Manifestation::PUBLIC_AGE), {:multiple => true} %>
+		</td>
+		
+	</tr>
+	<tr>
+		<td><b>Manifestation gratuite ?</td>
+		<td>
+			<div onclick="$('prix').hide();">Oui : <%= f.radio_button :gratuit, true %></div>
+			<div onclick="$('prix').show();">Non : <%= f.radio_button :gratuit, false %></div>
+		</td>
+	</tr>
+	<tr id="prix", style="display: none">
+		<td><b>Prix :</b></td>
+		<td><%= f.text_field :prix, :size => 10 %> <b>€</b> / "Ex : 25"</td>
+	</tr>
+	<tr>
+		<td valign="top"><b>Modalilté inscription :</b></td>
+		<td><%= f.text_area :modalite_inscription, :rows => 10 %></td>
+	</tr>
+	<tr>
+		<td valign="top"><b>Infos sup :</b></td>
+		<td><%= f.text_area :infos_sup, :rows => 10 %></td>
+	</tr>
+	<tr>
+		<td><b>Nom du responsable :</b></td>
+		<td><%= f.text_field :nom_resp %></td>
+	</tr>
+	<tr>
+		<td><b>Coordonnées du responsable :</b></td>
+		<td><%= f.text_field :coordonees %></td>
+	</tr>
+	<tr>
+		<td><b>Partenaires :</b></td>
+		<td><%= f.text_area :partenaires, :rows => 5 %></td>
+	</tr>
+</table>
+<p>
+	<fieldset>
+		<legend><b>Spécifier le planning de la manifestation</b></legend>
+		<p style="color: red"><b>Veuillez re-spécifier le planning en cas de mise à jour.</b></p>
+		<div id="planning_manifs">	
+		<%= render :partial => 'planning', :collection => @manifestation.planning_manifs %>
+		</div>
+		<%= ajout_planning_manif "Ajouter un jour de manifestation" %>
+	</fieldset>
+</p>

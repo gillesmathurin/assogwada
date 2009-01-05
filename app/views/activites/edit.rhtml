@@ -1,0 +1,29 @@
+<div id="side-colonne">
+	<div class="topsidemenu">
+		&nbsp;		
+	</div>
+	<div class="side-menu">
+		<%= render :partial => 'shared/sidecolonne' %>
+	</div>
+	<div id="bottomsidemenu">
+		&nbsp;
+	</div>
+</div>
+
+<div id="colonne1">
+	<h2 class="ficheid">Modifier une activité</h2>
+
+	<%= error_messages_for :activite %>
+
+	<% form_for(:activite, :url => association_activite_path(@association, @activite), :html => { :method => :put }) do |f| %>
+
+	<%= render :partial => 'form', :locals => { :f => f } %>
+
+	  <p>
+	    <%= submit_tag "Enregistrer modifications" %>
+	  </p>
+	<% end %>
+
+	<%= link_to 'Retour à la fiche', association_path(@association) %> |
+	<%= link_to 'Retour à la liste des activités', association_activites_path(@association) %>
+</div>

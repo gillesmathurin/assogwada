@@ -1,0 +1,42 @@
+<div id="colonne1">
+	<h2 class="ficheid">Salariés de <%= h @association.nom %> </h2>
+<% unless @association.salaries.empty? %>
+	<table border="0", cellspacing="0", cellpadding="0">
+	  <tr>
+	    <td class="entete-2">Poste</td>
+	    <td class="entete-2">Sexe</td>
+	    <td class="entete-2">Contrat classique</td>
+	    <td class="entete-2">Contrat aidé</td>
+		<td class="entete-2" colspan="2">Actions</td>
+	  </tr>
+
+	<% for salarie in @salaries %>
+	  <tr>
+	    <td><%=h salarie.poste %></td>
+	    <td><%=h salarie.sexe %></td>
+	    <td><%=h salarie.contrat_classique %></td>
+	    <td><%=h salarie.contrat_aide %></td>
+	    <td><%= link_to 'Modifier', edit_association_salarie_path(salarie.association, salarie) %></td>
+	    <td><%= link_to 'Supprimer', association_salarie_path(salarie.association, salarie), :confirm => 'êtes vous sur ?', :method => :delete %></td>
+	  </tr>
+	<% end %>
+	</table>
+<% else %>
+	<p>Il n'y pas de salariés enregistrés pour <%= h @association.nom %></p>
+<% end %>
+
+<p><%= link_to 'Ajouter un salarié', new_association_salarie_path(@association) %></p>
+<p><%= link_to 'Retour à la fiche', association_path(@association) %></p>
+</div>
+
+<div id="side-colonne">
+	<div class="topsidemenu">
+		&nbsp;		
+	</div>
+	<div class="side-menu">
+		<%= render :partial => 'shared/sidecolonne' %>
+	</div>
+	<div id="bottomsidemenu">
+		&nbsp;
+	</div>
+</div>

@@ -1,0 +1,21 @@
+<% if @association %>
+<p>
+	Nom du dispositif : <%= @dispositif.nom %>
+</p>
+
+<p>
+	Association : <%= @association.nom %>
+</p>
+<%= link_to 'Modifier', edit_association_dispositif_path(@association,@dispositif) %> |
+<%= link_to 'Retour', association_dispositifs_path(@association) %>
+
+<% else %>
+
+<p>
+	Nom du dispositif : <%= @dispositif.nom %>
+</p>
+
+<%= link_to 'Modifier', edit_dispositif_path(@dispositif) %> |
+<%= link_to 'Retour', dispositifs_path() %>
+
+<% end %>

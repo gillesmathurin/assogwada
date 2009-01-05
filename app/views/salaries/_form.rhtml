@@ -1,0 +1,19 @@
+<table border="0" cellspacing="5" cellpadding="5">
+	<tr>
+		<td><b>Poste</b></td>
+		<td><%= f.text_field :poste %></td>
+	</tr>
+	<tr>
+		<td><b>Sexe</b></td>
+		<td><%= f.select :sexe, Salarie::SEXE, { :prompt => "Sélectionner le sexe"} %></td>
+	</tr>
+	<tr>
+		<td><b>Contrat classique</b></td>
+		<td><%= f.select :contrat_classique, Salarie::CONTRAT_CLASSIQUE, { :prompt => "Sélectionner un type de contrat" } %></td>
+	</tr>
+	<tr>
+		<td><b>Contrat aidé</b></td>
+		<td><%= f.text_field :contrat_aide %></td>
+	</tr>
+</table>
+

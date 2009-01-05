@@ -1,0 +1,164 @@
+
+<p>
+	<fieldset>
+  	<legend>President</legend>
+		<%= error_messages_for :president %>
+		<% fields_for :president do |p| %>
+			<table border="0" cellspacing="5" cellpadding="5">
+				<tr>
+					<td>Nom : <%= p.text_field :nom %></td>
+					 <td>Prenom : <%= p.text_field :prenom %></td>
+				</tr>
+				<tr>
+					<td>Tel : <%= p.text_field :telephone %></td>
+					<td>Port : <%= p.text_field :mobile %></td>
+				</tr>
+				<tr>
+					<td>Sexe : <%= p.select :sexe, Membre::SEXE, {:prompt => "sélectionner le genre"} %></td>
+					<td>Tranche d'âge : <%= p.select :tranche_age, Membre::TRANCHE_AGE, {:prompt => "sélectionner une tranche d'âge"} %></td>
+				</tr>
+			</table>
+		<% end %>
+  </fieldset>  	
+</p>
+
+<p>
+	<fieldset>
+  	<legend>Vice Président</legend>
+		<%= error_messages_for :vice_president %>
+		<% fields_for :vice_president do |p| %>
+			<table border="0" cellspacing="5" cellpadding="5">
+				<tr>
+					<td>Nom : <%= p.text_field :nom %></td>
+					 <td>Prenom : <%= p.text_field :prenom %></td>
+				</tr>
+				<tr>
+					<td>Tel : <%= p.text_field :telephone %></td>
+					<td>Port : <%= p.text_field :mobile %></td>
+				</tr>
+				<tr>
+					<td>Sexe : <%= p.select :sexe, Membre::SEXE, {:prompt => "sélectionner le genre"} %></td>
+					<td>Tranche d'âge : <%= p.select :tranche_age, Membre::TRANCHE_AGE, {:prompt => "sélectionner une tranche d'âge"} %></td>
+				</tr>
+			</table>			
+		<% end %>
+  </fieldset>  	
+</p>
+
+<p>
+	<fieldset>
+  	<legend>Second Vice President</legend>
+		<% fields_for :sec_vp do |p| %>
+			<table border="0" cellspacing="5" cellpadding="5">
+				<tr>
+					<td>Nom : <%= p.text_field :nom %></td>
+					 <td>Prenom : <%= p.text_field :prenom %></td>
+				</tr>
+				<tr>
+					<td>Tel : <%= p.text_field :telephone %></td>
+					<td>Port : <%= p.text_field :mobile %></td>
+				</tr>
+				<tr>
+					<td>Sexe : <%= p.select :sexe, Membre::SEXE, {:prompt => "sélectionner le genre"} %></td>
+					<td>Tranche d'âge : <%= p.select :tranche_age, Membre::TRANCHE_AGE, {:prompt => "sélectionner une tranche d'âge"} %></td>
+				</tr>
+			</table>
+		<% end %>
+  </fieldset>  	
+</p>
+
+<p>
+	<fieldset>
+  	<legend>Tresorier</legend>
+		<% fields_for :tresorier do |p| %>
+			<table border="0" cellspacing="5" cellpadding="5">
+				<tr>
+					<td>Nom : <%= p.text_field :nom %></td>
+					 <td>Prenom : <%= p.text_field :prenom %></td>
+				</tr>
+				<tr>
+					<td>Tel : <%= p.text_field :telephone %></td>
+					<td>Port : <%= p.text_field :mobile %></td>
+				</tr>
+				<tr>
+					<td>Sexe : <%= p.select :sexe, Membre::SEXE, {:prompt => "sélectionner le genre"} %></td>
+					<td>Tranche d'âge : <%= p.select :tranche_age, Membre::TRANCHE_AGE, {:prompt => "sélectionner une tranche d'âge"} %></td>
+				</tr>
+			</table>
+		<% end %>
+  </fieldset>  	
+</p>
+
+<p>
+	<fieldset>
+  	<legend>Tresorier adjoint</legend>
+		<% fields_for :tre_adjoint do |p| %>
+			<table border="0" cellspacing="5" cellpadding="5">
+				<tr>
+					<td>Nom : <%= p.text_field :nom %></td>
+					 <td>Prenom : <%= p.text_field :prenom %></td>
+				</tr>
+				<tr>
+					<td>Tel : <%= p.text_field :telephone %></td>
+					<td>Port : <%= p.text_field :mobile %></td>
+				</tr>
+				<tr>
+					<td>Sexe : <%= p.select :sexe, Membre::SEXE, {:prompt => "sélectionner le genre"} %></td>
+					<td>Tranche d'âge : <%= p.select :tranche_age, Membre::TRANCHE_AGE, {:prompt => "sélectionner une tranche d'âge"} %></td>
+				</tr>
+			</table>
+		<% end %>
+  </fieldset>  	
+</p>
+
+<p>
+	<fieldset>
+  	<legend>Secretaire</legend>
+		<% fields_for :secretaire do |p| %>
+			<table border="0" cellspacing="5" cellpadding="5">
+				<tr>
+					<td>Nom : <%= p.text_field :nom %></td>
+					 <td>Prenom : <%= p.text_field :prenom %></td>
+				</tr>
+				<tr>
+					<td>Tel : <%= p.text_field :telephone %></td>
+					<td>Port : <%= p.text_field :mobile %></td>
+				</tr>
+				<tr>
+					<td>Sexe : <%= p.select :sexe, Membre::SEXE, {:prompt => "sélectionner le genre"} %></td>
+					<td>Tranche d'âge : <%= p.select :tranche_age, Membre::TRANCHE_AGE, {:prompt => "sélectionner une tranche d'âge"} %></td>
+				</tr>
+			</table>
+		<% end %>
+  </fieldset>  	
+</p>
+
+<p>
+	<fieldset>
+  	<legend>Secretaire adjoint</legend>
+		<% fields_for :secretaire_adjoint do |p| %>
+			<table border="0" cellspacing="5" cellpadding="5">
+				<tr>
+					<td>Nom : <%= p.text_field :nom %></td>
+					 <td>Prenom : <%= p.text_field :prenom %></td>
+				</tr>
+				<tr>
+					<td>Tel : <%= p.text_field :telephone %></td>
+					<td>Port : <%= p.text_field :mobile %></td>
+				</tr>
+				<tr>
+					<td>Sexe : <%= p.select :sexe, Membre::SEXE, {:prompt => "sélectionner le genre"} %></td>
+					<td>Tranche d'âge : <%= p.select :tranche_age, Membre::TRANCHE_AGE, {:prompt => "sélectionner une tranche d'âge"} %></td>
+				</tr>
+			</table>
+		<% end %>
+  </fieldset>  	
+</p>
+
+	<fieldset>
+  	<legend>Membres du CA</legend>
+		<div id="membres">
+		<%= render :partial => 'membre', :collection => @membres %>
+		</div>
+		<%= lien_ajout_membre "Ajouter un membre au conseil d'administration" %>
+  </fieldset>

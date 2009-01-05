@@ -1,0 +1,51 @@
+<% unless @associations.nil? || @associations.empty? %>
+	<h3 class="nb-resultat"><%= @associations.size %> résultat(s).</h3>
+
+	<%# for association in @associations %>
+		<!-- <ul>
+			<li>
+				<%# link_to association.nom , recherch_path(association.id) %><br/>
+				Ville : <%# association.ville %><br/>
+				Champs d'intervention :<br/>
+				<%# for ci in association.champ_interventions %>
+				 	- <%# ci.nom %> <br/>
+				<%# end %>
+			</li>			
+		</ul> -->
+	<%# end %>
+	
+	<table class="resultats">
+		<tr>
+			<td class="entete-2">Nom</td>
+			<td class="entete-2">Ville</td>
+			<td class="entete-2">Champs d'intervention</td>
+		</tr>
+		<% for association in @associations %>
+		<tr>
+			<td><%= link_to association.nom, recherch_path(association.to_param) %></td>
+			<td><%= association.ville %></td>
+			<td>
+				<% for ci in association.champ_interventions %>
+				 	<%= ci.nom %> <br/>
+				<% end %>
+			</td>
+		</tr>
+		<% end %>
+	</table>
+
+	<% if logged_in? %>
+		<% unless @associations.empty? %>
+		<p id="export-button" align="center">
+			<%= link_to "<< Export CSV Résultats >>", formatted_export_result_recherches_path(:csv) %><br/>
+		</p>
+		<p id="export-button" align="center">
+			<%= link_to "<< Export Excel Résultats >>", export_excel_recherches_url %>
+		</p>
+		<% end %>
+	<% end %>
+
+<% else %>
+
+	<h3 class="zero-resultat">Aucun résultat</h3>
+
+<% end %>

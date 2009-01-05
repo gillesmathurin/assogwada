@@ -1,0 +1,708 @@
+html {
+}
+
+body { 
+	background: white none repeat-x left;
+	color: #4C4C4C;
+	font: 14px/1.5em "Lucida Grande", Lucida, Verdana, sans-serif;
+	height: 100%;
+	min-height:910px;
+	margin-right: auto;
+	margin-left: auto;
+	width: 950px;
+}
+
+p { 	
+	font-size: 13px;
+}
+
+.index {
+	background-color: #216dff;
+	color: white;
+	padding-left: 10px;
+	margin-top: 10px;
+}
+
+h3 { 	
+	font-size: 15px;
+	font-weight: bold;
+	padding: 5px;
+}
+
+h2 {
+	padding: 5px;
+	text-align: center;
+}
+
+a {
+	color: purple;
+}
+
+a:hover {
+	color: orange;
+}
+
+#contenu {
+	width: 925px;
+	margin-right: auto;
+	margin-left: auto;
+	position: static;
+	height: 100%;
+	background-color: white;
+}
+
+/* @group Header */
+
+#header {
+	position: relative;
+}
+
+#header #LogoTitre {
+	color: #fff;
+	text-align: left;
+	letter-spacing: 1px;
+	top: 0;
+	display: block;
+	font-size: 0.85em;
+	background: url(../images/logobckg.jpg) no-repeat left top;
+	height: 102px;
+	width: 925px;
+	position: relative;
+}
+
+#header #LogoTitre img.logo {
+	float: left;
+	margin-right: 15px;
+}
+
+#header #LogoTitre em {
+	font-size: 13px;
+}
+
+#header #LogoTitre p {
+	margin-top: 2px;
+}
+
+#header #LogoTitre p.sous-titre {
+	text-indent: 5px;
+}
+
+/* Barre De Menu */
+
+#header div.menubar {
+	width: 915px;
+	text-align: left;
+	display: block;
+	position: relative;
+	font: 13px/35px "Lucida Grande", Lucida, Verdana, sans-serif;
+	background: url(../images/BarreMenu.gif) no-repeat left top;
+	height: 37px;
+	margin-left: 3px;
+	margin-top: -5px;
+}
+
+#header div.menubar ul {
+	display: block;
+	height: 35px;
+	line-height: 35px;
+}
+
+#header div.menubar li {
+	position: relative;
+	text-align: center;
+	display: inline;
+}
+
+#header div.menubar li.accueil {
+	margin-left: 25px;
+	margin-right: 125px;
+}
+
+#header div.menubar li.accueil a {
+	color: purple;
+	text-decoration: none;
+}
+
+#header div.menubar li.accueil a:hover {
+	color: #3880be;
+	text-decoration: underline;
+}
+
+#header div.menubar li.recherche  {
+	margin-right: 70px;
+}
+
+#header div.menubar li.recherche a {
+	color: purple;
+	text-decoration: none;
+}
+
+#header div.menubar li.recherche a:hover {
+	color: #3880be;
+	text-decoration: underline;
+}
+
+#header div.menubar li.inscription {
+	margin-right: 70px;
+}
+
+#header div.menubar li.inscription a {
+	color: purple;
+	text-decoration: none;
+}
+
+#header div.menubar li.inscription a:hover {
+	color: #3880be;
+	text-decoration: underline;
+}
+
+#header div.menubar li.services {
+	margin-right: 90px;
+}
+
+#header div.menubar li.services a {
+	color: purple;
+	text-decoration: none;
+}
+
+#header div.menubar li.services a:hover {
+	color: #3880be;
+	text-decoration: underline;
+}
+
+#header div.menubar li.admin {
+}
+
+#header div.menubar li.admin a {
+	color: purple;
+	text-decoration: none;
+}
+
+#header div.menubar li.admin a:hover {
+	color: #3880be;
+	text-decoration: underline;
+}
+
+/* @end */
+
+/* Section ou s'affichera les différentes vues */
+
+/* @group Main */
+
+#main {
+	margin-top: 10px;
+	margin-right: auto;
+	margin-left: auto;
+	height: 100%;
+	min-height: 100%;
+	background-color: white;
+}
+
+#main p.flash-notice {
+	color: navy;
+	width: 800px;
+	height: auto;
+	margin-right: auto;
+	margin-left: auto;
+	background-color: #d7e8f5;
+	border: 2px solid navy;
+	display: block;
+	text-align: center;
+}
+
+#colonne1 p.notice {
+	padding: 10px;
+	background-color: #fff0a5;
+	border: 1px dashed red;
+	font-weight: bold;
+	color: black;
+	text-align: center;
+}
+
+#main .shadow2, #main .shadow3, #main .yield {
+	position: relative;
+	left: -1px;
+	top: -1px;
+}
+
+#main .shadow1 {
+	background-color: #F1F0F1;
+}
+
+#main .shadow2 {
+	background-color: #DBDADB;
+}
+
+#main .shadow3 {
+	background-color: #B8B6B8;
+}
+
+#main .yield {
+	top: 0;
+	padding: 10px;
+	display: block;
+	position: relative;
+	min-height: 750px;
+	height: 150%;
+	background-color: #f6f6f6;
+	border-left: 1px solid silver;
+	border-top: 1px solid silver;
+}
+
+.yield #colonne1 {
+	position: relative;
+	width: 650px;
+	left: 240px;
+	display: block;
+	top: -11px;
+}
+
+.yield img.illus {
+	float: left;
+	margin-right: 40px;
+	border: 1px solid gray;
+	margin-bottom: 15px;
+}
+
+.yield p.service {
+	font-size: 15px;
+	display: block;
+	line-height: 30px;
+	margin-bottom: 30px;
+}
+
+.yield a.accueil {
+	padding-bottom: 5px;
+	color: #f2f2f2;
+	letter-spacing: 2px;
+	text-align: center;
+	padding-top: 5px;
+	background: none no-repeat center;
+	margin-top: 10px;
+	font-size: 18px;
+	text-shadow: black 0 1px 1px;
+	display: block;
+	text-decoration: none;
+}
+
+.yield p.emphase {
+	background-image: url(../images/emphase.gif);
+	display: block;
+	text-align: left;
+	width: 600px;
+	height: 55px;
+	line-height: 50px;
+	font-size: 14px;
+	color: maroon;
+	margin-right: auto;
+	margin-left: auto;
+	text-indent: 55px;
+}
+
+.yield a.accueil:hover {
+	padding-bottom: 5px;
+	color: yellow;
+	letter-spacing: 2px;
+	text-align: center;
+	padding-top: 5px;
+	background: url(../images/BckH2.gif) no-repeat center;
+	margin-top: 10px;
+	font-size: 18px;
+	text-shadow: black 0 1px 1px;
+	display: block;
+	text-decoration: none;
+}
+
+.yield div.intro {
+	width: 700px;
+	margin-right: auto;
+	margin-left: auto;
+}
+
+.yield div.intro img {
+	text-align: center;
+	margin-right: auto;
+	margin-left: auto;
+	display: block;
+	text-decoration: none;
+	border: none;
+}
+
+.yield h2.count {
+	color: #ea6925;
+	background-color: white;
+	border: 1px solid black;
+	width: 650px;
+	text-align: center;
+}
+
+.yield h3.nb-resultat {
+	color: #0044c9;
+	width: 300px;
+	margin-right: auto;
+	margin-left: auto;
+	text-align: center;
+	background: url(../images/BckH2-ficheid.gif) no-repeat center top;
+	height: 30px;
+}
+
+.yield h3.zero-resultat {
+	color: red;
+	width: 300px;
+	margin-right: auto;
+	margin-left: auto;
+	background-color: #fee7da;
+	border-style: solid;
+	border-color: black;
+	text-align: center;
+}
+
+.yield ul {
+	display: block;
+	text-indent: 25px;
+}
+
+.yield ul li {
+	list-style-position: inside;
+	list-style-type: disc;
+}
+
+.yield div#spinner {
+	margin-right: auto;
+	margin-left: auto;
+	text-align: center;
+}
+
+.yield #resultats {
+	background-color: white;
+	border: 1px solid silver;
+	padding-left: 10px;
+	margin-top: 20px;
+	padding-bottom: 20px;
+	padding-right: 10px;
+}
+
+div#resultats p#export-button {
+	border: 2px dashed #2748eb;
+	width: 250px;
+	height: 20px;
+	padding: 5px;
+	text-align: center;
+	margin-right: auto;
+	margin-left: auto;
+	display: inline-block;
+	background-color: #f5f282;
+	color: #2748eb;
+}
+
+div#resultats p#export-button a {
+	color: #2748eb;
+	text-decoration: none;
+}
+
+#colonne1 div.bloc_fiche {
+	padding-bottom: 10px;
+	margin-bottom: 10px;
+	margin-top: 10px;
+	background: white url(../images/bck-blocfiche.gif) no-repeat left bottom;
+}
+
+#colonne1 div.bloc_fiche h3 {
+	text-align: center;
+	color: white;
+	border-bottom: 1px solid white;
+	background: url(../images/bckH3-nomasso.gif) no-repeat left top;
+}
+
+#colonne1 div.bloc_fiche h3.nom-asso {
+	text-align: center;
+	color: black;
+	border-bottom: 1px solid white;
+	font-size: 17px;
+	background: url(../images/bckH3-nomasso.gif) no-repeat left top;
+	line-height: 35px;
+}
+
+#colonne1 div.bloc_fiche h3.objetsocial {
+	text-align: center;
+	color: yellow;
+	border-bottom: 1px solid white;
+	font-size: 17px;
+	background: url(../images/bckH3-objetsocial.gif) no-repeat left top;
+	line-height: 35px;
+}
+
+#colonne1 div.bloc_fiche h3.ca {
+	text-align: center;
+	color: yellow;
+	border-bottom: 1px solid white;
+	font-size: 17px;
+	background: url(../images/bckH3-ca.gif) no-repeat left top;
+	line-height: 35px;
+}
+
+#colonne1 div.bloc_fiche h3.contact {
+	text-align: center;
+	color: yellow;
+	border-bottom: 1px solid white;
+	font-size: 17px;
+	background: url(../images/bckH3-contact.gif) no-repeat left top;
+	line-height: 35px;
+}
+
+#colonne1 div.bloc_fiche h3.horaire {
+	text-align: center;
+	color: yellow;
+	border-bottom: 1px solid white;
+	font-size: 17px;
+	background: url(../images/bckH3-horaire.gif) no-repeat left top;
+	line-height: 35px;
+}
+
+#colonne1 div.bloc_fiche h3.activite {
+	text-align: center;
+	color: yellow;
+	border-bottom: 1px solid white;
+	font-size: 17px;
+	background: url(../images/bckH3-activite.gif) no-repeat left top;
+	line-height: 35px;
+}
+
+#colonne1 div.bloc_fiche h3.manif {
+	text-align: center;
+	color: yellow;
+	border-bottom: 1px solid white;
+	font-size: 17px;
+	background: url(../images/bckH3-manif.gif) no-repeat left top;
+	line-height: 35px;
+}
+
+#colonne1 div.bloc_fiche b {
+	color: #154a6e;
+}
+
+#colonne1 div.bloc_fiche p {
+	padding-left: 10px;
+}
+
+#colonne1 div.bloc_fiche p a.infos {
+	color: #8e421f;
+}
+
+h2.ficheid {
+	padding-bottom: 5px;
+	color: #f2f2f2;
+	letter-spacing: 2px;
+	text-align: center;
+	padding-top: 5px;
+	background: url(../images/BckH2.gif) no-repeat center;
+	margin-top: 10px;
+	font-size: 18px;
+	text-shadow: black 0 1px 1px;
+}
+
+.yield table {
+	width: 100%;
+	border-color: gray;
+}
+
+.yield table tr {
+}
+
+.yield table td {
+	padding-left: 10px;
+	color: black;
+	font-size: 13px;
+	width: auto;
+}
+
+.yield table.resultats tr {
+	background-color: #eaf1fb;
+	text-align: center;
+}
+
+.yield table.login {
+	width: 50%;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+.yield #colonne1 form.login p {
+	text-align: center;
+}
+
+.yield td.entete {
+	font: 14px Verdana, sans-serif;
+	background-color: #38aef3;
+	color: white;
+	padding: 5px;
+	width: 40%;
+	text-align: right;
+	vertical-align: top;
+	border-style: none;
+}
+
+.yield td.entete-2 {
+	font: 14px Verdana, sans-serif;
+	background-color: #38aef3;
+	color: white;
+	padding: 5px;
+	vertical-align: top;
+	border-style: none;
+	text-align: center;
+}
+
+div#col-form-recherche {
+	width: 462px;
+	margin-left: 440px;
+	display: block;
+	position: absolute;
+}
+
+div#col-form-recherche p {
+	text-align: center;
+}
+
+div#col-form-recherche form {
+	background: url(../images/BgFormRecherche.gif) no-repeat left top;
+	height: 302px;
+}
+
+div#col-form-recherche form table.recherche {
+	background: transparent;
+}
+	
+div#col-form-recherche form table.recherche tr {
+	background-color: transparent;
+}
+div#col-form-recherche form table td {
+	padding-top: 7px;
+	padding-bottom: 7px;
+	font-weight: bold;
+	border-style: none;
+}
+
+div#col-form-recherche form table td.bouton {
+	padding-top: 5px;
+	padding-bottom: 5px;
+	font-weight: bold;
+	padding-right: 15px;
+}
+
+div#col-form-recherche form table td.nomchamp {
+	padding-top: 5px;
+	padding-bottom: 5px;
+	padding-right: 5px;
+	font-size: 15px;
+	text-align: right;
+	letter-spacing: 1px;
+}
+
+div#col-imagemap {
+	width: 430px;
+}
+
+div#col-imagemap p {
+	width: 430px;
+	text-align: center;
+}
+
+/* @end */
+
+#footer {
+	position: static;
+	text-align: center;
+}
+
+#footer p.cnil {
+	font-size: 10px;
+}
+
+/* Colonne droite */
+
+/* @group Colonne droite */
+
+#side-colonne {
+	position: absolute;
+	width: 200px;
+	font-size: 12px;
+	display: block;
+	margin-top: 7px;
+	margin-left: 10px;
+	top: 10px;
+	line-height: 1.3em;
+}
+
+#side-colonne .topsidemenu {
+	width: 200px;
+	height: 20px;
+	background-image: url(../images/bcktopdiv.png);
+}
+
+#side-colonne .side-menu {
+	color: black;
+	background: white repeat-y;
+	display: block;
+	position: relative;
+	border: 1px solid silver;
+	top: -1px;
+	border-top-style: none;
+	margin-bottom: 15px;
+	padding: 5px;
+}
+
+#side-colonne .side-menu p.logo {
+	text-align: center;
+	margin-left: -10px;
+}
+
+#side-colonne .side-menu p.to_valid {
+	background-color: #fff0a5;
+	padding: 10px;
+	text-align: left;
+	border: 1px dashed orange;
+	font-weight: bold;
+}
+
+#side-colonne .side-menu p.export_csv {
+	color: white;
+	background-color: #fff0a5;
+	border: 1px dashed #2b8cff;
+	padding: 5px;
+	font-style: italic;
+}
+
+.actions-fiche, .locaux, .activités, .manifestations, .conseil, .besoins_humains, .besoins_materiels, .convpluri, .agrement, .dispositifs {
+	border-bottom: 1px solid silver;
+	margin-right: 10px;
+}
+
+#side-colonne #bottomsidemenu {
+	position: relative;
+	top: -15px;
+	background-repeat: no-repeat;
+}
+
+#side-colonne #side-menu a {
+	color: #1b679c;
+	text-decoration: none;
+	font-weight: bold;
+}
+
+#side-colonne #side-menu a:hover {
+	text-decoration: underline;
+}
+
+#side-colonne #side-menu1 {
+	
+}
+
+#side-colonne #side-menu2 {
+	
+}
+
+/* @end */
+
+#colonne1 em {
+	color: red;
+}

@@ -1,0 +1,29 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+one:
+  id: 1
+  nom: MyString
+  prenom: MyString
+  telephone: MyString
+  mobile: MyString
+  fax: MyString
+  is_contact: false
+  sexe: MyString
+  tranche_age: MyString
+  email: MyString
+  type: 
+  dbt_presence: 2007-09-24 09:29:20
+  fin_presence: 2007-09-24 09:29:20
+two:
+  id: 2
+  nom: MyString
+  prenom: MyString
+  telephone: MyString
+  mobile: MyString
+  fax: MyString
+  is_contact: false
+  sexe: MyString
+  tranche_age: MyString
+  email: MyString
+  type: 
+  dbt_presence: 2007-09-24 09:29:20
+  fin_presence: 2007-09-24 09:29:20

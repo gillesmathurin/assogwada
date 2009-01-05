@@ -1,0 +1,17 @@
+<h1>Modifier la fiche de l'association</h1>
+
+<%= error_messages_for :association %>
+
+<% form_for(:association, :url => association_path(@association), :html => { :method => :put }) do |f| %>
+
+  <%= render :partial => 'form', :locals => { :f => f } %>
+
+  <p>
+    <%= submit_tag "Enregistrer" %>
+  </p>
+<% end %>
+
+<%= link_to 'Voir la fiche', association_path(@association) %> |
+<% if logged_in? %>
+<%= link_to 'Retour au listing des associations', associations_path %>
+<% end %>

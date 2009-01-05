@@ -1,0 +1,170 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+  <head>
+    <meta http-equiv="Content-type" content="text/html; charset=utf-8" />
+    <title>Annuaire des Associations</title>
+	<link href="/stylesheets/base.css" media="screen" rel="Stylesheet" type="text/css" />
+	<script type="text/javascript" src="javascripts/prototype.js"></script>
+    <script type="text/javascript" src="javascripts/effects.js"></script>
+  	<script type="text/javascript">
+
+	function newImage(arg) {
+		if (document.images) {
+			rslt = new Image();
+			rslt.src = arg;
+			return rslt;
+		}
+	}
+
+	function changeImages() {
+		if (document.images && (preloadFlag == true)) {
+			for (var i=0; i<changeImages.arguments.length; i+=2) {
+				document[changeImages.arguments[i]].src = changeImages.arguments[i+1];
+			}
+		}
+	}
+
+	var preloadFlag = false;
+	function preloadImages() {
+		if (document.images) {
+			Layout_Accueil_over = newImage("images/Layout_Accueil-over.png");
+			Layout_RECHERCHER_over = newImage("images/Layout_RECHERCHER-over.png");
+			Layout_SE_REFERENCER_over = newImage("images/Layout_SE-REFERENCER-over.png");
+			Layout_Administration_over = newImage("images/Layout_Administration-over.png");
+			preloadFlag = true;
+		}
+	}
+
+	</script>
+  </head>
+
+<body onload="preloadImages();">
+	<div id="contenu">
+		<div id="header">
+			<div id="LogoTitre">
+					<!-- <img src="/images/Logo2.gif" class="logo"> -->
+					<!-- <h1>Guadeloupe Asso Annuaire</h1> -->
+					<!-- <p><img src="/images/Titre_Site.gif"></p> -->
+					<!-- <p class="sous-titre"><strong>L'annuaire des associations de la Guadeloupe</strong></p> -->
+			</div>
+			<!-- Menu principal -->
+			<div class="menubar">
+				<ul>
+					<li class="accueil"><a href="/associations/accueil">Accueil</a></li>
+					<li class="recherche"><a href="/recherches/new">Recherche</a></li>
+					<li class="inscription"><a href="/associations/inscription">Inscrire son association</a></li>
+					<li class="services"><a href="/services.html">Nos Services</a></li>
+					<li class="admin"><a href="/associations">Administration</a></li>
+				</ul>
+			</div>
+		</div>
+		
+		<div id="main">
+			<div class="shadow1">
+				<div class="shadow2">
+				<div class="shadow3">				
+				<div class="yield">
+					<!-- <div id="colonne1">								 -->
+						<h2 class="ficheid">NOS SERVICES</h2>
+						
+						<p><img src="/images/bt-creasite.png"></p>
+						<img src="/images/pageweb.gif" class="illus">						
+						<div class="service">
+							<span class="div_title">Créer votre propre communauté sur le web !</span><br/>
+							<ul>
+							  <li>Partagez votre passion et vos centres d'intérêts,</li>
+							  <li>Informez de vos activités.</li>
+							  <li>Multipliez vos échanges</li>
+							  <li>Elargissez votre cercle de connaissance </li>
+							</ul>
+							<p>
+               <a href="http://agouti.guadeloupe-asso.fr", target="new"><img src="/images/bt-liendemo.png"></a> <a href="/demande_abonnement"><img src="/images/bt-abonnement.png"></a>
+							</p>
+						</div>
+						
+						<div class="serv_desc">
+						  <p>Accessible à une adresse de type "nomassociation.guadeloupe-asso.fr" et apparaissant en lien dans les résultats de recherche l'internaute retrouvera :</p>
+  						<ul class="service">
+  							<li>Une charte graphique conforme à votre logo et à vos activités*</li>
+  							<li>Une page de présentation de votre association (A propos)</li>
+  							<li>Les comptes-rendus de vos activités par articles (blogs)</li>
+  							<li>Des galeries de photos (pour chaque membre)</li>
+  							<li>Des annonces</li>
+  							<li>Un forum de discussion</li>
+  							<li>Le profil des membres.</li>
+  						</ul>
+  						<p>
+  						  <b>Vous pourrez gérer vous-même le contenu de votre site, grâce à l'interface d'administration intégrée</b> et profiterez aussi des avantages suivants : 
+  						  <ul>
+  						    <li>Pas de frais d'hébergement</li>
+  						    <li>Pas de frais de nom de domaine</li>
+  						  </ul>
+  						</p>
+
+  						<p class="note">* le site est conforme à un modèle aux fonctionnalités prédéfinies mais à la charte graphique adaptable.</p>
+						</div>
+						
+						<div class="tarif_serv">
+						  <p align="center"><span class="div_title">Un tarif associatif !</span></p>
+						  
+  						  <table id="tableau_tarifs" border="0">
+  						    <tr class="entete">
+  						      <th>Année 1</th>
+  						      <th>Années suivantes</th>
+  						    </tr>
+  						    <tr class="corps">
+  						      <td><p>
+  						        <img src="/images/prixdedepart.png"><br/>
+  						        
+  						          </p>
+  						      </td>
+  						      <td><img src="/images/prix-abonnement.png"><br/></td>
+  						    </tr>
+  						    <tr class="corps">
+  						      <td><b>Mise en place</b> <br/>+<br/> <b>Abonnement annuel</b></td>
+  						      <td><b>Abonnement</b></td>
+  						    </tr>
+  						    <tr class="corps">
+  						      <td colspan="2"><b>Délai de mise en place : 2 semaines</b></td>
+  						    </tr>
+  						  </table>
+  						  <p align="center">
+  						    <a href="/demande_abonnement"><img src="/images/bt-abonnement.png"></a>
+  						  </p>
+
+						  <p align="center">
+						    <a href="cgs.html">Conditions Générales de Service</a> | <a href="/CGS-CreaSiteAsso.pdf">Version PDF (clic droit pour télécharger)</a><br/>
+                <!-- <a href="">Brochure PDF</a> -->
+						  </p>
+						</div>
+						
+            <!-- <h3 style="color:navy">LA MISE A JOUR DES ACTIVITES ET MANIFESTATIONS</h3>
+              <p>L'abonnement à ce service sera proposé dans les prochaines semaines.</p> -->
+							
+						<!-- <h3 style="color:navy">DES OFFRES COMMERCIALES RESERVEES AU SECTEUR ASSOCIATIF</h3> -->
+					<!-- </div> -->
+					<!-- <div id="side-colonne"> -->
+						
+					<!-- </div> -->
+				</div>
+				</div>
+				</div>
+			</div>
+			
+			<div id="footer">
+				<table border="0" cellspacing="5" cellpadding="5" align="center" width="100%">
+					<tr>
+						<td><img src="/images/Logo-DDJS.gif"></td>
+						<td><img src="/images/Logo-club1901.gif"></td>
+						<td><img src="/images/Logo-agouti.gif"></td>						
+					</tr>
+				</table>
+				<p><a href="#">Agouti</a> ©2007 : tous droits réservé | WebDesign : GM</p>
+			</div>
+		</div>
+		
+
+	</div>
+</body>
+</html>

@@ -1,0 +1,93 @@
+<div>
+	<!-- <h2 class="ficheid">Trouvez les associations par Ville ou Critères</h2> -->
+</div>
+<div id="col-form-recherche">
+	<strong>Recherche par criteres</strong>	
+	
+	<% remote_form_for :rechercher, :url => recherches_path(), :before => "Element.show('spinner');", :complete => "Element.hide('spinner');" do |f| %>
+		<table border="0" cellspacing="0" cellpadding="0" class="recherche">
+			<tr>
+				<td class="nomchamp">Qui ?</td>
+				<td><%= f.text_field :keywords, :size => 30 %></td>
+			</tr>
+			<tr>
+				<td class="nomchamp">Ou ?</td>
+				<td><%= f.select(:ville, (Association::VILLE), :include_blank => true) %></td>
+			</tr>
+			<tr>
+				<td class="nomchamp">Quoi ?</td>
+				<td><%= f.select(:ci, (@ci_liste), :include_blank => true ) %></td>
+			</tr>
+			<tr>
+				<td class="">&nbsp;</td><td> &nbsp; &nbsp; ou</td>
+			</tr>
+			<tr>
+				<td class="nomchamp">Quoi d'autre ?</td>
+				<td><%= f.select(:ci2, (@ci_liste), :include_blank => true ) %></td>
+			</tr>
+			<tr>
+				<td class="nomchamp">Activites ?</td>
+				<td><%= f.text_field(:activite, :size => 30) %></td>
+			</tr>
+			<tr>
+				<td class="nomchamp">Manifestations ?</td>
+				<td><%= f.text_field(:manifestation, :size => 30) %></td>
+			</tr>
+			<tr>
+				<td colspan="2" align="right" class="bouton">
+					<%= submit_tag "TROUVEZ" %>
+				</td>
+			</tr>
+		</table>
+	<% end %>
+
+</div>
+
+<div id="col-imagemap">
+	<strong>Recherche par commune</strong>
+	<img src="/images/guadeloupe_imagemap.png" width="430" height="300" border="0" alt="" usemap="#guadeloupe_imagemap_Map">
+	<map name="guadeloupe_imagemap_Map">
+	<area shape="rect" alt="Capesterre MG" coords="277,244,311,265" href="#" onClick="new Ajax.Updater('', 'commune/Capesterre de Marie Galante', {asynchronous:true, evalScripts:true}); return false;" >
+	<area shape="rect" alt="Grand-Bourg" coords="240,252,262,273" href="#" onClick="new Ajax.Updater('', 'commune/Grand Bourg', {asynchronous:true, evalScripts:true}); return false;">
+	<area shape="rect" alt="St Louis" coords="234,227,260,243" href="#" onClick="new Ajax.Updater('', 'commune/Saint Louis', {asynchronous:true, evalScripts:true}); return false;">
+	<area shape="rect" alt="Terre de Haut" coords="144,256,166,274" href="#" onClick="new Ajax.Updater('', 'commune/Terre de Haut', {asynchronous:true, evalScripts:true}); return false;">
+	<area shape="rect" alt="Petite Anse" coords="112,266,135,283" href="#" onClick="new Ajax.Updater('', 'commune/Terre de Bas', {asynchronous:true, evalScripts:true}); return false;">
+	<area shape="rect" alt="Marigot" coords="268,12,287,33" href="#" onClick="new Ajax.Updater('', 'commune/Saint Martin', {asynchronous:true, evalScripts:true}); return false;">
+	<area shape="rect" alt="Gustavia" coords="353,26,375,46" href="#" onClick="new Ajax.Updater('', 'commune/Saint Barthélémy', {asynchronous:true, evalScripts:true}); return false;">
+	<area shape="rect" alt="Beausejour" coords="334,89,363,112" href="#" onClick="new Ajax.Updater('', 'commune/Désirade (La)', {asynchronous:true, evalScripts:true}); return false;">
+	<area shape="rect" alt="Le moule" coords="229,81,249,100" href="#" onClick="new Ajax.Updater('', 'commune/Moule (Le)', {asynchronous:true, evalScripts:true}); return false;">
+	<area shape="rect" alt="St Francois" coords="258,115,278,134" href="#" onClick="new Ajax.Updater('', 'commune/Saint François', {asynchronous:true, evalScripts:true}); return false;">
+	<area shape="rect" alt="Ste Anne" coords="224,116,245,136" href="#" onClick="new Ajax.Updater('', 'commune/Sainte Anne', {asynchronous:true, evalScripts:true}); return false;" >
+	<area shape="rect" alt="Le gosier" coords="198,127,217,147" href="#" onClick="new Ajax.Updater('', 'commune/Gosier (Le)', {asynchronous:true, evalScripts:true}); return false;">
+	<area shape="rect" alt="Capesterre belle eau" coords="152,191,202,206" href="#" onClick="new Ajax.Updater('', 'commune/Capesterre Belle Eau', {asynchronous:true, evalScripts:true}); return false;">
+	<area shape="rect" alt="Goyave" coords="142,166,188,176" href="#" onClick="new Ajax.Updater('', 'commune/Goyave', {asynchronous:true, evalScripts:true}); return false;">
+	<area shape="rect" alt="Petit Bourg" coords="139,141,162,157" href="#" onClick="new Ajax.Updater('', 'commune/Petit Bourg', {asynchronous:true, evalScripts:true}); return false;">
+	<area shape="rect" alt="Deshaies" coords="56,101,83,115" href="#" onClick="new Ajax.Updater('', 'commune/Deshaies', {asynchronous:true, evalScripts:true}); return false;">
+	<area shape="rect" alt="Pointe noire" coords="47,130,91,143" href="#" onClick="new Ajax.Updater('', 'commune/Pointe Noire', {asynchronous:true, evalScripts:true}); return false;">
+	<area shape="rect" alt="Bouillante" coords="65,166,97,180" href="#" onClick="new Ajax.Updater('', 'commune/Bouillante', {asynchronous:true, evalScripts:true}); return false;">
+	<area shape="rect" alt="Vieux habitants" coords="60,191,101,203" href="#" onClick="new Ajax.Updater('', 'commune/Vieux Habitants', {asynchronous:true, evalScripts:true}); return false;">
+	<area shape="rect" alt="St Claude" coords="109,194,123,213" href="#" onClick="new Ajax.Updater('', 'commune/Saint Claude', {asynchronous:true, evalScripts:true}); return false;">
+	<area shape="rect" alt="Gourbeyre" coords="113,216,128,228" href="#" onClick="new Ajax.Updater('', 'commune/Gourbeyre', {asynchronous:true, evalScripts:true}); return false;">
+	<area shape="rect" alt="Baillif" coords="70,207,103,215" href="#" onClick="new Ajax.Updater('', 'commune/Baillif', {asynchronous:true, evalScripts:true}); return false;">
+	<area shape="rect" alt="Basse terre" coords="80,220,109,228" href="#" onClick="new Ajax.Updater('', 'commune/Basse-Terre', {asynchronous:true, evalScripts:true}); return false;">
+	<area shape="rect" alt="Vieux fort" coords="105,231,123,243" href="#" onClick="new Ajax.Updater('', 'commune/Vieux Fort', {asynchronous:true, evalScripts:true}); return false;">
+	<area shape="rect" alt="Trois riviere" coords="132,220,149,234" href="#" onClick="new Ajax.Updater('', 'commune/Trois rivières', {asynchronous:true, evalScripts:true}); return false;">
+	<area shape="rect" alt="Anse Bertrand" coords="168,29,192,46" href="#" onClick="new Ajax.Updater('', 'commune/Anse-Bertrand', {asynchronous:true, evalScripts:true}); return false;">
+	<area shape="rect" alt="Port louis" coords="160,52,186,63" href="#" onClick="new Ajax.Updater('', 'commune/Port Louis', {asynchronous:true, evalScripts:true}); return false;">
+	<area shape="rect" alt="Petit canal" coords="181,68,198,81" href="#" onClick="new Ajax.Updater('', 'commune/Petit-Canal', {asynchronous:true, evalScripts:true}); return false;">
+	<area shape="rect" alt="Morne a leau" coords="189,89,209,103" href="#" onClick="new Ajax.Updater('', 'commune/Morne à L\'Eau', {asynchronous:true, evalScripts:true}); return false;">
+	<area shape="rect" alt="Ste rose" coords="101,89,121,104" href="#" onClick="new Ajax.Updater('', 'commune/Sainte Rose', {asynchronous:true, evalScripts:true}); return false;">
+	<area shape="rect" alt="Lamentin" coords="125,103,140,114" href="#" onClick="new Ajax.Updater('', 'commune/Lamentin', {asynchronous:true, evalScripts:true}); return false;">
+	<area shape="rect" alt="Baie Mahault" coords="144,112,157,129" href="#" onClick="new Ajax.Updater('', 'commune/Baie-Mahault', {asynchronous:true, evalScripts:true}); return false;">
+	<area shape="rect" alt="Abymes" coords="168,107,192,120" href="#" onClick="new Ajax.Updater('', 'commune/Abymes (Les)', {asynchronous:true, evalScripts:true}); return false;">
+	<area shape="rect" alt="PAP" coords="159,123,178,137" href="#" onClick="new Ajax.Updater('', 'commune/Pointe à Pitre', {asynchronous:true, evalScripts:true}); return false;">
+	</map>
+</div>	
+
+<div id="spinner" style="display:none">
+	<img src="/images/spinner.gif" width="91" height="63">
+</div>
+
+<% hidden_div_if(@associations.nil?, :id => "resultats") do %>
+	<%= render(:partial => "resultats", :collection => @associations) %>
+<% end %>

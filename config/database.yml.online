@@ -1,0 +1,5 @@
+production:
+  adapter: mysql
+  database: guadelo_assoannuaire
+  username: guadelo_gilles
+  password: vJQCkcb8v95L

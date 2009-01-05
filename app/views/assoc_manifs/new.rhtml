@@ -1,0 +1,21 @@
+<h1>New assoc_manif</h1>
+
+<%= error_messages_for :assoc_manif %>
+
+<% form_for(:assoc_manif, :url => assoc_manifs_path) do |f| %>
+  <p>
+    <b>Association</b><br />
+    <%= f.text_field :association_id %>
+  </p>
+
+  <p>
+    <b>Manifestation</b><br />
+    <%= f.text_field :manifestation_id %>
+  </p>
+
+  <p>
+    <%= submit_tag "Create" %>
+  </p>
+<% end %>
+
+<%= link_to 'Back', assoc_manifs_path %>

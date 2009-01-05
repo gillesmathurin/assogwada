@@ -1,0 +1,111 @@
+<div id="side-colonne">
+	<div class="topsidemenu">
+		&nbsp;		
+	</div>
+	<div class="side-menu">
+		<%= render :partial => 'shared/sidecolonne' %>
+	</div>
+	<div id="bottomsidemenu">
+		&nbsp;
+	</div>
+</div>
+
+<div id="colonne1">
+	<h2 class="ficheid">Listing des manifestations</h2>
+ 
+	<% if @association %>
+		<% unless @association.manifestations.empty? %>
+			<table border=0>
+			  <tr>
+			    <td class="entete-2">Nom</td>
+			    <td class="entete-2">Lieu</td>
+			    <td class="entete-2">Nature</td>
+			    <td class="entete-2">Public</td>
+			    <td class="entete-2">Prix</td>
+			    <td class="entete-2">Gratuit</td>
+			  </tr>
+			<% for manifestation in @manifestations %>
+			  <tr>
+			    <td><%=h manifestation.nom %></td>
+			    <td><%=h manifestation.lieu %></td>
+			    <td><%=h manifestation.nature %></td>
+			    <td><%=h manifestation.spectateur %>| <%= h manifestation.spectage %></td>
+			    <td><%=h manifestation.prix %></td>
+			    <td><%=h manifestation.gratuit_to_str %></td>
+			 </tr>
+			<% unless manifestation.planning_manifs.empty? %>
+				<% manifestation.planning_manifs.each do |p| %>
+					<tr>
+						<td colspan=6>	
+						<p>
+							<b>Date :</b> <%=h p.date.strftime("%d %B %Y") if p.date %>
+							<b>De :</b> <%=h p.hmat_debut.strftime("%H:%M") if p.hmat_debut %>
+							<b>A :</b> <%= h p.hapm_fin.strftime("%H:%M") if p.hapm_fin %>
+						</p>
+						</td>
+					</tr>
+				<% end %>
+			<% end %>
+			<tr>
+				<td align="center"><%= link_to 'Voir', association_manifestation_path(@association, manifestation) %></td>
+			    <td colspan="3" align="center"><%= link_to 'Modifier', edit_association_manifestation_path(@association, manifestation) %></td>
+			    <td colspan="3" align="center"><%= link_to 'Supprimer', association_manifestation_path(@association, manifestation), :confirm => 'En êtes vous sur ?', :method => :delete %></td>
+			  </tr>
+			</tr>	
+			<% end %>
+			</table>
+		
+			<p><%= link_to 'Ajouter une manifestation', new_association_manifestation_path(@association) %> | <%= link_to 'Retour à la fiche', association_path(@association) %></p>
+	
+		<% else %>
+	
+			<p>Aucune manifestation enregistrée pour cette association</p>
+
+			<p><%= link_to 'Ajouter une manifestation',
+			 new_association_manifestation_path(@association) %> | <%= link_to 'Retour à la fiche', association_path(@association) %></p>
+
+		<% end %>
+
+	<% else %>
+
+		<table>
+		  <tr>
+		    <td class="entete-2">Nom</td>
+		    <td class="entete-2">Lieu</td>
+		    <td class="entete-2">Nature</td>
+		    <td class="entete-2">Public</td>
+		    <td class="entete-2">Prix</td>
+		    <td class="entete-2">Gratuité</td>
+		    <td class="entete-2">Modalite inscription</td>
+		    <td class="entete-2">Infos sup</td>
+			<td class="entete-2">Nom du responsable</td>
+			<td class="entete-2">Coordonnées du responsable</td>
+			<td class="entete-2">Planning de la manifestation</td>
+		  </tr>
+
+		<% for manifestation in @manifestations %>
+		  <tr>
+		    <td><%=h manifestation.nom %></td>
+		    <td><%=h manifestation.lieu %></td>
+		    <td><%=h manifestation.nature %></td>
+		    <td><%=h manifestation.spectateur %></td>
+		    <td><%=h manifestation.prix %></td>
+		    <td><%=h manifestation.gratuit_to_str %></td>
+		    <td><p><%=h manifestation.modalite_inscription %></p></td>
+		    <td><p><%=h manifestation.infos_sup %></p></td>
+			<td><%= h manifestation.nom_resp %></td>
+			<td><%= h manifestation.coordonees %></td>
+		    <td><%= link_to 'Voir', manifestation_path(manifestation) %></td>
+		    <td><%= link_to 'Modifier', edit_manifestation_path(manifestation) %></td>
+		    <td><%= link_to 'Supprimer', manifestation_path(manifestation), :confirm => 'Are you sure?', :method => :delete %></td>
+		  </tr>
+		<% end %>
+
+	</table>
+
+	<br />
+
+	<%= link_to 'Ajouter une manifestation', new_manifestation_path %>
+
+	<% end %>
+</div>

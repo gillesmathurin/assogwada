@@ -1,0 +1,16 @@
+<p>
+  <b>Nom de l'agrément</b><br />
+  <%= f.text_field :nom %>
+</p>
+
+<p>
+  <b>Organisme habilitant</b><br />
+  <%= f.select( :orgahab_id, @organisme_list, { :prompt => "Selectionner un organisme"} )  %> Si l'organisme n'est pas dans la liste, ajoutez le ci-dessous.
+</p>
+
+<fieldset>
+	<legend>Ajout d'un nouveau organisme habilitant</legend>
+	<% fields_for :orgahab do |oh| %>
+		Nom : <%= oh.text_field :nom %>
+	<% end %>
+</fieldset>

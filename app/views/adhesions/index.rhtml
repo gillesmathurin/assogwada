@@ -1,0 +1,22 @@
+<h1>Listing adhesions</h1>
+
+<table>
+  <tr>
+    <th>Association</th>
+    <th>Membre</th>
+  </tr>
+  
+<% for adhesion in @adhesions %>
+  <tr>
+    <td><%=h adhesion.association_id %></td>
+    <td><%=h adhesion.membre_id %></td>
+    <td><%= link_to 'Show', adhesion_path(adhesion) %></td>
+    <td><%= link_to 'Edit', edit_adhesion_path(adhesion) %></td>
+    <td><%= link_to 'Destroy', adhesion_path(adhesion), :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New adhesion', new_adhesion_path %>
