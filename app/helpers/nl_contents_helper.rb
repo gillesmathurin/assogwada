@@ -1,0 +1,2 @@
+module NlContentsHelper
+end

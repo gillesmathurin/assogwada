@@ -1,0 +1,24 @@
+<h1>Listing nl_contents</h1>
+
+<table>
+  <tr>
+    <th>Titre</th>
+    <th>Body</th>
+    <th>Newsletter</th>
+  </tr>
+
+<% for nl_content in @nl_contents %>
+  <tr>
+    <td><%=h nl_content.titre %></td>
+    <td><%=h nl_content.body %></td>
+    <td><%=h nl_content.newsletter_id %></td>
+    <td><%= link_to 'Show', nl_content %></td>
+    <td><%= link_to 'Edit', edit_nl_content_path(nl_content) %></td>
+    <td><%= link_to 'Destroy', nl_content, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New nl_content', new_nl_content_path %>

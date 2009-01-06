@@ -59,7 +59,8 @@ class AssociationsController < ApplicationController
     
     respond_to do |format|
       format.xls #{ render :layout => false }
-      format.csv { send_data @associations.to_csv(:columns => ["nom", "adresse_siegesocial", "code_postal", "ville", "email"]), :type => "text/csv" }
+      format.csv { send_data @associations.to_csv(:columns => ["nom", "adresse_siegesocial",
+         "code_postal", "ville", "email"]), :type => "text/csv" }
     end
   end  
   
@@ -73,7 +74,6 @@ class AssociationsController < ApplicationController
         format.html { render :action => "accueil" }
       end
     end
-    
   end
   
   # GET /associations/1
@@ -257,8 +257,7 @@ class AssociationsController < ApplicationController
   end
   
   def suite_inscription
-    @association = Association.find(params[:id])
-    
+    @association = Association.find(params[:id]) 
   end
   
   # POST /associations/envoi

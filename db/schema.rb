@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 64) do
+ActiveRecord::Schema.define(:version => 66) do
 
   create_table "abonnes", :force => true do |t|
     t.string   "nom_abonne"
@@ -46,8 +46,6 @@ ActiveRecord::Schema.define(:version => 64) do
     t.integer "association_id"
     t.integer "manifestation_id"
   end
-
-  add_index "assoc_manifs", ["association_id", "manifestation_id"], :name => "asso_manif_idx"
 
   create_table "associations", :force => true do |t|
     t.string   "nom"
@@ -117,8 +115,6 @@ ActiveRecord::Schema.define(:version => 64) do
     t.string "nom"
   end
 
-  add_index "champ_interventions", ["nom"], :name => "index_champ_interventions_on_nom"
-
   create_table "conseiladmins", :force => true do |t|
     t.integer "association_id"
   end
@@ -177,6 +173,21 @@ ActiveRecord::Schema.define(:version => 64) do
     t.integer "conseiladmin_id"
   end
 
+  create_table "newsletters", :force => true do |t|
+    t.date     "date_pub"
+    t.integer  "numero"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "nl_contents", :force => true do |t|
+    t.string   "titre"
+    t.text     "body"
+    t.integer  "newsletter_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "orgahabs", :force => true do |t|
     t.string "nom"
   end
@@ -218,7 +229,7 @@ ActiveRecord::Schema.define(:version => 64) do
   end
 
   create_table "sessions", :force => true do |t|
-    t.string   "session_id", :default => "", :null => false
+    t.string   "session_id", :null => false
     t.text     "data"
     t.datetime "created_at"
     t.datetime "updated_at"

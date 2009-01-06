@@ -1,0 +1,27 @@
+<h1>Editing nl_content</h1>
+
+<%= error_messages_for :nl_content %>
+
+<% form_for(@nl_content) do |f| %>
+  <p>
+    <b>Titre</b><br />
+    <%= f.text_field :titre %>
+  </p>
+
+  <p>
+    <b>Body</b><br />
+    <%= f.text_area :body %>
+  </p>
+
+  <p>
+    <b>Newsletter</b><br />
+    <%= f.text_field :newsletter_id %>
+  </p>
+
+  <p>
+    <%= f.submit "Update" %>
+  </p>
+<% end %>
+
+<%= link_to 'Show', @nl_content %> |
+<%= link_to 'Back', nl_contents_path %>

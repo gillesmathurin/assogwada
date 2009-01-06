@@ -1,0 +1,18 @@
+<p>
+  <b>Titre:</b>
+  <%=h @nl_content.titre %>
+</p>
+
+<p>
+  <b>Body:</b>
+  <%=h @nl_content.body %>
+</p>
+
+<p>
+  <b>Newsletter:</b>
+  <%=h @nl_content.newsletter_id %>
+</p>
+
+
+<%= link_to 'Edit', edit_nl_content_path(@nl_content) %> |
+<%= link_to 'Back', nl_contents_path %>

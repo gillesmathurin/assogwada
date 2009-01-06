@@ -1,0 +1,11 @@
+<div class="article">
+  <% fields_for "newsletter[contenu_nl_attributes][]", contenu_nl do |article| %>
+    <p>
+      <b>Titre :</b> <%= article.text_field :titre, :size => 15 %>
+    </p>
+    <p>
+      <b>Contenu :</b> <%= article.text_area :contenu, :cols => 20, :rows => 40 %>
+    </p>
+  <% end %>
+  
+</div>
