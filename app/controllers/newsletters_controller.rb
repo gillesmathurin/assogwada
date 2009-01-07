@@ -1,4 +1,12 @@
 class NewslettersController < ApplicationController
+  
+  def deliver
+    # system "rake send_newsletter NEWSLETTER_ID = #{params[:id]} &"
+    call_rake :send_newsletter, :newsletter_id => params[:id]
+    flash[:notice] = "En cours d'envoi"
+    redirect_to newsleter_url
+  end
+  
   # GET /newsletters
   # GET /newsletters.xml
   def index

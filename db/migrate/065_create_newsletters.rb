@@ -1,7 +1,7 @@
 class CreateNewsletters < ActiveRecord::Migration
   def self.up
     create_table :newsletters do |t|
-      t.date :date_pub
+      t.datetime :date_pub
       t.integer :numero
 
       t.timestamps
