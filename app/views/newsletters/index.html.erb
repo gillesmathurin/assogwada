@@ -10,9 +10,10 @@
   <tr>
     <td><%=h newsletter.date_pub %></td>
     <td><%=h newsletter.numero %></td>
-    <td><%= link_to 'Show', newsletter %></td>
-    <td><%= link_to 'Edit', edit_newsletter_path(newsletter) %></td>
-    <td><%= link_to 'Destroy', newsletter, :confirm => 'Are you sure?', :method => :delete %></td>
+    <td><%= link_to 'Voir', newsletter %></td>
+    <td><%= link_to 'Modifier', edit_newsletter_path(newsletter) %></td>
+    <td><%= link_to 'Supprimer', newsletter, :confirm => 'Are you sure?', :method => :delete %></td>
+    <td><%= link_to 'Envoyer', deliver_newsletter_path(newsletter) %></td>
   </tr>
 <% end %>
 </table>

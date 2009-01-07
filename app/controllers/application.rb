@@ -14,9 +14,9 @@ class ApplicationController < ActionController::Base
   session :session_key => '_assogwada_session_id'
 
   def call_rake(task, options = {})
-    options[:rails_env] = Rails.env
-    args = options.map { |n,v| "#{n.to_s.upcase}='#{v}"}
-    system "/usr/bin/rake #{task} #{args.join(' ')} --trace >> #{Rails.root}/log/rake.log &"
+    options[:rails_env] ||= RAILS_ENV
+    args = options.map { |n,v| "#{n.to_s.upcase}='#{v}'" }
+    system "/usr/bin/rake #{task} #{args.join(' ')} --trace 2>&1 >> #{RAILS_ROOT}/log/rake.log &"
   end
   
   protected

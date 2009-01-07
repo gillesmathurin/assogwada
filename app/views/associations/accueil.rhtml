@@ -16,7 +16,7 @@
 	   <b>Newsletter</b>	   
 	 </p>
 	   <%# error_messages_for :abonne %>
-	   <% form_remote_for @abonne, :url => newsletter_associations_path, :html => {:method => :post, :class => "newsletter"}, :success => "Element.toggle('merci'); Element.toggle('error')", :failure => "Element.toggle('error')" do |f| %>
+	   <% form_remote_for @abonne, :url => newsletter_associations_path, :html => {:method => :post, :class => "newsletter"}, :success => "Element.toggle('merci');", :failure => "Element.toggle('error')" do |f| %>
 	   <fieldset>
 	     <legend>Inscrivez-vous :</legend>
 	     <table cellspacing="0", cellpadding="0">

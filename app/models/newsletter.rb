@@ -22,9 +22,9 @@ class Newsletter < ActiveRecord::Base
     end
   end
   
-  def deliver
-    sleep 10 # placeholder for sending email
-    update_attribute(:date_pub, Time.now)    
+  def deliver(abonnes)
+    QuestMailer.deliver_sent_newsletter(abonnes, self)
+    update_attribute(:date_pub, Time.now) 
   end
   
 end

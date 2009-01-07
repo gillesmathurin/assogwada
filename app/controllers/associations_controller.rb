@@ -4,7 +4,8 @@ class AssociationsController < ApplicationController
   # cache_sweeper :association_sweeper, :only => [:create, :destroy]
   
   before_filter :login_required, :except => [:accueil, :inscription, :envoi, :download_quest,
-     :add_ci, :remove_ci, :envoi_inscription, :test_exception, :show, :edit, :form_abonnement, :envoi_formabonnement, :newsletter]
+     :add_ci, :remove_ci, :envoi_inscription, :test_exception, :show, :edit, :form_abonnement,
+     :envoi_formabonnement, :newsletter]
   before_filter :find_ci, :find_conventions, :last_recorded
   # after_filter :after_validation
   
@@ -69,7 +70,7 @@ class AssociationsController < ApplicationController
     
     respond_to do |format|
       if @abonne.save
-        # QuestMailer.deliver_confirm_abonewsletter(@abonne)
+        QuestMailer.deliver_confirm_abonewsletter(@abonne)
         # format.js {}
         format.html { render :action => "accueil" }
       end

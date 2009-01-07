@@ -57,4 +57,16 @@ class QuestMailer < ActionMailer::Base
     @header = {}
     @charset = 'UTF-8'
   end
+  
+  def sent_newsletter(abonnes, newsletter)
+    subject "Guadeloupe-Asso Annuaire Lettre d'information n°#{newsletter.numero}"
+    body :newsletter => newsletter
+    recipients(abonnes.first.email_abonne)
+    bcc abonnes.map(&:email_abonne)
+    sent_on Time.now
+    # headers {}
+    charset 'UTF-8'
+    content_type "text/html"
+  end
+  
 end

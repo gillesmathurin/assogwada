@@ -1,0 +1,30 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+
+  <title>Newsletter N° <%= @newsletter.numero %></title>
+  
+</head>
+
+<body>
+  <h2>Sommaire</h2>
+  <ul>
+    <% for nl_content in @newsletter.nl_contents %>
+    <li><%= nl_content.titre %></li>
+    <% end %>
+  </ul>
+  
+  <% for nl_content in @newsletter.nl_contents %>
+    <p>
+      <b><%= nl_content.titre %></b>
+    </p>
+    <p>
+      <%= nl_content.body %>
+    </p>
+  <% end %>
+  
+</body>
+</html>
