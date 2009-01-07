@@ -25,6 +25,8 @@ class NewslettersController < ApplicationController
   # GET /newsletters/new.xml
   def new
     @newsletter = Newsletter.new
+    @contenu_nls = []
+    2.times { @contenu_nls << NlContent.new }
 
     respond_to do |format|
       format.html # new.html.erb
@@ -35,6 +37,7 @@ class NewslettersController < ApplicationController
   # GET /newsletters/1/edit
   def edit
     @newsletter = Newsletter.find(params[:id])
+    @contenu_nls = @newsletter.nl_contents
   end
 
   # POST /newsletters

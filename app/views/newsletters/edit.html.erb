@@ -12,6 +12,14 @@
     <b>Numero</b><br />
     <%= f.text_field :numero %>
   </p>
+  
+  <fieldset>
+    <legend><b>Articles de la Newsletter</b></legend>
+    <div id="articles">
+      <%= render :partial => "contenu_nl", :collection => @contenu_nls %>
+    </div>
+    <%= lien_ajout_article "Ajouter un article" %>
+  </fieldset>
 
   <p>
     <%= f.submit "Update" %>

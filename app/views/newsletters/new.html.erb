@@ -1,22 +1,20 @@
-<h1>Nouvelle Newsletter</h1>
+<h2 class="ficheid">Création d'une Newsletter</h2>
 
 <%= error_messages_for :newsletter %>
 
 <% form_for(@newsletter) do |f| %>
 
-  <p>
-    <b>Numero</b><br />
-    <%= f.text_field :numero %>
-  </p>
+  <table border="0" cellspacing="0" cellpadding="2">
+    <tr>
+      <th>Numero</th>
+      <td><%= f.text_field :numero, :size => 5 %></td>
+    </tr>  
+  </table>
 
-  <p>
-    <b>Date de publication</b><br />
-    <%= f.date_select :date_pub %>
-  </p>
   
   <fieldset>
     <legend><b>Articles de la Newsletter</b></legend>
-    <div id="contenu">
+    <div id="articles">
       <%= render :partial => "contenu_nl", :collection => @contenu_nls %>
     </div>
     <%= lien_ajout_article "Ajouter un article" %>
@@ -27,4 +25,4 @@
   </p>
 <% end %>
 
-<%= link_to 'Back', newsletters_path %>
+<%= link_to 'Retour', newsletters_path %>
