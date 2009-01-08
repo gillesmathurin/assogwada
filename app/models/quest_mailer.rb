@@ -52,6 +52,7 @@ class QuestMailer < ActionMailer::Base
   def confirm_abonewsletter(abonne)
     @subject = "Confirmation de votre abonnement à notre newsletter"
     @body = { "abonne" => abonne }
+    from "postmaster@guadeloupe-asso.fr"
     @recipients = abonne.email_abonne
     @sent_on = Time.now
     @header = {}
@@ -60,6 +61,7 @@ class QuestMailer < ActionMailer::Base
   
   def sent_newsletter(abonnes, newsletter)
     subject "Guadeloupe-Asso Annuaire Lettre d'information n°#{newsletter.numero}"
+    from "postmaster@guadeloupe-asso.fr"
     body :newsletter => newsletter
     recipients(abonnes.first.email_abonne)
     bcc abonnes.map(&:email_abonne)

@@ -6,6 +6,23 @@ class NewslettersController < ApplicationController
     redirect_to newsletters_url
   end
   
+  def desabonnement
+  end
+  
+  def delete_abonne
+    @abonne = Abonne.find_by_email_abonne(params[:email])
+    respond_to do |format|
+      if !@abonne.nil?
+        @abonne.destroy
+        flash[:notice] = "Vous n'êtes plus abonnés à la lettre d'information"
+        format.html { redirect_to desabonnement_newsletters_url }
+      else
+        flash[:notice] = "Cette adresse email n'existe pas dans notre base"
+        format.html { redirect_to desabonnement_newsletters_url }
+      end
+    end
+  end
+  
   # GET /newsletters
   # GET /newsletters.xml
   def index

@@ -6,25 +6,87 @@
   <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
 
   <title>Newsletter N° <%= @newsletter.numero %></title>
+  <style type="text/css" media="screen">
+    
+    p.entete {
+      text-align:center;
+      font-size: 20px;
+      padding-bottom: 10px;
+      color: maroon;
+    }
+  
+    h2.fiche_id {
+      color: #f2f2f2;
+      text-align: center;
+      letter-spacing: 2px;
+      padding-top: 10px;
+      padding-bottom: 5px;
+      font-size: 18px;
+      background: url(http://www.guadeloupe-asso.fr/images/BckH2.gif) no-repeat center;
+    }
+    
+    ul.sommaire-list {
+      text-align: center;
+    }
+    
+    ul.sommaire-list li {
+      list-style-type: none;
+    }
+    
+    p.titre {
+      color: #0044c9;
+      font-size: 16px;
+    }
+    p.article {
+      color: gray;
+    }
+    #footer {
+      position:static;
+      text-align: center;
+    }
+  </style>
   
 </head>
 
 <body>
-  <h2>Sommaire</h2>
-  <ul>
+  <p class="entete">
+    LETTRE D'INFORMATION DE GUADELOUPE ASSO ANNUAIRE N° <%= @newsletter.numero %>
+  </p>
+  <div id="sommaire">
+    <h2 class="fiche_id">Sommaire</h2>
+    <ul class="sommaire-list">
+      <% for nl_content in @newsletter.nl_contents %>
+      <li><b><%= nl_content.titre %></b></li>
+      <% end %>
+    </ul>
+  </div>
+
+  <div id="contenu">
     <% for nl_content in @newsletter.nl_contents %>
-    <li><%= nl_content.titre %></li>
+      <p class="titre">
+        <b><%= nl_content.titre %></b>
+      </p>
+      <p class="article">
+        <%= nl_content.body %><br/>
+      </p>
     <% end %>
-  </ul>
+  </div>
   
-  <% for nl_content in @newsletter.nl_contents %>
+  <div id="footer">
     <p>
-      <b><%= nl_content.titre %></b>
+      Vous avez reçu ce message, car vous êtes abonné à la lettre d'information de l'annuaire des associations de la Guadeloupe : Guadeloupe Asso Annuaire
     </p>
     <p>
-      <%= nl_content.body %>
+      Pour résilier votre abonnement à cette lettre d'information cliquez ici : <%= url_for(:host => "localhost:3000", :controller => "newsletters", :action => "desabonnement") %>
     </p>
-  <% end %>
+    <table border="0" cellspacing="2" cellpadding="2" align="center" width="100%">
+      <tr>
+        <td><img src="http://www.guadeloupe-asso.fr/images/Logo-DDJS.gif"></td>
+				<td><img src="http://www.guadeloupe-asso.fr/images/Logo-club1901.gif"></td>
+				<td><img src="http://www.guadeloupe-asso.fr/images/Logo-agouti.gif"></td>
+      </tr>
+    </table>
+  </div>
   
 </body>
 </html>

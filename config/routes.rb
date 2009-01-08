@@ -1,7 +1,8 @@
 ActionController::Routing::Routes.draw do |map|
   map.resources :nl_contents
 
-  map.resources :newsletters, :has_many => :nl_contents, :member => { :deliver => :get }
+  map.resources :newsletters, :has_many => :nl_contents, :member => { :deliver => :get },
+   :collection => { :desabonnement => :get, :delete_abonne => :put }
 
   map.resources :quests
 
