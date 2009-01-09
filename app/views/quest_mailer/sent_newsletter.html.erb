@@ -76,6 +76,9 @@
     <p>
       Vous avez reçu ce message, car vous êtes abonné à la lettre d'information de l'annuaire des associations de la Guadeloupe : Guadeloupe Asso Annuaire
     </p>
+    
+    <!-- TODO : modifier l'adresse url_for pour : url_for(:host => "guadeloupe-asso.fr", :controller => "newsletter", :action => "desabonnement") -->
+    
     <p>
       Pour résilier votre abonnement à cette lettre d'information cliquez ici : <%= url_for(:host => "localhost:3000", :controller => "newsletters", :action => "desabonnement") %>
     </p>

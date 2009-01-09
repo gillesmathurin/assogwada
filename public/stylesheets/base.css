@@ -243,18 +243,17 @@ a:hover {
 	display: block;
 	position: relative;
 	min-height: 750px;
-	height: 150%;
 	background-color: #f6f6f6;
 	border-left: 1px solid silver;
 	border-top: 1px solid silver;
 }
 
 .yield #colonne1 {
-	position: relative;
+	position: absolute;
 	width: 650px;
 	left: 240px;
 	display: block;
-	top: -11px;
+	top: 0;
 }
 
 .yield img.illus {
@@ -739,13 +738,13 @@ div#col-imagemap p {
 /* @group Colonne droite */
 
 #side-colonne {
-	position: absolute;
+	position: relative;
 	width: 200px;
 	font-size: 12px;
 	display: block;
 	margin-top: 7px;
 	margin-left: 10px;
-	top: 10px;
+	top: 0;
 	line-height: 1.3em;
 }
 
