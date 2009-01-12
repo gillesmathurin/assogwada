@@ -4,6 +4,7 @@ class CreateMailings < ActiveRecord::Migration
       t.string :objet
       t.text :body
       t.datetime :published_at
+      t.integer :numero
 
       t.timestamps
     end

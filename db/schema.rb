@@ -149,6 +149,7 @@ ActiveRecord::Schema.define(:version => 67) do
     t.string   "objet"
     t.text     "body"
     t.datetime "published_at"
+    t.integer  "numero"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
