@@ -1,5 +1,5 @@
 # This file is auto-generated from the current state of the database. Instead of editing this file, 
-# please use the migrations feature of Active Record to incrementally modify your database, and
+# please use the migrations feature of ActiveRecord to incrementally modify your database, and
 # then regenerate this schema definition.
 #
 # Note that this schema.rb definition is the authoritative source for your database schema. If you need
@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 66) do
+ActiveRecord::Schema.define(:version => 67) do
 
   create_table "abonnes", :force => true do |t|
     t.string   "nom_abonne"
@@ -46,6 +46,8 @@ ActiveRecord::Schema.define(:version => 66) do
     t.integer "association_id"
     t.integer "manifestation_id"
   end
+
+  add_index "assoc_manifs", ["association_id", "manifestation_id"], :name => "asso_manif_idx"
 
   create_table "associations", :force => true do |t|
     t.string   "nom"
@@ -115,6 +117,8 @@ ActiveRecord::Schema.define(:version => 66) do
     t.string "nom"
   end
 
+  add_index "champ_interventions", ["nom"], :name => "index_champ_interventions_on_nom"
+
   create_table "conseiladmins", :force => true do |t|
     t.integer "association_id"
   end
@@ -139,6 +143,14 @@ ActiveRecord::Schema.define(:version => 66) do
     t.integer "association_id"
     t.string  "telephone"
     t.string  "cp"
+  end
+
+  create_table "mailings", :force => true do |t|
+    t.string   "objet"
+    t.text     "body"
+    t.datetime "published_at"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "manifestations", :force => true do |t|
