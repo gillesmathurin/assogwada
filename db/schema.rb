@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 67) do
+ActiveRecord::Schema.define(:version => 68) do
 
   create_table "abonnes", :force => true do |t|
     t.string   "nom_abonne"
@@ -152,6 +152,7 @@ ActiveRecord::Schema.define(:version => 67) do
     t.integer  "numero"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "recipients"
   end
 
   create_table "manifestations", :force => true do |t|
