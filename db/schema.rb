@@ -149,7 +149,6 @@ ActiveRecord::Schema.define(:version => 68) do
     t.string   "objet"
     t.text     "body"
     t.datetime "published_at"
-    t.integer  "numero"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "recipients"
