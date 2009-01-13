@@ -23,7 +23,6 @@ class ApplicationController < ActionController::Base
       end
     end
     
-    debugger
     system "/usr/bin/rake #{task} #{args.join(' ')} --trace 2>&1 >> #{RAILS_ROOT}/log/rake.log &"
   end
   

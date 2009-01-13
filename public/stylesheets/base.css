@@ -487,7 +487,7 @@ a:hover {
 	padding-right: 10px;
 }
 
-div#resultats p#export-button {
+div#resultats p.export-button {
 	border: 2px dashed #2748eb;
 	width: 250px;
 	height: 20px;
@@ -500,7 +500,7 @@ div#resultats p#export-button {
 	color: #2748eb;
 }
 
-div#resultats p#export-button a {
+div#resultats p.export-button a {
 	color: #2748eb;
 	text-decoration: none;
 }
