@@ -15,7 +15,8 @@ class ApplicationController < ActionController::Base
 
   def call_rake(task, options = {})
     options[:rails_env] ||= RAILS_ENV
-    args = options.map { |n,v| "#{n.to_s.upcase}='#{v}'" }
+    args = options.map { |n,v| "#{n.to_s.upcase} = '#{v}'" }
+    debugger
     system "/usr/bin/rake #{task} #{args.join(' ')} --trace 2>&1 >> #{RAILS_ROOT}/log/rake.log &"
   end
   

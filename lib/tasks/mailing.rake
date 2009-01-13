@@ -1,11 +1,12 @@
 desc "Send Mailing"
-task :send_mailing => :environnment do
+task :send_mailing => :environment do
   @associations = []
+  @resultats = Marshal.load(ENV["RESULTATS"])
   @mailing = Mailing.find(ENV["MAILING_ID"])
-  if (@mailing.recipient.nil? && ( !session[:resultats].nil? || !session[:resultats].empty?))
-    @resultats = session[:resultats]
-    @resultats.each do |array|
-      association = Association.find(array[0])
+
+  if (@mailing.recipients.nil? && ( @resultats.nil? || @resultats.empty?))
+    @resultats.each do |id|
+      association = Association.find(id)
       @associations << association.email unless (association.email.empty? || association.email.nil?)
     end
     # stocke la liste des destinataires du mailing

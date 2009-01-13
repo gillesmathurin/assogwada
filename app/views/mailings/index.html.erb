@@ -5,15 +5,13 @@
     <th>Objet</th>
     <th>Body</th>
     <th>Published at</th>
-    <th>Numero</th>
   </tr>
 
 <% for mailing in @mailings %>
   <tr>
     <td><%=h mailing.objet %></td>
-    <td><%=h mailing.body %></td>
+    <td><%=h truncate(mailing.body, 30) %></td>
     <td><%=h mailing.published_at %></td>
-    <td><%=h mailing.numero %></td>
     <td><%= link_to 'Show', mailing %></td>
     <td><%= link_to 'Edit', edit_mailing_path(mailing) %></td>
     <td><%= link_to 'Destroy', mailing, :confirm => 'Are you sure?', :method => :delete %></td>
@@ -23,4 +21,4 @@
 
 <br />
 
-<%= link_to 'New mailing', new_mailing_path %>
+<%# link_to 'New mailing', new_mailing_path %>

@@ -1,4 +1,7 @@
 class MailingsController < ApplicationController
+  
+  before_filter :login_required
+  
   # GET /mailings
   # GET /mailings.xml
   def index
@@ -41,12 +44,16 @@ class MailingsController < ApplicationController
   # POST /mailings.xml
   def create
     @mailing = Mailing.new(params[:mailing])
+    resultats = []
+    session[:resultats].each do |id_nom|
+      resultats << id_nom[0]
+    end
 
     respond_to do |format|
       if @mailing.save
-        call_rake(:send_mailing, :mailing_id => @mailing.id.to_i)
+        call_rake(:send_mailing, :mailing_id => @mailing.id.to_i, :resultats => Marshal.dump(resultats))
         flash[:notice] = "L'envoi du mailing est en cours …"
-        format.html { redirect_to(@mailing) }
+        format.html { redirect_to(mailings_url) }
         format.xml  { render :xml => @mailing, :status => :created, :location => @mailing }
       else
         format.html { render :action => "new" }

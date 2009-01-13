@@ -35,11 +35,14 @@
 
 	<% if logged_in? %>
 		<% unless @associations.empty? %>
-		<p id="export-button" align="center">
+		<p class="export-button" align="center">
 			<%= link_to "<< Export CSV Résultats >>", formatted_export_result_recherches_path(:csv) %><br/>
 		</p>
-		<p id="export-button" align="center">
+		<p class="export-button" align="center">
 			<%= link_to "<< Export Excel Résultats >>", export_excel_recherches_url %>
+		</p>
+		<p class="export-button" align="center">
+		  <%= link_to "Envoyer un Mailing à la sélection", new_mailing_path() %>
 		</p>
 		<% end %>
 	<% end %>
