@@ -1,4 +1,6 @@
 ActionController::Routing::Routes.draw do |map|
+  map.resources :mailings
+
   map.resources :tools, :collection => { :mailing => :get, :deliver_mailing => :post }
   
   map.resources :nl_contents

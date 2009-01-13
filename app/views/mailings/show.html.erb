@@ -1,0 +1,23 @@
+<p>
+  <b>Objet:</b>
+  <%=h @mailing.objet %>
+</p>
+
+<p>
+  <b>Body:</b>
+  <%=h @mailing.body %>
+</p>
+
+<p>
+  <b>Published at:</b>
+  <%=h @mailing.published_at %>
+</p>
+
+<p>
+  <b>Numero:</b>
+  <%=h @mailing.numero %>
+</p>
+
+
+<%= link_to 'Edit', edit_mailing_path(@mailing) %> |
+<%= link_to 'Back', mailings_path %>
