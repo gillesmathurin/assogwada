@@ -246,6 +246,7 @@ a:hover {
 	background-color: #f6f6f6;
 	border-left: 1px solid silver;
 	border-top: 1px solid silver;
+	height: 100%;
 }
 
 .yield #colonne1 {
