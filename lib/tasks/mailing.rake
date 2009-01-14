@@ -1,12 +1,12 @@
 desc "Send Mailing"
 task :send_mailing => :environment do
   @associations = []
-  @resultats = (ENV["RESULTATS"].gsub(/'/, '')).to_a
-  puts @resultats.class
+  ids = []
+  ENV["RESULTATS"].gsub(/\d/) { |id| ids << id }
   @mailing = Mailing.find(ENV["MAILING_ID"])
 
-  if (@mailing.recipients.nil? && ( !@resultats.nil? || !@resultats.empty?) )
-    @resultats.each do |id|
+  if (@mailing.recipients.nil? && !ids.empty?)
+    ids.each do |id|
       association = Association.find(id)
       @associations << association.email unless (association.email.empty? || association.email.nil?)
     end
