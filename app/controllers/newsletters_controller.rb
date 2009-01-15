@@ -1,5 +1,7 @@
 class NewslettersController < ApplicationController
   
+  before_filter :login_required
+  
   def deliver
     call_rake(:send_newsletter, :newsletter_id => params[:id].to_i)
     flash[:notice] = "En cours d'envoi"
@@ -26,7 +28,7 @@ class NewslettersController < ApplicationController
   # GET /newsletters
   # GET /newsletters.xml
   def index
-    @newsletters = Newsletter.find(:all)
+    @newsletters = Newsletter.paginate(:page => params[:page], :per_page => 20, :order => "created_at DESC")
 
     respond_to do |format|
       format.html # index.html.erb
