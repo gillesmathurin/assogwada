@@ -5,7 +5,6 @@ class MailingsController < ApplicationController
   # GET /mailings
   # GET /mailings.xml
   def index
-    # @mailings = Mailing.find(:all)
     @mailings = Mailing.paginate(:page => params[:page], :per_page => 20, :order => "created_at DESC")
 
     respond_to do |format|

@@ -16,7 +16,7 @@
 			<%= validation_links(@nb_to_verify) %>
 		</p>
 		<p><%= link_to 'Ajouter une association', new_association_path %></p>
-		<% if @last_recorded.nil? %>
+		<% unless @last_recorded.nil? %>
 		<p>
 			Dernière association reférencée :<br/>
 			<%= link_to  @last_recorded.nom, association_path(@last_recorded)  %><br/>
