@@ -22,7 +22,7 @@
 		</tr>
 		<% for association in @associations %>
 		<tr>
-			<td><%= link_to association.nom, recherch_path(association.to_param) %></td>
+			<td><%= link_to association.nom.upcase, recherch_path(association.to_param) %></td>
 			<td><%= association.ville %></td>
 			<td>
 				<% for ci in association.champ_interventions %>
