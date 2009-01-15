@@ -26,7 +26,8 @@
 		</p>
 		<p class="export_csv">
 			<%= link_to "Export Excel", formatted_export_xls_csv_associations_url(:xls) %><br/>
-			<%= link_to "Export CSV", formatted_export_xls_csv_associations_url(:csv) %>
+			<%= link_to "Export CSV", formatted_export_xls_csv_associations_url(:csv) %><br/>
+			<%= link_to "Gestion Mailings", mailings_path() %>
 		</p>
 		<p class="to_valid">
 			Assos incomplètes : <%= @asso_incomplete %><br/>
