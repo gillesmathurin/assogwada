@@ -16,11 +16,13 @@
 			<%= validation_links(@nb_to_verify) %>
 		</p>
 		<p><%= link_to 'Ajouter une association', new_association_path %></p>
+		<% unless @last_recorded.nil? %>
 		<p>
 			Dernière association reférencée :<br/>
-			<%= link_to  @last_recorded.nom, association_path(@last_recorded) if @last_recorded %><br/>
-			le <%= h @last_recorded.created_at.strftime("%d/%m/%Y") if @last_recorded %>
+			<%= link_to  @last_recorded.nom, association_path(@last_recorded)  %><br/>
+			le <%= h @last_recorded.created_at.strftime("%d/%m/%Y") %>
 		</p>
+		<% end %>
 		<p>
 			Nombre d'associations enregistrées : <strong><%=h Association.count %></strong><br/>
 		</p>

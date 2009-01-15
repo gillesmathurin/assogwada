@@ -5,7 +5,8 @@ class MailingsController < ApplicationController
   # GET /mailings
   # GET /mailings.xml
   def index
-    @mailings = Mailing.find(:all)
+    # @mailings = Mailing.find(:all)
+    @mailings = Mailing.paginate(:page => params[:page], :per_page => 20, :order => "created_at DESC")
 
     respond_to do |format|
       format.html # index.html.erb
@@ -59,6 +60,16 @@ class MailingsController < ApplicationController
         format.html { render :action => "new" }
         format.xml  { render :xml => @mailing.errors, :status => :unprocessable_entity }
       end
+    end
+  end
+  
+  def reexpedition
+    @mailing = Mailing.find(params[:id])
+    call_rake(:send_mailing, :mailing_id => @mailing.id.to_i)
+    
+    respond_to do |format|
+      flash[:notice] = "Mailing en cours d'envoi …"
+      format.html { redirect_to mailings_url }
     end
   end
 

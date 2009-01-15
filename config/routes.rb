@@ -1,5 +1,5 @@
 ActionController::Routing::Routes.draw do |map|
-  map.resources :mailings
+  map.resources :mailings, :member => { :reexpedition => :get }
   
   map.resources :nl_contents
 

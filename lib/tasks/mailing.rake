@@ -2,7 +2,9 @@ desc "Send Mailing"
 task :send_mailing => :environment do
   @associations = []
   ids = []
-  ENV["RESULTATS"].gsub(/\d/) { |id| ids << id }
+  if ENV["RESULTATS"]
+    ENV["RESULTATS"].gsub(/\d/) { |id| ids << id }
+  end
   @mailing = Mailing.find(ENV["MAILING_ID"])
 
   if (@mailing.recipients.nil? && !ids.empty?)
@@ -19,5 +21,4 @@ task :send_mailing => :environment do
     @associations = Marshal.load(@mailing.recipients)
     @mailing.deliver(@associations)
   end
-  puts "task completed"  
 end
