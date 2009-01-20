@@ -188,7 +188,6 @@ ActiveRecord::Schema.define(:version => 68) do
 
   create_table "newsletters", :force => true do |t|
     t.datetime "date_pub"
-    t.integer  "numero"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

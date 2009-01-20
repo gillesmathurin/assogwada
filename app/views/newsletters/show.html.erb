@@ -46,7 +46,11 @@
   <h2 class="ficheid">Voir Newsletter</h2>
   <p>
     <b>Date publication :</b>
-    <%=h @newsletter.date_pub.strftime("%d/%m/%Y") %>
+    <% if @newsletter.date_pub %>
+      <%= h @newsletter.date_pub.strftime("%d/%m/%Y") %>
+    <% else %>
+      Pas encore publié.
+    <% end %>
   </p>
 
   <p>

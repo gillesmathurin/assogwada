@@ -48,15 +48,7 @@
   <%= error_messages_for :newsletter %>
 
   <% form_for(@newsletter) do |f| %>
-
-    <table border="0" cellspacing="0" cellpadding="2">
-      <tr>
-        <th>Numero</th>
-        <td><%= f.text_field :numero, :size => 5 %></td>
-      </tr>  
-    </table>
-
-  
+ 
     <fieldset>
       <legend><b>Articles de la Newsletter</b></legend>
       <div id="articles">

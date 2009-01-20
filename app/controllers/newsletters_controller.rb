@@ -28,7 +28,8 @@ class NewslettersController < ApplicationController
   # GET /newsletters
   # GET /newsletters.xml
   def index
-    @newsletters = Newsletter.paginate(:page => params[:page], :per_page => 20, :order => "created_at DESC")
+    @newsletters = Newsletter.paginate(:page => params[:page], :per_page => 20,
+     :order => "created_at DESC, date_pub DESC")
 
     respond_to do |format|
       format.html # index.html.erb
