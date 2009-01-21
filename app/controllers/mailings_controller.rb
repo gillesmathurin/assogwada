@@ -45,8 +45,16 @@ class MailingsController < ApplicationController
   def create
     @mailing = Mailing.new(params[:mailing])
     resultats = []
-    session[:resultats].each do |id_nom|
-      resultats << id_nom[0]
+    
+    if session[:resultats].nil?
+      associations = Association.find(:all, :select => "id, nom, permalink")
+      associations.each do |association|
+        resultats << association.id
+      end
+    else
+      session[:resultats].each do |id_nom|
+        resultats << id_nom[0]
+      end
     end
 
     respond_to do |format|
@@ -71,6 +79,7 @@ class MailingsController < ApplicationController
       format.html { redirect_to mailings_url }
     end
   end
+  
 
   # PUT /mailings/1
   # PUT /mailings/1.xml
