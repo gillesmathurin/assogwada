@@ -1,5 +1,4 @@
 <div id="side-colonne">
-  <!-- Nombre d'associations -->
 	<div class="topsidemenu">
 		&nbsp;		
 	</div>
@@ -9,7 +8,6 @@
 		</p>
 	</div>
 	
-	<!-- inscription newsletter -->
 	<div class="topsidemenu">
 	 &nbsp;
 	</div>
@@ -18,7 +16,7 @@
 	   <b>Newsletter</b>	   
 	 </p>
 	   <%# error_messages_for :abonne %>
-	   <% form_remote_for @abonne, :url => newsletter_associations_path, :html => {:method => :post, :class => "newsletter"}, :success => "Element.toggle('merci');", :failure => "Element.toggle('error')" do |f| %>
+	   <% form_remote_for @abonne, :url => newsletter_associations_path, :html => {:method => :post, :class => "newsletter"}, :success => "Element.toggle('merci'); Element.toggle('error')", :failure => "Element.toggle('error')" do |f| %>
 	   <fieldset>
 	     <legend>Inscrivez-vous :</legend>
 	     <table cellspacing="0", cellpadding="0">
@@ -42,7 +40,6 @@
 	   </div>
 	</div>
 	
-  <!-- Liste des partenaires -->
 	<div class="topsidemenu">
 		&nbsp;		
 	</div>
@@ -54,20 +51,20 @@
 		<p class="logo">
 			<a href="http://www.club1901.asso.fr" class="image">
 			<img src="/images/Logo-club1901.gif"
-			border="0" alt="logo-club1901" width="80" height="62"></a>
+			border="0" alt="logo-club1901"></a>
 		</p>
 		<p class="logo">
 			<%= mail_to "guadeloupe.asso@orange.fr", image_tag("Logo-agouti.gif",
-			:alt=>"logo-agouti", :size => '80x57'), :encode => "hex" %>
+			:alt=>"logo-agouti"), :encode => "hex" %>
 		</p>
 		<p class="logo">
 			<%= mail_to "crajep971@orange.fr", image_tag("Logo-crajep.gif",
-			:alt=>"logo-crajep", :size => '80x70'), :encode => "hex" %>
+			:alt=>"logo-crajep"), :encode => "hex" %>
 		</p>
 		<p class="logo">
 			<a href="http://www.jeunesse-sports.gouv.fr" class="image">
 			<img src="/images/Logo-DDJS.gif"
-			border="0" alt="logo-DDJS" width="62" height="70"></a>
+			border="0" alt="logo-DDJS"></a>
 		</p>
 		<p class="logo">
 			<a href="http://www.cr-guadeloupe.fr" class="image">
@@ -85,12 +82,11 @@
     <h3 class="actu_title">ACTUALITES</h3>
     <p>
       <%= link_to image_tag("badge_newoff.gif", :mouseover => "/images/badge_newon.gif", :class =>"badge"), "/services.html" %>  
-      <span class="div_title">Le site web de votre association pour 80 € TTC* !</span><br/>
+      <span class="div_title">Découvrez notre service de création de site web !</span><br/>
       <ul>
+        <li>Charte graphique personnalisable</li>
         <li>Site communautaire</li>
         <li>Forums de discussion</li>
-        <li>Profil des membres</li>
-        <li>Partage de photos</li>
       </ul>
       <table>
         <tr>

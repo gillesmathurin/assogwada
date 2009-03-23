@@ -12,19 +12,12 @@ class ApplicationController < ActionController::Base
   include ExceptionNotifiable
   # Pick a unique cookie name to distinguish our session data from others'
   session :session_key => '_assogwada_session_id'
-
-  def call_rake(task, options = {})
-    options[:rails_env] ||= RAILS_ENV
-    args = options.map do |n,v|
-      if n.to_s.upcase == "RESULTATS"
-        "#{n.to_s.upcase}='[#{v.join(", ")}]'"
-      else
-       "#{n.to_s.upcase}='#{v}'"
-      end
-    end
-    
-    system "/usr/bin/rake #{task} #{args.join(' ')} --trace 2>&1 >> #{RAILS_ROOT}/log/rake.log &"
-  end
+  
+  # CHANGED : test d'implementation de Exception Notification plugin en dev environnement
+  # local_addresses.clear # comment out for deployment
+  
+  # CHANGED : utilise methode …_in_public pour gérer les erreurs locales / dev environnement
+  # alias :rescue_action_locally :rescue_action_in_public # comment-out for deployment
   
   protected
 

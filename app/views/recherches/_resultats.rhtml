@@ -22,7 +22,7 @@
 		</tr>
 		<% for association in @associations %>
 		<tr>
-			<td><%= link_to association.nom.upcase, recherch_path(association.to_param) %></td>
+			<td><%= link_to association.nom, recherch_path(association.to_param) %></td>
 			<td><%= association.ville %></td>
 			<td>
 				<% for ci in association.champ_interventions %>
@@ -35,14 +35,11 @@
 
 	<% if logged_in? %>
 		<% unless @associations.empty? %>
-		<p class="export-button" align="center">
+		<p id="export-button" align="center">
 			<%= link_to "<< Export CSV Résultats >>", formatted_export_result_recherches_path(:csv) %><br/>
 		</p>
-		<p class="export-button" align="center">
+		<p id="export-button" align="center">
 			<%= link_to "<< Export Excel Résultats >>", export_excel_recherches_url %>
-		</p>
-		<p class="export-button" align="center">
-		  <%= link_to "Envoyer un Mailing à la sélection", new_mailing_path() %>
 		</p>
 		<% end %>
 	<% end %>

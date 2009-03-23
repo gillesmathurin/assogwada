@@ -1,14 +1,4 @@
 class QuestMailer < ActionMailer::Base
-  
-  def mailing(associations, mailing)
-    subject mailing.objet
-    from "postmaster@guadeloupe-asso.fr"
-    body :mailing => mailing
-    bcc associations
-    sent_on Time.now
-    charset 'UTF-8'
-    content_type "text/html"    
-  end
 
   def sent(questionnaire)
     @subject    = 'Questionnaire rempli provenant de ' + questionnaire.nom_asso
@@ -62,23 +52,9 @@ class QuestMailer < ActionMailer::Base
   def confirm_abonewsletter(abonne)
     @subject = "Confirmation de votre abonnement à notre newsletter"
     @body = { "abonne" => abonne }
-    from "postmaster@guadeloupe-asso.fr"
     @recipients = abonne.email_abonne
     @sent_on = Time.now
     @header = {}
     @charset = 'UTF-8'
   end
-  
-  def sent_newsletter(abonnes, newsletter)
-    subject "Guadeloupe-Asso Annuaire Lettre d'information n°#{newsletter.numero}"
-    from "postmaster@guadeloupe-asso.fr"
-    body :newsletter => newsletter
-    recipients(abonnes.first.email_abonne)
-    bcc abonnes.map(&:email_abonne)
-    sent_on Time.now
-    # headers {}
-    charset 'UTF-8'
-    content_type "text/html"
-  end
-  
 end

@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 68) do
+ActiveRecord::Schema.define(:version => 64) do
 
   create_table "abonnes", :force => true do |t|
     t.string   "nom_abonne"
@@ -145,15 +145,6 @@ ActiveRecord::Schema.define(:version => 68) do
     t.string  "cp"
   end
 
-  create_table "mailings", :force => true do |t|
-    t.string   "objet"
-    t.text     "body"
-    t.datetime "published_at"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-    t.string   "recipients"
-  end
-
   create_table "manifestations", :force => true do |t|
     t.string  "nom"
     t.string  "spectateur"
@@ -184,20 +175,6 @@ ActiveRecord::Schema.define(:version => 68) do
     t.time    "dbt_presence"
     t.time    "fin_presence"
     t.integer "conseiladmin_id"
-  end
-
-  create_table "newsletters", :force => true do |t|
-    t.datetime "date_pub"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  create_table "nl_contents", :force => true do |t|
-    t.string   "titre"
-    t.text     "body"
-    t.integer  "newsletter_id"
-    t.datetime "created_at"
-    t.datetime "updated_at"
   end
 
   create_table "orgahabs", :force => true do |t|
@@ -241,7 +218,7 @@ ActiveRecord::Schema.define(:version => 68) do
   end
 
   create_table "sessions", :force => true do |t|
-    t.string   "session_id", :null => false
+    t.string   "session_id", :default => "", :null => false
     t.text     "data"
     t.datetime "created_at"
     t.datetime "updated_at"

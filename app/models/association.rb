@@ -115,7 +115,7 @@ class Association < ActiveRecord::Base
   end
   
   def after_find
-    if ( self.permalink.blank? || self.permalink.nil? )
+    if self.permalink.blank?
       self.permalink = self.nom.downcase.gsub(/\s+/, '_').gsub(/[^a-zA-z0-9_]+/, '')
       self.save!
     end

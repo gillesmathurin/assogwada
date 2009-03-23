@@ -8,13 +8,7 @@ function mark_for_destroy (element) {
 
 function mark_membre_for_destroy (element) {
 	$(element).next('.should_destroy').value = 1;
-	$(element).up('.membres').hide();
-}
-
-function mark_article_for_destroy(element) {
-	$(element).next('.should_destroy').value = 1;
-	$(element).up('.membres').hide();
-}
+	$(element).up('.membres').hide();}
 
 function newImage(arg) {
 	if (document.images) {

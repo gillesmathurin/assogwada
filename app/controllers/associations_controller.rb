@@ -1,10 +1,10 @@
 class AssociationsController < ApplicationController
   layout 'application', :except => :export_xls_csv
-  caches_page :inscription
+  caches_page :inscription#, :accueil # CHANGED : preparation du fragment caching de la page d'accueil
+  # cache_sweeper :association_sweeper, :only => [:create, :destroy]
   
   before_filter :login_required, :except => [:accueil, :inscription, :envoi, :download_quest,
-     :add_ci, :remove_ci, :envoi_inscription, :test_exception, :show, :edit, :form_abonnement,
-     :envoi_formabonnement, :newsletter]
+     :add_ci, :remove_ci, :envoi_inscription, :test_exception, :show, :edit, :form_abonnement, :envoi_formabonnement, :newsletter]
   before_filter :find_ci, :find_conventions, :last_recorded
   # after_filter :after_validation
   
@@ -59,8 +59,7 @@ class AssociationsController < ApplicationController
     
     respond_to do |format|
       format.xls #{ render :layout => false }
-      format.csv { send_data @associations.to_csv(:columns => ["nom", "adresse_siegesocial",
-         "code_postal", "ville", "email"]), :type => "text/csv" }
+      format.csv { send_data @associations.to_csv(:columns => ["nom", "adresse_siegesocial", "code_postal", "ville", "email"]), :type => "text/csv" }
     end
   end  
   
@@ -69,11 +68,12 @@ class AssociationsController < ApplicationController
     
     respond_to do |format|
       if @abonne.save
-        QuestMailer.deliver_confirm_abonewsletter(@abonne)
+        # QuestMailer.deliver_confirm_abonewsletter(@abonne)
         # format.js {}
         format.html { render :action => "accueil" }
       end
     end
+    
   end
   
   # GET /associations/1
@@ -257,7 +257,8 @@ class AssociationsController < ApplicationController
   end
   
   def suite_inscription
-    @association = Association.find(params[:id]) 
+    @association = Association.find(params[:id])
+    
   end
   
   # POST /associations/envoi
