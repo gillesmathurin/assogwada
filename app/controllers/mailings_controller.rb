@@ -61,7 +61,7 @@ class MailingsController < ApplicationController
       if @mailing.save
         call_rake(:send_mailing, :mailing_id => @mailing.id.to_i, :resultats => resultats)
         flash[:notice] = "L'envoi du mailing se déroule en tâche de fond,
-         vous pouvez vaquez à vos autres occupations …"
+         vous pouvez vaquer à vos autres occupations …"
         format.html { redirect_to(mailings_url) }
         format.xml  { render :xml => @mailing, :status => :created, :location => @mailing }
       else
