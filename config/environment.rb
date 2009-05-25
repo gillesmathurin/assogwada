@@ -57,7 +57,7 @@ Rails::Initializer.run do |config|
   config.action_mailer.delivery_method = :smtp
   config.action_mailer.smtp_settings = { 
     :address => "mail.asso-guadeloupe.fr", 
-    :port => 26, 
+    :port => 25, 
     :domain => "asso-guadeloupe.fr",
     :authentication => :login, 
     :user_name => "gilles+asso-guadeloupe.fr", 

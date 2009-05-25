@@ -5,7 +5,8 @@ class MailingsController < ApplicationController
   # GET /mailings
   # GET /mailings.xml
   def index
-    @mailings = Mailing.paginate(:page => params[:page], :per_page => 20, :order => "created_at DESC")
+    @mailings = Mailing.paginate(:page => params[:page], :per_page => 20,
+     :order => "created_at DESC")
 
     respond_to do |format|
       format.html # index.html.erb
@@ -45,7 +46,7 @@ class MailingsController < ApplicationController
   def create
     @mailing = Mailing.new(params[:mailing])
     resultats = []
-    
+ 
     if session[:resultats].nil?
       associations = Association.find(:all, :select => "id, nom, permalink")
       associations.each do |association|
@@ -56,12 +57,13 @@ class MailingsController < ApplicationController
         resultats << id_nom[0]
       end
     end
-
+   
     respond_to do |format|
       if @mailing.save
         call_rake(:send_mailing, :mailing_id => @mailing.id.to_i, :resultats => resultats)
         flash[:notice] = "L'envoi du mailing se déroule en tâche de fond,
          vous pouvez vaquer à vos autres occupations …"
+         session[:resultats] = nil
         format.html { redirect_to(mailings_url) }
         format.xml  { render :xml => @mailing, :status => :created, :location => @mailing }
       else
@@ -81,7 +83,6 @@ class MailingsController < ApplicationController
     end
   end
   
-
   # PUT /mailings/1
   # PUT /mailings/1.xml
   def update

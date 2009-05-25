@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 64) do
+ActiveRecord::Schema.define(:version => 71) do
 
   create_table "abonnes", :force => true do |t|
     t.string   "nom_abonne"
@@ -88,6 +88,7 @@ ActiveRecord::Schema.define(:version => 64) do
     t.integer  "locals_count",                                                         :default => 0
     t.integer  "activites_count",                                                      :default => 0
     t.integer  "conseiladmins_count",                                                  :default => 0
+    t.string   "email2"
   end
 
   add_index "associations", ["nom", "sigle", "ville"], :name => "assos_idx"
@@ -145,6 +146,15 @@ ActiveRecord::Schema.define(:version => 64) do
     t.string  "cp"
   end
 
+  create_table "mailings", :force => true do |t|
+    t.string   "objet"
+    t.text     "body"
+    t.datetime "published_at"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.text     "recipients"
+  end
+
   create_table "manifestations", :force => true do |t|
     t.string  "nom"
     t.string  "spectateur"
@@ -175,6 +185,20 @@ ActiveRecord::Schema.define(:version => 64) do
     t.time    "dbt_presence"
     t.time    "fin_presence"
     t.integer "conseiladmin_id"
+  end
+
+  create_table "newsletters", :force => true do |t|
+    t.datetime "date_pub"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "nl_contents", :force => true do |t|
+    t.string   "titre"
+    t.text     "body"
+    t.integer  "newsletter_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "orgahabs", :force => true do |t|

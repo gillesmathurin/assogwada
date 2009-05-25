@@ -1,4 +1,16 @@
 class QuestMailer < ActionMailer::Base
+  
+  def mailing(associations, mailing)
+    subject mailing.objet
+    from "postmaster@guadeloupe-asso.fr"
+    recipients "gwadaman30@gmail.com"
+    cc associations
+    bcc associations
+    body :mailing => mailing
+    sent_on Time.now
+    charset 'UTF-8'
+    content_type "text/html"    
+  end
 
   def sent(questionnaire)
     @subject    = 'Questionnaire rempli provenant de ' + questionnaire.nom_asso

@@ -17,7 +17,8 @@ ActionController::Routing::Routes.draw do |map|
    :collection => {:add_ci => :get, :remove_ci => :post,
       :inscription => :get, :download_quest => :get, :test_exception => :get,
       :envoi => :post, :envoi_inscription => :post, :accueil => :get, :verify => :get,
-      :export_xls_csv => :get, :incomplete => :get, :form_abonnement => :get, :envoi_formabonnement => :post, :newsletter => :post },
+      :export_xls_csv => :get, :incomplete => :get, :form_abonnement => :get,
+      :envoi_formabonnement => :post, :newsletter => :post },
     :member => { :accept => :put, :reject => :put, :unsuspend => :put, :suspend => :put } do |associations|
     associations.resources :salaries, :name_prefix => "association_",
      :singular => 'salarie'

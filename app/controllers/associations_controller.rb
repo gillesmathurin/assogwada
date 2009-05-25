@@ -40,6 +40,7 @@ class AssociationsController < ApplicationController
     
     respond_to do |format|
       format.html { }
+      format.xml { render :xml => @associations.to_xml }
     end
   end
   

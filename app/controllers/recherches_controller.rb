@@ -30,7 +30,7 @@ class RecherchesController < ApplicationController
     resultats = []
     unless @associations.nil?
       @associations.each do |a|
-        resultats << [a.to_param, a.nom]
+        resultats << [a.id, a.nom]
       end
       session[:resultats] = resultats
     end

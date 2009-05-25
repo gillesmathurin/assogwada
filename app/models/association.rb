@@ -4,26 +4,28 @@ class Association < ActiveRecord::Base
   validates_presence_of :nom, :adresse_siegesocial, :ville
   # cotisation_annuelle doit être mis en commentaire pour bon déroulement du data-migration
   validates_associated :champ_interventions
+  validates_format_of :email, :email2, :with => /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/,
+   :on => :create, :message => "non valide"
   
   before_validation_on_create :set_permalink
   
-  def after_validation
-    # Iterate through the errors
-    errors.each do |field,message|
-      # If the field of an error is really an association, then the 'validates_associated' found an error
-      if self.class.reflect_on_all_associations.collect(&:name).index(field.to_sym)
-        # Iterate through the objects in the association looking for the invalid ones
-        for association in [self.send(field)].flatten
-          if association and !association.valid?
-            # add the error messages of the associated object to my error messages
-            association.errors.each_full do |msg|
-              self.errors.add_to_base msg
-            end
-          end
-        end
-      end
-    end
-  end
+  # def after_validation
+  #   # Iterate through the errors
+  #   errors.each do |field,message|
+  #     # If the field of an error is really an association, then the 'validates_associated' found an error
+  #     if self.class.reflect_on_all_associations.collect(&:name).index(field.to_sym)
+  #       # Iterate through the objects in the association looking for the invalid ones
+  #       for association in [self.send(field)].flatten
+  #         if association and !association.valid?
+  #           # add the error messages of the associated object to my error messages
+  #           association.errors.each_full do |msg|
+  #             self.errors.add_to_base msg
+  #           end
+  #         end
+  #       end
+  #     end
+  #   end
+  # end
   
   # Relations
   has_one :conseiladmin
