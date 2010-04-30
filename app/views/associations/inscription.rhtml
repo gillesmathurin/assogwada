@@ -143,6 +143,12 @@
 			</div>
 		<%= render :partial=>'add_ci_link', :locals => { :index => ( @index + 1) } %>
 	</fieldset>
+	
+	<fieldset>
+		<legend><b>Afin de vérifier que vous n'êtes pas un robot</b></legend>
+		<p>Entrez le résultat de l'opération suivante : 7 + 8</p>
+		<%= text_field_tag :token %>
+	</fieldset>
 			
  	  <p>
  	    <%= submit_tag "S'inscrire" %>
