@@ -219,6 +219,9 @@ class AssociationsController < ApplicationController
     @index = 0
     @questionnaire = Quest.new()
     session[:original_uri] = request.request_uri
+    session[:token] = nil
+    @token = make_token()
+    session[:token] = @token
   end
   
   # GET /associations/download_quest
@@ -245,7 +248,7 @@ class AssociationsController < ApplicationController
     end
 
     respond_to do |format|
-      if params[:token] == "15" && @association.save!        
+      if params[:token].to_i == session[:token].result && @association.save!        
         @association.champ_interventions << cis
         QuestMailer.deliver_sent_inscription(@association)
         flash[:notice] = "Votre inscription a bien été enregistré, elle sera traitée très rapidement. Nous vous invitons à remplir les autres informations concernant votre association en cliquant sur les liens de la colonne de gauche"
@@ -347,5 +350,14 @@ class AssociationsController < ApplicationController
   
   def find_conventions
     @conventions = Convention.select_array
+  end
+
+  TokenStruct = Struct.new(:operand1, :operand2, :result)
+
+  def make_token
+    operand1 = rand(10)
+    operand2 = rand(10)
+    result = operand1 + operand2
+    token = TokenStruct.new(operand1, operand2, result)
   end
 end

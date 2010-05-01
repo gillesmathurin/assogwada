@@ -146,7 +146,7 @@
 	
 	<fieldset>
 		<legend><b>Afin de vérifier que vous n'êtes pas un robot</b></legend>
-		<p>Entrez le résultat de l'opération suivante : 7 + 8</p>
+		<p>Entrez le résultat de l'opération suivante : <%= @token.operand1 %> + <%= @token.operand2 %></p>
 		<%= text_field_tag :token %>
 	</fieldset>
 			
