@@ -245,7 +245,7 @@ class AssociationsController < ApplicationController
     end
 
     respond_to do |format|
-      if params[:token] == "15" && @association.save        
+      if params[:token] == "15" && @association.save!        
         @association.champ_interventions << cis
         QuestMailer.deliver_sent_inscription(@association)
         flash[:notice] = "Votre inscription a bien été enregistré, elle sera traitée très rapidement. Nous vous invitons à remplir les autres informations concernant votre association en cliquant sur les liens de la colonne de gauche"

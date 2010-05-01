@@ -4,8 +4,7 @@ class Association < ActiveRecord::Base
   validates_presence_of :nom, :adresse_siegesocial, :ville
   # cotisation_annuelle doit être mis en commentaire pour bon déroulement du data-migration
   validates_associated :champ_interventions
-  # validates_format_of :email, :email2, :with => /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/,
-  #  :on => :create, :message => "non valide"
+  validates_format_of :email, :email2, :with => /^[\w\.%\+\-]+@(?:[A-Z0-9\-]+\.)+(?:[A-Z]{2}|com|org|net|edu|gov|mil|biz|info|mobi|name|aero|jobs|museum|fr)\z/i , :on => :create, :message => "non valide"
   
   before_validation_on_create :set_permalink
   
@@ -179,4 +178,6 @@ class Association < ActiveRecord::Base
   def set_permalink
     self.permalink = self.nom.downcase.gsub(/\s+/, '_').gsub(/[^a-zA-z0-9_]+/, '')
   end
+
+  
 end
