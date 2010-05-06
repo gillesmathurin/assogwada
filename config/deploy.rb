@@ -51,12 +51,12 @@ namespace :deploy do
   end
   
   task :finishing_touches, :roles => :app do
-    run "cp -pf /var/rails/srias/to_copy/database.yml #{current_path}/config/database.yml"
-    run "cp -pf /var/rails/srias/to_copy/mail.rb #{current_path}/config/initializers/mail.rb"
+    run "cp -pf /var/rails/assogwada/to_copy/database.yml #{current_path}/config/database.yml"
+    run "cp -pf /var/rails/assogwada/to_copy/mail.rb #{current_path}/config/initializers/mail.rb"
   end
   
   task :set_to_wwwdata_user, :roles => :app do
-    run "chown -R www-data:root /var/rails/srias"
+    run "chown -R www-data:root /var/rails/assogwada"
     # run "chown -R www-data:root #{current_path}/log/production.log"
   end
   
@@ -64,9 +64,14 @@ namespace :deploy do
     run "cd #{current_path} && rake db:seed RAILS_ENV=production"
   end
   
-  after 'deploy:symlink', 'deploy:finishing_touches', 'delayed_job:restart', 'deploy:set_to_wwwdata_user'
+  desc "Update the crontab"
+  task :update_crontab, :roles => :db do
+    run "cd #{current_path} && whenever --update-crontab #{application}"
+  end
 end
 
+after 'deploy:symlink', 'deploy:finishing_touches', 'delayed_job:restart', 'deploy:set_to_wwwdata_user', 'deploy:update_crontab'
+  
 # If you are using Passenger mod_rails uncomment this:
 # if you're still using the script/reapear helper you will need
 # these http://github.com/rails/irs_process_scripts
