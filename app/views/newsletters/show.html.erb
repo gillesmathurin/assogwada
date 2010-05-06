@@ -1,0 +1,73 @@
+<div id="side-colonne">
+  <div class="topsidemenu">
+		&nbsp;		
+	</div>
+	<div class="side-menu">
+		<p><%= link_to "Déconnexion", logout_path %></p>
+		<p>
+			<b>Recherche rapide</b><br/>
+			<% form_tag associations_path, :method => 'get' do %>
+				<%= text_field_tag :search, params[:search] %><br/><br/>
+				<%= submit_tag "Trouver", :name => nil %>
+			<% end %>
+		</p>
+		<p class="to_valid">
+			À valider : <%= @nb_to_verify %><br/>
+			<%= validation_links(@nb_to_verify) %>
+		</p>
+		<p><%= link_to 'Ajouter une association', new_association_path %></p>
+		<% unless @last_recorded.nil? %>
+		<p>
+			Dernière association reférencée :<br/>
+			<%= link_to  @last_recorded.nom, association_path(@last_recorded)  %><br/>
+			le <%= h @last_recorded.created_at.strftime("%d/%m/%Y") %>
+		</p>
+		<% end %>
+		<p>
+			Nombre d'associations enregistrées : <strong><%=h Association.count %></strong><br/>
+		</p>
+		<p class="export_csv">
+			<%= link_to "Export Excel", formatted_export_xls_csv_associations_url(:xls) %><br/>
+			<%= link_to "Export CSV", formatted_export_xls_csv_associations_url(:csv) %><br/>
+			<%= link_to "Gestion des Mailings", mailings_path() %><br/>
+			<%= link_to "Gestion des Newsletters", newsletters_path() %>
+		</p>
+		<p class="to_valid">
+			Assos incomplètes : <%= @asso_incomplete %><br/>
+			<%= link_to "Voir", incomplete_associations_path() %>
+		</p>
+		<p>
+			<%= link_to "Ajouter un champ d'intervention", new_champ_intervention_path() %>
+		</p>
+	</div>
+</div>
+
+<div id="colonne1">
+  <h2 class="ficheid">Voir Newsletter</h2>
+  <p>
+    <b>Date publication :</b>
+    <% if @newsletter.date_pub %>
+      <%= h @newsletter.date_pub.strftime("%d/%m/%Y") %>
+    <% else %>
+      Pas encore publié.
+    <% end %>
+  </p>
+
+  <p>
+    <b>Numero:</b>
+    <%=h @newsletter.numero %>
+  </p>
+  
+  <% @newsletter.nl_contents.each do |content| %>
+  <p>
+    <b><%= content.titre %></b><br/>
+  </p>
+  <p>
+    <%= simple_format(content.body) %>
+  </p>
+  <% end %>
+
+
+  <%= link_to 'Modifier', edit_newsletter_path(@newsletter) %> |
+  <%= link_to 'Retour', newsletters_path %>
+</div>

@@ -1,0 +1,71 @@
+<div id="side-colonne">
+	<div class="topsidemenu">
+		&nbsp;		
+	</div>
+	<div class="side-menu">
+		<p><%= link_to "Déconnexion", logout_path %></p>
+		<p>
+			<b>Recherche rapide</b><br/>
+			<% form_tag associations_path, :method => 'get' do %>
+				<%= text_field_tag :search, params[:search] %><br/><br/>
+				<%= submit_tag "Trouver", :name => nil %>
+			<% end %>
+		</p>
+		<p class="to_valid">
+			À valider : <%= @nb_to_verify %><br/>
+			<%= validation_links(@nb_to_verify) %>
+		</p>
+		<p><%= link_to 'Ajouter une association', new_association_path %></p>
+		<% unless @last_recorded.nil? %>
+		<p>
+			Dernière association reférencée :<br/>
+			<%= link_to  @last_recorded.nom, association_path(@last_recorded)  %><br/>
+			le <%= h @last_recorded.created_at.strftime("%d/%m/%Y") %>
+		</p>
+		<% end %>
+		<p>
+			Nombre d'associations enregistrées : <strong><%=h Association.count %></strong><br/>
+		</p>
+		<p class="export_csv">
+			<%= link_to "Export Excel", formatted_export_xls_csv_associations_url(:xls) %><br/>
+			<%= link_to "Export CSV", formatted_export_xls_csv_associations_url(:csv) %><br/>
+			<%= link_to "Gestion Mailings", mailings_path() %><br/>
+			<%= link_to "Gestion des Newsletters", newsletters_path() %>
+		</p>
+		<p class="to_valid">
+			Assos incomplètes : <%= @asso_incomplete %><br/>
+			<%= link_to "Voir", incomplete_associations_path() %>
+		</p>
+		<p>
+			<%= link_to "Ajouter un champ d'intervention", new_champ_intervention_path() %>
+		</p>
+	</div>
+</div>
+
+<div id="colonne1">
+  <h2 class="ficheid">Rédigez votre mailing</h2>
+  
+  <p>
+    Vous pouvez rédiger ici, le courrier à envoyer aux associations sélectionnées par l'outil de recherche.
+  </p>
+
+  <%= error_messages_for :mailing %>
+
+  <% form_for(@mailing) do |f| %>
+    <p>
+      <b>Objet</b><br />
+      <%= f.text_field :objet, :size => 40 %>
+    </p>
+
+    <p>
+      <b>Body</b><br />
+      <%= f.text_area :body, :cols => 40, :rows => 20 %>
+    </p>
+
+    <p>
+      <%= f.submit "Envoyer le mailing" %>
+    </p>
+  <% end %>
+
+  <%= link_to 'Retour', mailings_path %>
+</div>

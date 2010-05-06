@@ -57,7 +57,7 @@ class MailingsController < ApplicationController
         resultats << id_nom[0]
       end
     end
-   
+    
     respond_to do |format|
       if @mailing.save
         call_rake(:send_mailing, :mailing_id => @mailing.id.to_i, :resultats => resultats)

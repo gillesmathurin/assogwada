@@ -1,0 +1,74 @@
+<div id="side-colonne">
+  <div class="topsidemenu">
+		&nbsp;		
+	</div>
+	<div class="side-menu">
+		<p><%= link_to "Déconnexion", logout_path %></p>
+		<p>
+			<b>Recherche rapide</b><br/>
+			<% form_tag associations_path, :method => 'get' do %>
+				<%= text_field_tag :search, params[:search] %><br/><br/>
+				<%= submit_tag "Trouver", :name => nil %>
+			<% end %>
+		</p>
+		<p class="to_valid">
+			À valider : <%= @nb_to_verify %><br/>
+			<%= validation_links(@nb_to_verify) %>
+		</p>
+		<p><%= link_to 'Ajouter une association', new_association_path %></p>
+		<% unless @last_recorded.nil? %>
+		<p>
+			Dernière association reférencée :<br/>
+			<%= link_to  @last_recorded.nom, association_path(@last_recorded)  %><br/>
+			le <%= h @last_recorded.created_at.strftime("%d/%m/%Y") %>
+		</p>
+		<% end %>
+		<p>
+			Nombre d'associations enregistrées : <strong><%=h Association.count %></strong><br/>
+		</p>
+		<p class="export_csv">
+			<%= link_to "Export Excel", formatted_export_xls_csv_associations_url(:xls) %><br/>
+			<%= link_to "Export CSV", formatted_export_xls_csv_associations_url(:csv) %><br/>
+			<%= link_to "Gestion des Mailings", mailings_path() %><br/>
+			<%= link_to "Gestion des Newsletters", newsletters_path() %>
+		</p>
+		<p class="to_valid">
+			Assos incomplètes : <%= @asso_incomplete %><br/>
+			<%= link_to "Voir", incomplete_associations_path() %>
+		</p>
+		<p>
+			<%= link_to "Ajouter un champ d'intervention", new_champ_intervention_path() %>
+		</p>
+	</div>
+</div>
+
+<div id="colonne1">
+  <h2 class="ficheid">Listing des mailings</h2>
+
+  <table>
+    <tr>
+      <th>Objet</th>
+      <th>Corps du Texte</th>
+      <th>Envoyé le</th>
+    </tr>
+
+  <% for mailing in @mailings %>
+    <tr>
+      <td><%=h mailing.objet %></td>
+      <td><%=h truncate(mailing.body, 30) %></td>
+      <td><%=h mailing.published_at.strftime("%d/%m/%Y") if mailing.published_at %></td>
+      <td><%= link_to 'Voir', mailing %></td>
+      <td><%= link_to 'Modifier', edit_mailing_path(mailing) %></td>
+      <td><%= link_to "Ré-expédier", reexpedition_mailing_path(mailing) %></td>
+      <td><%= link_to 'X', mailing, :confirm => 'Êtes vous certain ?', :method => :delete, :alt => "supprimer" %></td>
+    </tr>
+  <% end %>
+  </table>
+
+  <br />
+  <%= will_paginate @mailings %>
+  
+  <p>
+    <%= link_to "Rédiger un Mailing ciblé", new_recherch_path() %> | <%= link_to "Envoyer un Mailing général", new_mailing_path() %>
+  </p>
+</div>
