@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 71) do
+ActiveRecord::Schema.define(:version => 20100506152020) do
 
   create_table "abonnes", :force => true do |t|
     t.string   "nom_abonne"
@@ -58,8 +58,8 @@ ActiveRecord::Schema.define(:version => 71) do
     t.string   "email"
     t.string   "website_url"
     t.text     "objet_social"
-    t.integer  "cotisation_annuelle",     :limit => 10, :precision => 10, :scale => 0
-    t.integer  "droit_entree",            :limit => 10, :precision => 10, :scale => 0
+    t.integer  "cotisation_annuelle"
+    t.integer  "droit_entree"
     t.integer  "nb_adherent_homme"
     t.integer  "nb_adherent_femme"
     t.integer  "nb_adherent_enfant"
@@ -85,9 +85,9 @@ ActiveRecord::Schema.define(:version => 71) do
     t.string   "permalink"
     t.string   "state"
     t.boolean  "incomplete"
-    t.integer  "locals_count",                                                         :default => 0
-    t.integer  "activites_count",                                                      :default => 0
-    t.integer  "conseiladmins_count",                                                  :default => 0
+    t.integer  "locals_count",            :default => 0
+    t.integer  "activites_count",         :default => 0
+    t.integer  "conseiladmins_count",     :default => 0
     t.string   "email2"
   end
 
@@ -133,6 +133,21 @@ ActiveRecord::Schema.define(:version => 71) do
   create_table "conventions", :force => true do |t|
     t.string "nom"
   end
+
+  create_table "delayed_jobs", :force => true do |t|
+    t.integer  "priority",   :default => 0
+    t.integer  "attempts",   :default => 0
+    t.text     "handler"
+    t.text     "last_error"
+    t.datetime "run_at"
+    t.datetime "locked_at"
+    t.datetime "failed_at"
+    t.string   "locked_by"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "delayed_jobs", ["priority", "run_at"], :name => "delayed_jobs_priority"
 
   create_table "dispositifs", :force => true do |t|
     t.string "nom"
