@@ -1,5 +1,6 @@
 class NewsletterMailer < ActionMailer::Base
   
+  # Envoi la newsletter aux abonnés
   def newsletter(abonne, newsletter)
     subject         "Annuaire Asso-Guadeloupe Newsletter #{newsletter.id}"
     recipients      abonne
