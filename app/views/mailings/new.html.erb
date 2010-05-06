@@ -16,11 +16,13 @@
 			<%= validation_links(@nb_to_verify) %>
 		</p>
 		<p><%= link_to 'Ajouter une association', new_association_path %></p>
+		<% unless @last_recorded.nil? %>
 		<p>
 			Dernière association reférencée :<br/>
-			<%= link_to  @last_recorded.nom, association_path(@last_recorded) if @last_recorded %><br/>
-			le <%= h @last_recorded.created_at.strftime("%d/%m/%Y") if @last_recorded %>
+			<%= link_to  @last_recorded.nom, association_path(@last_recorded)  %><br/>
+			le <%= h @last_recorded.created_at.strftime("%d/%m/%Y") %>
 		</p>
+		<% end %>
 		<p>
 			Nombre d'associations enregistrées : <strong><%=h Association.count %></strong><br/>
 		</p>
@@ -41,34 +43,29 @@
 </div>
 
 <div id="colonne1">
-	<h2 class="ficheid">Listing des Associations</h2>
+  <h2 class="ficheid">Rédigez votre mailing</h2>
+  
+  <p>
+    Vous pouvez rédiger ici, le courrier à envoyer aux associations sélectionnées par l'outil de recherche.
+  </p>
 
-	<table border="0" cellspacing="0" id="liste-index">
-	  <tr>
-	  	<td class="entete-2">Nom</td>
-		<td class="entete-2">Ville</td>
-		<td class="entete-2">Statut</td>
-		<td class="entete-2" colspan="4">Actions</td>
-	  </tr>
+  <%= error_messages_for :mailing %>
 
-	<% for association in @associations %>
+  <% form_for(@mailing) do |f| %>
+    <p>
+      <b>Objet</b><br />
+      <%= f.text_field :objet, :size => 40 %>
+    </p>
 
-	  <tr>
-	    <td><%=h association.nom %></td>
-	    <!-- <td><%#h association.ville %></td> -->
-	    <td><%=h association.state %></td>
-		<td><%= link_to 'Fiche', association_path(association) %></td>
-			<td><%= link_to 'Modifier', edit_association_path(association) %></td>
-			<td><%= link_to 'Supprimer', association_path(association), :confirm => 'Are you sure?', :method => :delete %></td>
-		<td><%= possible_state_link(association) %></td>
-	  </tr>
-	<% end %>
-	</table>
+    <p>
+      <b>Body</b><br />
+      <%= f.text_area :body, :cols => 40, :rows => 20 %>
+    </p>
 
-	<br />
+    <p>
+      <%= f.submit "Envoyer le mailing" %>
+    </p>
+  <% end %>
 
-<%= will_paginate @associations %>
+  <%= link_to 'Retour', mailings_path %>
 </div>
-
-
-

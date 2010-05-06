@@ -1,5 +1,5 @@
 <div id="side-colonne">
-	<div class="topsidemenu">
+  <div class="topsidemenu">
 		&nbsp;		
 	</div>
 	<div class="side-menu">
@@ -16,18 +16,20 @@
 			<%= validation_links(@nb_to_verify) %>
 		</p>
 		<p><%= link_to 'Ajouter une association', new_association_path %></p>
+		<% unless @last_recorded.nil? %>
 		<p>
 			Dernière association reférencée :<br/>
-			<%= link_to  @last_recorded.nom, association_path(@last_recorded) if @last_recorded %><br/>
-			le <%= h @last_recorded.created_at.strftime("%d/%m/%Y") if @last_recorded %>
+			<%= link_to  @last_recorded.nom, association_path(@last_recorded)  %><br/>
+			le <%= h @last_recorded.created_at.strftime("%d/%m/%Y") %>
 		</p>
+		<% end %>
 		<p>
 			Nombre d'associations enregistrées : <strong><%=h Association.count %></strong><br/>
 		</p>
 		<p class="export_csv">
 			<%= link_to "Export Excel", formatted_export_xls_csv_associations_url(:xls) %><br/>
 			<%= link_to "Export CSV", formatted_export_xls_csv_associations_url(:csv) %><br/>
-			<%= link_to "Gestion Mailings", mailings_path() %><br/>
+			<%= link_to "Gestion des Mailings", mailings_path() %><br/>
 			<%= link_to "Gestion des Newsletters", newsletters_path() %>
 		</p>
 		<p class="to_valid">
@@ -41,34 +43,26 @@
 </div>
 
 <div id="colonne1">
-	<h2 class="ficheid">Listing des Associations</h2>
+<h2 class="ficheid">Modifier le mailing</h2>
 
-	<table border="0" cellspacing="0" id="liste-index">
-	  <tr>
-	  	<td class="entete-2">Nom</td>
-		<td class="entete-2">Ville</td>
-		<td class="entete-2">Statut</td>
-		<td class="entete-2" colspan="4">Actions</td>
-	  </tr>
+<%= error_messages_for :mailing %>
 
-	<% for association in @associations %>
+<% form_for(@mailing) do |f| %>
+  <p>
+    <b>Objet</b><br />
+    <%= f.text_field :objet %>
+  </p>
 
-	  <tr>
-	    <td><%=h association.nom %></td>
-	    <!-- <td><%#h association.ville %></td> -->
-	    <td><%=h association.state %></td>
-		<td><%= link_to 'Fiche', association_path(association) %></td>
-			<td><%= link_to 'Modifier', edit_association_path(association) %></td>
-			<td><%= link_to 'Supprimer', association_path(association), :confirm => 'Are you sure?', :method => :delete %></td>
-		<td><%= possible_state_link(association) %></td>
-	  </tr>
-	<% end %>
-	</table>
+  <p>
+    <b>Body</b><br />
+    <%= f.text_area :body %>
+  </p>
 
-	<br />
+  <p>
+    <%= f.submit "Mettre à jour" %>
+  </p>
+<% end %>
 
-<%= will_paginate @associations %>
+<%= link_to 'Voir', @mailing %> |
+<%= link_to 'Retour', mailings_path %>
 </div>
-
-
-

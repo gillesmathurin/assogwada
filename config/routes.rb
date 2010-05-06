@@ -1,4 +1,8 @@
 ActionController::Routing::Routes.draw do |map|
+  map.resources :newsletters
+  
+  map.resources :mailings
+  
   map.resources :quests
 
   map.resources :conventions

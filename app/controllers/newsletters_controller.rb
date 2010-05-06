@@ -2,10 +2,17 @@ class NewslettersController < ApplicationController
   
   before_filter :login_required
   
+  # def deliver
+  #   call_rake(:send_newsletter, :newsletter_id => params[:id].to_i)
+  #   flash[:notice] = "En cours d'envoi"
+  #   redirect_to newsletters_url
+  # end
+  
   def deliver
-    call_rake(:send_newsletter, :newsletter_id => params[:id].to_i)
-    flash[:notice] = "En cours d'envoi"
-    redirect_to newsletters_url
+    @newsletter = Newsletter.find(params[:id])
+    @newsletter.send_later(:deliver)
+    flash[:notice] = "Newsletter en cours d'envoi …"
+    redirect_to(newsletters_url)
   end
   
   def desabonnement
