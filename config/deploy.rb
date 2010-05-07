@@ -17,7 +17,7 @@ set :repository, "git@github.com:#{git_account}/assogwada.git"
 set :user, user
 
 ssh_options[:forward_agent] = true
-set :branch, 'RB_1.5'
+set :branch, 'release'
 set :deploy_via, :remote_cache
 set :git_shallow_clone, 1
 set :git_enable_submodules, 1
