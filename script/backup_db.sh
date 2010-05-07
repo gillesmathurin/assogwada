@@ -7,7 +7,7 @@ PASSWORD=$3
 DUMP_FILE=$4
 
 cd $BACKUP_DIR
-mysqldump -h localhost $DATABASE -u $USERNAME -p $PASSWORD > $DUMP_FILE
+mysqldump -h localhost $DATABASE -u $USERNAME -password=$PASSWORD > $DUMP_FILE
 gzip $DUMP_FILE
 
 # development

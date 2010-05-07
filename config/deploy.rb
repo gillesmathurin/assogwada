@@ -46,12 +46,15 @@ namespace :delayed_job do
 end
 
 namespace :deploy do
+  task :start do ; end
+  task :stop do ; end
   task :restart, :roles => :app, :except => { :no_release => true } do
     run "touch #{File.join(current_path, 'tmp', 'restart.txt')}"
   end
   
   task :finishing_touches, :roles => :app do
     run "cp -pf /var/rails/annuaire/to_copy/database.yml #{current_path}/config/database.yml"
+    run "cd #{current_path} && RAILS_ENV=production rake db:create"
   end
   
   task :set_to_wwwdata_user, :roles => :app do
@@ -69,7 +72,7 @@ namespace :deploy do
   end
 end
 
-after 'deploy:symlink', 'deploy:finishing_touches', 'delayed_job:restart', 'deploy:set_to_wwwdata_user', 'deploy:update_crontab'
+after 'deploy:symlink', 'deploy:update_crontab', 'deploy:finishing_touches', 'deploy:migrate', 'deploy:set_to_wwwdata_user', 'delayed_job:restart'
   
 # If you are using Passenger mod_rails uncomment this:
 # if you're still using the script/reapear helper you will need
