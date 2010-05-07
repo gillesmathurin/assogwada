@@ -28,9 +28,12 @@ test:
   password: 
   socket: /tmp/mysql.sock
 
-production:
-  adapter: mysql
-  database: assogwada_production
-  username: root
-  password: 
-  socket: /tmp/mysql.sock
+  production:
+    adapter: mysql
+    encoding: utf8
+    reconnect: false
+    database: annuaire_production
+    pool: 5
+    username: root
+    password: g1i9l7l7ou
+    # socket: /tmp/mysql.sock

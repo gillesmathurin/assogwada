@@ -1,4 +1,4 @@
-set :application, "assogwada"
+set :application, "annuaire"
 set :user, "root"
 set :domain, '208.88.125.46'
 set :server_hostname, '208.88.125.46'
@@ -22,7 +22,7 @@ set :deploy_via, :remote_cache
 set :git_shallow_clone, 1
 set :git_enable_submodules, 1
 set :use_sudo, false
-set :deploy_to, "/var/rails/assogwada"
+set :deploy_to, "/var/rails/annuaire"
 
 namespace :delayed_job do
   def rails_env
@@ -51,12 +51,12 @@ namespace :deploy do
   end
   
   task :finishing_touches, :roles => :app do
-    run "cp -pf /var/rails/assogwada/to_copy/database.yml #{current_path}/config/database.yml"
-    run "cp -pf /var/rails/assogwada/to_copy/mail.rb #{current_path}/config/initializers/mail.rb"
+    run "cp -pf /var/rails/annuaire/to_copy/database.yml #{current_path}/config/database.yml"
+    run "cp -pf /var/rails/annuaire/to_copy/mail.rb #{current_path}/config/initializers/mail.rb"
   end
   
   task :set_to_wwwdata_user, :roles => :app do
-    run "chown -R www-data:root /var/rails/assogwada"
+    run "chown -R www-data:root /var/rails/annuaire"
     # run "chown -R www-data:root #{current_path}/log/production.log"
   end
   
