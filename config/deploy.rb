@@ -13,11 +13,11 @@ role :web, server_hostname
 role :db, server_hostname, :primary => true
 
 default_run_options[:pty] = true
-set :repository, "git@github.com:#{git_account}/#{application}.git"
+set :repository, "git@github.com:#{git_account}/assogwada.git"
 set :user, user
 
 ssh_options[:forward_agent] = true
-set :branch, 'release'
+set :branch, 'RB_1.5'
 set :deploy_via, :remote_cache
 set :git_shallow_clone, 1
 set :git_enable_submodules, 1
@@ -52,7 +52,6 @@ namespace :deploy do
   
   task :finishing_touches, :roles => :app do
     run "cp -pf /var/rails/annuaire/to_copy/database.yml #{current_path}/config/database.yml"
-    run "cp -pf /var/rails/annuaire/to_copy/mail.rb #{current_path}/config/initializers/mail.rb"
   end
   
   task :set_to_wwwdata_user, :roles => :app do
