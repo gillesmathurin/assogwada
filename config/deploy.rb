@@ -68,7 +68,7 @@ namespace :deploy do
   
   desc "Update the crontab"
   task :update_crontab, :roles => :db do
-    run "cd #{current_path} && whenever --update-crontab #{application}"
+    run "cd #{current_path} && RAILS_ENV=production whenever --update-crontab #{application}"
   end
 end
 

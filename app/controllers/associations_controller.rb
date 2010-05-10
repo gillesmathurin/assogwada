@@ -1,7 +1,5 @@
 class AssociationsController < ApplicationController
   layout 'application', :except => :export_xls_csv
-  caches_page :inscription#, :accueil # CHANGED : preparation du fragment caching de la page d'accueil
-  # cache_sweeper :association_sweeper, :only => [:create, :destroy]
   
   before_filter :login_required, :except => [:accueil, :inscription, :envoi, :download_quest,
      :add_ci, :remove_ci, :envoi_inscription, :test_exception, :show, :edit, :form_abonnement, :envoi_formabonnement, :newsletter]

@@ -58,8 +58,8 @@ ActiveRecord::Schema.define(:version => 20100506152020) do
     t.string   "email"
     t.string   "website_url"
     t.text     "objet_social"
-    t.integer  "cotisation_annuelle"
-    t.integer  "droit_entree"
+    t.integer  "cotisation_annuelle",     :limit => 10, :precision => 10, :scale => 0
+    t.integer  "droit_entree",            :limit => 10, :precision => 10, :scale => 0
     t.integer  "nb_adherent_homme"
     t.integer  "nb_adherent_femme"
     t.integer  "nb_adherent_enfant"
@@ -85,9 +85,9 @@ ActiveRecord::Schema.define(:version => 20100506152020) do
     t.string   "permalink"
     t.string   "state"
     t.boolean  "incomplete"
-    t.integer  "locals_count",            :default => 0
-    t.integer  "activites_count",         :default => 0
-    t.integer  "conseiladmins_count",     :default => 0
+    t.integer  "locals_count",                                                         :default => 0
+    t.integer  "activites_count",                                                      :default => 0
+    t.integer  "conseiladmins_count",                                                  :default => 0
     t.string   "email2"
   end
 
@@ -254,6 +254,10 @@ ActiveRecord::Schema.define(:version => 20100506152020) do
     t.integer "association_id"
     t.string  "contrat_classique"
     t.string  "contrat_aide"
+  end
+
+  create_table "schema_info", :id => false, :force => true do |t|
+    t.integer "version"
   end
 
   create_table "sessions", :force => true do |t|
