@@ -79,7 +79,7 @@ class RecherchesController < ApplicationController
       # formatted_name(association)
       @associations << association
     end
-    @associations_csv = @associations.to_csv(:only => [:nom, :adresse_siegesocial, :cp_ville, :email])
+    @associations_csv = @associations.to_csv(:only => [:nom, :adresse_siegesocial, :code_postal, :ville, :email, :telephone, :fax])
             
     respond_to do |format|
       format.csv { send_data @associations_csv, :filename => filename }

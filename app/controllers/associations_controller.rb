@@ -51,14 +51,12 @@ class AssociationsController < ApplicationController
   end
   
   def export_xls_csv
-    headers['Content-Type'] = "application/vnd.ms-excel"
-    headers['Content-Disposition'] = 'attachment; filename="excel-export.xls"'
-    headers['Cache-Control'] = ''
     @associations = Association.find(:all, :order => "nom asc")
+    @filename = "Listing des Associations de la base"
     
     respond_to do |format|
-      format.xls #{ render :layout => false }
-      format.csv { send_data @associations.to_csv(:columns => ["nom", "adresse_siegesocial", "code_postal", "ville", "email"]), :type => "text/csv" }
+      format.xls 
+      format.csv { send_data @associations.to_csv(:only => [:nom, :adresse_siegesocial, :code_postal, :ville, :email, :telephone, :fax]), :filename => (@filename+".csv") }
     end
   end  
   
