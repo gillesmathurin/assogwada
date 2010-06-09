@@ -74,41 +74,52 @@ class RecherchesController < ApplicationController
     
     @resultats = session[:resultats]
     @resultats.each do |array|
-      association = Association.find(array[0])
-      formatted_name(association)
+      association = Association.find(array[0], :select => ("nom, adresse_siegesocial, ville,
+        telephone, fax, email, website_url"))
+      # formatted_name(association)
       @associations << association
     end
-        
+    @associations_csv = @associations.to_csv(:only => [:nom, :adresse_siegesocial, :cp_ville, :email])
+            
     respond_to do |format|
-      format.csv { send_data @associations.to_csv(:only => [:nom, :adresse_siegesocial, :cp_ville, :email]), :filename => filename }
+      format.csv { send_data @associations_csv, :filename => filename }
     end
   end
   
   def export_excel
-    headers['Content-Type'] = "application/vnd.ms-excel"
-    headers['Content-Disposition'] = 'attachment; filename="excel-export.xls"'
-    headers['Cache-Control'] = ''
     @associations = []
+    
+    unless session[:commune].nil?
+      ville = session[:commune]
+      @filename = 'export_resultat_' + ville.to_s + '.xls'
+    else
+      @filename = 'resultats_recherche.xls' 
+    end
       
     @resultats = session[:resultats]
+    
     @resultats.each do |array|
-      association = Association.find(array[0])
-      formatted_name(association)
+      association = Association.find(array[0], :select => ("nom, adresse_siegesocial, ville,
+        telephone, fax, email, website_url"))
       @associations << association
     end
-  end
     
+    respond_to do |format|
+      format.xls
+    end
+  end
+      
   private
   
   def find_champintervention
     @ci_liste = ChampIntervention.select_array_nom    
   end
   
-  def formatted_name(association)
-    association.nom = ActiveSupport::Multibyte::Handlers::UTF8Handler.normalize(association.nom,:d).split(//u).reject { |e| e.length > 1 }.join
-    association.adresse_siegesocial = ActiveSupport::Multibyte::Handlers::UTF8Handler.normalize(association.adresse_siegesocial,:d).split(//u).reject { |e| e.length > 1 }.join
-    association.ville = ActiveSupport::Multibyte::Handlers::UTF8Handler.normalize(association.ville,:d).split(//u).reject { |e| e.length > 1 }.join
-    return association
-  end
+  # def formatted_name(association)
+  #   association.nom = ActiveSupport::Multibyte::Handlers::UTF8Handler.normalize(association.nom,:d).split(//u).reject { |e| e.length > 1 }.join
+  #   association.adresse_siegesocial = ActiveSupport::Multibyte::Handlers::UTF8Handler.normalize(association.adresse_siegesocial,:d).split(//u).reject { |e| e.length > 1 }.join
+  #   association.ville = ActiveSupport::Multibyte::Handlers::UTF8Handler.normalize(association.ville,:d).split(//u).reject { |e| e.length > 1 }.join
+  #   return association
+  # end
 
 end

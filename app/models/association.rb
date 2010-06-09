@@ -1,4 +1,6 @@
 class Association < ActiveRecord::Base
+  @@callback_after_find = true
+  attr_reader :callback_after_find
   
   # Validations
   validates_presence_of :nom, :adresse_siegesocial, :ville
@@ -108,6 +110,8 @@ class Association < ActiveRecord::Base
     "Saint Martin", "Sainte Rose", "Terre de Bas",
     "Terre de Haut", "Trois rivières", "Vieux Fort",
     "Vieux Habitants"]
+    
+  # @@deactivate_callback = false
        
   # Methode public
   
@@ -115,12 +119,13 @@ class Association < ActiveRecord::Base
     "#{id}-#{permalink}"
   end
   
-  def after_find
-    if self.permalink.blank?
-      self.permalink = self.nom.downcase.gsub(/\s+/, '_').gsub(/[^a-zA-z0-9_]+/, '')
-      self.save!
-    end
-  end
+  # def after_find
+  #   return unless @@deactivate_callback
+  #   if self.permalink.blank?
+  #     self.permalink = self.nom.downcase.gsub(/\s+/, '_').gsub(/[^a-zA-z0-9_]+/, '')
+  #     self.save!
+  #   end
+  # end
   
   # crée une liste de sélection 
   def self.select_array
@@ -173,6 +178,7 @@ class Association < ActiveRecord::Base
   def export_adress
     code_postal + " " + ville
   end
+
   protected
   
   def set_permalink
