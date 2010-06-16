@@ -20,7 +20,7 @@ ssh_options[:forward_agent] = true
 set :branch, 'release'
 set :deploy_via, :remote_cache
 set :git_shallow_clone, 1
-set :git_enable_submodules, 1
+# set :git_enable_submodules, 1
 set :use_sudo, false
 set :deploy_to, "/var/rails/annuaire"
 
