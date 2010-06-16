@@ -230,6 +230,9 @@ class AssociationsController < ApplicationController
   # gère l'envoi de la demande d'inscription par email
   def envoi_inscription
     @association = Association.new(params[:association])
+    @association.email = "mail@example.com" if params[:association][:email].blank?
+    @association.email2 = "mail2@example.com" if params[:association][:email2].blank?
+    
     cis = []
     params[:champ_interventions].each_value do |ci|
         ci.each_value do |c|
