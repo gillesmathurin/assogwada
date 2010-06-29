@@ -144,10 +144,17 @@
 		<%= render :partial=>'add_ci_link', :locals => { :index => ( @index + 1) } %>
 	</fieldset>
 	
+	<!-- <fieldset>
+		<legend><b>Afin de vérifier que vous n'êtes pas un robot</b></legend>
+		<p>Entrez le résultat de l'opération suivante : <%# @token.operand1 %> + <%# @token.operand2 %></p>
+		<%# text_field_tag :token %>
+	</fieldset> -->
+	
 	<fieldset>
 		<legend><b>Afin de vérifier que vous n'êtes pas un robot</b></legend>
-		<p>Entrez le résultat de l'opération suivante : <%= @token.operand1 %> + <%= @token.operand2 %></p>
-		<%= text_field_tag :token %>
+		<p>
+			<%= recaptcha_tags %>
+		</p>
 	</fieldset>
 			
  	  <p>

@@ -235,10 +235,12 @@ class AssociationsController < ApplicationController
     
     cis = []
     params[:champ_interventions].each_value do |ci|
-        ci.each_value do |c|
-           @ci = ChampIntervention.find(c)
-           cis << @ci
+      ci.each_value do |c|
+        unless c.nil? || c.blank?
+         @ci = ChampIntervention.find(c) 
+         cis << @ci
         end
+      end
     end
     @association.inscription_cis = cis
     
@@ -247,7 +249,7 @@ class AssociationsController < ApplicationController
     end
 
     respond_to do |format|
-      if params[:token].to_i == session[:token].result && @association.save!        
+      if verify_recaptcha(:model => @association, :message => "Oh! Erreur de CAPTCHA") && !@association.inscription_cis.empty?  && @association.save!         
         @association.champ_interventions << cis
         QuestMailer.deliver_sent_inscription(@association)
         flash[:notice] = "Votre inscription a bien été enregistré, elle sera traitée très rapidement. Nous vous invitons à remplir les autres informations concernant votre association en cliquant sur les liens de la colonne de gauche"
