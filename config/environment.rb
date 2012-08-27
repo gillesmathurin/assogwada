@@ -11,10 +11,10 @@ RAILS_GEM_VERSION = '2.3.5' unless defined? RAILS_GEM_VERSION
 require File.join(File.dirname(__FILE__), 'boot')
 
 Rails::Initializer.run do |config|
-  config.gem 'delayed_job'
-  config.gem 'whenever', :lib => false
-  config.gem 'fastercsv'
-  config.gem 'spreadsheet'
+  # config.gem 'delayed_job'
+  # config.gem 'whenever', :lib => false
+  # config.gem 'fastercsv'
+  # config.gem 'spreadsheet'
   # Settings in config/environments/* take precedence over those specified here
   
   # Skip frameworks you're not going to use (only works if using vendor/rails)

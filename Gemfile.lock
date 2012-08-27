@@ -1,0 +1,45 @@
+GEM
+  remote: https://rubygems.org/
+  specs:
+    aasm (3.0.8)
+    actionmailer (2.3.5)
+      actionpack (= 2.3.5)
+    actionpack (2.3.5)
+      activesupport (= 2.3.5)
+      rack (~> 1.0.0)
+    activerecord (2.3.5)
+      activesupport (= 2.3.5)
+    activeresource (2.3.5)
+      activesupport (= 2.3.5)
+    activesupport (2.3.5)
+    chronic (0.7.0)
+    daemons (1.1.9)
+    delayed_job (2.0.3)
+      daemons
+    mysql (2.8.1)
+    rack (1.0.1)
+    rails (2.3.5)
+      actionmailer (= 2.3.5)
+      actionpack (= 2.3.5)
+      activerecord (= 2.3.5)
+      activeresource (= 2.3.5)
+      activesupport (= 2.3.5)
+      rake (>= 0.8.3)
+    rake (0.8.7)
+    ruby-ole (1.2.11.4)
+    spreadsheet (0.6.4.1)
+      ruby-ole
+    whenever (0.4.1)
+      chronic (>= 0.2.3)
+
+PLATFORMS
+  ruby
+
+DEPENDENCIES
+  aasm
+  delayed_job (= 2.0.3)
+  mysql
+  rails (= 2.3.5)
+  rake (= 0.8.7)
+  spreadsheet (= 0.6.4.1)
+  whenever (= 0.4.1)

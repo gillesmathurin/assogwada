@@ -54,7 +54,7 @@ namespace :deploy do
   
   task :finishing_touches, :roles => :app do
     run "cp -pf /var/rails/annuaire/to_copy/database.yml #{current_path}/config/database.yml"
-    run "cd #{current_path} && RAILS_ENV=production rake db:create"
+    # run "cd #{current_path} && RAILS_ENV=production rake db:create"
   end
   
   task :set_to_wwwdata_user, :roles => :app do

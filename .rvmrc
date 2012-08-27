@@ -1,0 +1,5 @@
+if [[ -s "/Users/gillesmath/.rvm/environments/ruby-1.9.2-p320@assogwada" ]] ; then
+  . "/Users/gillesmath/.rvm/environments/ruby-1.9.2-p320@assogwada"
+else
+  rvm --create use  "ruby-1.9.2-p320@assogwada"
+fi
