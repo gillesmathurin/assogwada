@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 class AddEmail2ToAssociations < ActiveRecord::Migration
   def self.up
     add_column :associations, :email2, :string

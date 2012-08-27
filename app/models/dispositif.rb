@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 class Dispositif < ActiveRecord::Base
   has_many :regroupements,:dependent => :destroy
   has_many :associations, :through => :regroupements

@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 class Adhesion < ActiveRecord::Base
   # Validations
   validates_presence_of :association_id, :message => "ne peut être vide"

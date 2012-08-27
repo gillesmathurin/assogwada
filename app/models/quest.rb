@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 class Quest < ActiveRecord::Base
   validates_presence_of :nom, :nom_asso, :on => :create, :message => "ne peut être vide"
   

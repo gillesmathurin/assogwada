@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 class SuppressionCodepostalDsAssociations < ActiveRecord::Migration
   def self.up
     remove_column :associations, :cp

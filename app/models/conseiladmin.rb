@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 class Conseiladmin < ActiveRecord::Base
   # Validations
   # validates_presence_of :annee_dbt, :annee_fin

@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 class ActivitesController < ApplicationController
   
   before_filter :find_association, :load_enumeration_data

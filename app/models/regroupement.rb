@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 class Regroupement < ActiveRecord::Base
   # Relations
   belongs_to :association

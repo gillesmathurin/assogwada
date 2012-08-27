@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 class Agrement < ActiveRecord::Base
   # Validations
   validates_presence_of :nom, :message => "l'agrément doit avoir un nom"

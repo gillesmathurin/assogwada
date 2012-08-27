@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 class AjoutColPartenairesATableManifestations < ActiveRecord::Migration
   def self.up
     add_column :manifestations, :partenaires, :text

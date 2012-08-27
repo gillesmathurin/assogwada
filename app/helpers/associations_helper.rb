@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 module AssociationsHelper
   # def ajout_champ_intervention(nom)
   #    link_to_function nom do |page|

@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 class CreateAssociations < ActiveRecord::Migration
   def self.up
     create_table :associations do |t|

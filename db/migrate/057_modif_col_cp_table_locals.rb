@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 class ModifColCpTableLocals < ActiveRecord::Migration
   def self.up
     remove_column :locals, :cp

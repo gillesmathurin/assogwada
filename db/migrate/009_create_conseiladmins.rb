@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 class CreateConseiladmins < ActiveRecord::Migration
   def self.up
     create_table :conseiladmins do |t|

@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 class AjoutFlagIncompleteAAssociations < ActiveRecord::Migration
   def self.up
     add_column :associations, :incomplete, :boolean

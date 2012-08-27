@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 class OrgahabsController < ApplicationController
   
   before_filter :find_association

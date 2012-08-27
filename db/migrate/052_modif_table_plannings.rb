@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 class ModifTablePlannings < ActiveRecord::Migration
   def self.up
     rename_column :plannings, :h_debut, :hmat_debut

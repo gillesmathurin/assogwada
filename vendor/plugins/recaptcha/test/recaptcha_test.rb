@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 require 'test/unit'
 require 'cgi'
 require File.dirname(__FILE__) + '/../lib/recaptcha'

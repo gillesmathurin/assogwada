@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 class AuthenticatedGenerator < Rails::Generator::NamedBase
   attr_reader   :controller_name,
                 :controller_class_path,

@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 class AjoutColonneSpectageAManifestations < ActiveRecord::Migration
   def self.up
     add_column :manifestations, :spectage, :string

@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 class ModifRegroupementsTable < ActiveRecord::Migration
   def self.up
     rename_column :regroupements, :fedeRgptDispoConv_id, :dispositif_id

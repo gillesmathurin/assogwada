@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 class CreateAbonnes < ActiveRecord::Migration
   def self.up
     create_table :abonnes do |t|

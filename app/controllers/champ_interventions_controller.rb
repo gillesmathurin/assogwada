@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 class ChampInterventionsController < ApplicationController
   cache_sweeper :cis_sweeper, :only => [:create, :destroy, :update]
   before_filter :find_association

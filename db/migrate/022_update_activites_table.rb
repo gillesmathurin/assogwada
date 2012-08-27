@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 class UpdateActivitesTable < ActiveRecord::Migration
   def self.up
     rename_column :associations, :cotisation, :cotisation_annuelle

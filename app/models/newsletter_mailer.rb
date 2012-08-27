@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 class NewsletterMailer < ActionMailer::Base
   
   # Envoi la newsletter aux abonnés

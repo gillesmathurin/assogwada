@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 module LocalsHelper
   def ajout_planning_local(nom)
     link_to_function nom do |page|

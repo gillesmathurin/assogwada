@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 class AjoutSiretApeNafATableAssociations < ActiveRecord::Migration
   def self.up
     add_column :associations, :siret, :integer, :size => 13

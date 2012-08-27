@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 class DispositifsController < ApplicationController
   
   before_filter :find_association, :dispositif_list

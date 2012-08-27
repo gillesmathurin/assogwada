@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 module ManifestationsHelper
   def ajout_planning_manif(nom)
     link_to_function nom do |page|

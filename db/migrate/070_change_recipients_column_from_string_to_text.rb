@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 class ChangeRecipientsColumnFromStringToText < ActiveRecord::Migration
   def self.up
     change_column(:mailings, :recipients, :text)

@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 class AssociationsChampInterventionsController < ApplicationController
   # GET /associations_champ_interventions
   # GET /associations_champ_interventions.xml

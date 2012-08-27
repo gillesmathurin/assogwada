@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 class QuestMailer < ActionMailer::Base
   
   def mailing(associations, mailing)

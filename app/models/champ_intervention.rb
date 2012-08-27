@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 class ChampIntervention < ActiveRecord::Base  
   # Validation 
   validates_presence_of :nom, :message => "veuillez indiquer le nom du champ

@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 class PlanningsController < ApplicationController
   # GET /plannings
   # GET /plannings.xml

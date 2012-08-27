@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 module RecherchesHelper
   
   def hidden_div_if(condition, attributes = {}, &block)

@@ -1,4 +1,6 @@
+# -*- encoding : utf-8 -*-
 class Association < ActiveRecord::Base
+  include AASM
   @@callback_after_find = true
   attr_reader :callback_after_find
   
@@ -47,35 +49,35 @@ class Association < ActiveRecord::Base
   has_many :champ_interventions, :through => :associations_champ_interventions
   has_many :conv_pluris
   belongs_to :convention
-  
-  acts_as_state_machine :initial => :non_verifiee
-  state :non_verifiee
-  state :rejetee
-  state :acceptee
-  state :suspendue
-  state :reactivee
-  
-  event :accept do
-    transitions :from => :non_verifiee, :to => :acceptee
-  end
-  
-  event :reject do
-    transitions :from => :non_verifiee, :to => :rejetee
-    transitions :from => :acceptee, :to => :rejetee
-  end
-  
-  event :suspend do
-    transitions :from => :acceptee, :to => :suspendue
-  end
-  
-  event :unsuspend do
-    transitions :from => :suspendue, :to => :acceptee
-  end
-  
+   
   attr_accessor :inscription_cis
   
   def cp_ville
     code_postal + " " + ville
+  end
+
+  aasm :colums => :state do
+    state :non_verifiee, :initial => true
+    state :rejetee
+    state :acceptee
+    state :suspendue
+    state :reactivee
+
+    event :reject do
+      transitions :to => :rejetee, :from => [:non_verifiee, :acceptee]
+    end
+
+    event :accept do
+      transitions :to => :acceptee, :from => [:non_verifiee]
+    end
+
+    event :suspend do
+      transitions :to => :suspendue, :from => [:acceptee]
+    end
+
+    event :unsuspend do
+      transitions :to => :acceptee, :from => [:suspendue]
+    end
   end
   
   # Constantes
@@ -109,7 +111,7 @@ class Association < ActiveRecord::Base
     "Saint Claude", "Saint François", "Saint Louis",
     "Saint Martin", "Sainte Rose", "Terre de Bas",
     "Terre de Haut", "Trois rivières", "Vieux Fort",
-    "Vieux Habitants"]
+    "Vieux Habitants"] 
     
   # @@deactivate_callback = false
        

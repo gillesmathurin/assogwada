@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 class QuestsController < ApplicationController
   # GET /quests
   # GET /quests.xml

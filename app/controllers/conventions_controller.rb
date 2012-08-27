@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 class ConventionsController < ApplicationController
   # GET /conventions
   # GET /conventions.xml

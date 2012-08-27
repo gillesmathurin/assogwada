@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 class CreateConvPluris < ActiveRecord::Migration
   def self.up
     create_table :conv_pluris do |t|

@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 class AjoutConventionIdColonneAAssociation < ActiveRecord::Migration
   def self.up
     add_column :associations, :convention_id, :integer

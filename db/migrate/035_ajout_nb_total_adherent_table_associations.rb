@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 class AjoutNbTotalAdherentTableAssociations < ActiveRecord::Migration
   def self.up
     add_column :associations, :total_adherent, :integer

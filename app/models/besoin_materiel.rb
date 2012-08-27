@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 class BesoinMateriel < ActiveRecord::Base
   # Validations
   validates_presence_of :categorie, :desc, :quantite, :message => "ne peut être

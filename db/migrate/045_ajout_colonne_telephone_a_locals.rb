@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 class AjoutColonneTelephoneALocals < ActiveRecord::Migration
   def self.up
     add_column :locals, :telephone, :string

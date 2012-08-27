@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 class RenamePublicColunmInActivites < ActiveRecord::Migration
   def self.up
     rename_column :activites, :public, :spectateur

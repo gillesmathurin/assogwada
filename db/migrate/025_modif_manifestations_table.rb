@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 class ModifManifestationsTable < ActiveRecord::Migration
   def self.up
     add_column :manifestations, :lieu, :string

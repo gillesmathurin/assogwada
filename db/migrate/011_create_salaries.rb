@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 class CreateSalaries < ActiveRecord::Migration
   def self.up
     create_table :salaries do |t|

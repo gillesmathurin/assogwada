@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 class ChargementDonneesConventions < ActiveRecord::Migration
   def self.up
     @conventions = ["Aide ou maintien à domicile (Organismes d’)", "Animation",

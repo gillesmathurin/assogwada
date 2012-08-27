@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 class AjoutCounterColumnsAAssociations < ActiveRecord::Migration
   def self.up
     add_column :associations, :locals_count, :integer, :default => 0

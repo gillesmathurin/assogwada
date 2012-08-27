@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 class AssocManifsController < ApplicationController
   
   before_filter :find_association, :find_manifestation

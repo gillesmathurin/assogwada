@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 class Salarie < ActiveRecord::Base
   # validations
   validates_presence_of :sexe, :poste,

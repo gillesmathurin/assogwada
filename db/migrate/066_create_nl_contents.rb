@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 class CreateNlContents < ActiveRecord::Migration
   def self.up
     create_table :nl_contents do |t|

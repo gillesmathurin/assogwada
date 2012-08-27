@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 module ActivitesHelper
   def lien_ajout_planning(nom)
     link_to_function nom do |page|

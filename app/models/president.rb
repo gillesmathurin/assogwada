@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 class President < Membre
   # validations
   # validates_presence_of :nom, :prenom, :on => :create, :message => "can't be blank"

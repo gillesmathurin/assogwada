@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 class AjoutLocalIdAPlannings < ActiveRecord::Migration
   def self.up
     add_column :plannings, :local_id, :integer

@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 class DataMigrationLookuptables < ActiveRecord::Migration
   def self.up
     # creation données pour la table champ_interventions

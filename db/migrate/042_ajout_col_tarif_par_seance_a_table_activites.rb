@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 class AjoutColTarifParSeanceATableActivites < ActiveRecord::Migration
   def self.up
     add_column :activites, :tarif_seance, :string

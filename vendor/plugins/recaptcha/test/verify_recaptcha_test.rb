@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 require 'test/unit'
 require 'rails/version' # For getting the rails version constants
 require 'active_support/vendor' # For loading I18n

@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 class CreateRegroupements < ActiveRecord::Migration
   def self.up
     create_table :regroupements do |t|

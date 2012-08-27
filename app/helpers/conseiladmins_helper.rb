@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 module ConseiladminsHelper
   def lien_ajout_membre(nom)
     link_to_function nom do |page|

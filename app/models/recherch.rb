@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 class Recherch #< ActiveRecord::Base
   
   attr_accessor :keywords, :ville, :ci, :ci2, :activite, :manifestation, :blank_criterias

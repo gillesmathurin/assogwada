@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 class CreateManifestations < ActiveRecord::Migration
   def self.up
     create_table :manifestations do |t|

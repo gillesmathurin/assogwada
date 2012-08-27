@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 class ConseiladminsController < ApplicationController
   
   before_filter :find_association

@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 class CreateAssocManifs < ActiveRecord::Migration
   def self.up
     create_table :assoc_manifs do |t|

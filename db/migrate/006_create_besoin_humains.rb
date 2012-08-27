@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 class CreateBesoinHumains < ActiveRecord::Migration
   def self.up
     create_table :besoin_humains do |t|

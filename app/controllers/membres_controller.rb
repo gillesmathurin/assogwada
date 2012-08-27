@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 class MembresController < ApplicationController
   # GET /membres
   # GET /membres.xml

@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 module Recaptcha
   module Verify
     # Your private API can be specified in the +options+ hash or preferably

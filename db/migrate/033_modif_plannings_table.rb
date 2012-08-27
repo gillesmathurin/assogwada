@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 class ModifPlanningsTable < ActiveRecord::Migration
   def self.up
     add_column :plannings, :type, :string

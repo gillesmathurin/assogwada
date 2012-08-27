@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 class CisSweeper < ActionController::Caching::Sweeper
   observe ChampIntervention
   

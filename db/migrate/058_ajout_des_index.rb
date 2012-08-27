@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 class AjoutDesIndex < ActiveRecord::Migration
   def self.up
     add_index :associations, [:nom, :sigle, :ville], :name => "assos_idx"

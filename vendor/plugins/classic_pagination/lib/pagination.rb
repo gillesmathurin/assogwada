@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 module ActionController
   # === Action Pack pagination for Active Record collections
   #

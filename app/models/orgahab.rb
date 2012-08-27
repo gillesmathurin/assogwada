@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 class Orgahab < ActiveRecord::Base
   # validations
   validates_presence_of :nom, :on => :create, :message => "can't be blank"

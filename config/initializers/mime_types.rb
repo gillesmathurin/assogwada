@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 Mime::Type.register "text/richtext", :rtf
 Mime::Type.register "application/x-mobile", :mobile
 # Mime::Type.register "application/vnd.ms-excel", :xls

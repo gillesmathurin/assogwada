@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 class AjoutColRecipientsAMailings < ActiveRecord::Migration
   def self.up
     add_column :mailings, :recipients, :string

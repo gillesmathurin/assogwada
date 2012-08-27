@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 class RecherchesController < ApplicationController
   layout 'application', :except => :export_excel
   # caches_page :new

@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 # Nondatabase model to allow better recording of Planning
 class InterPlanning
   

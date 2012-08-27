@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 class Activite < ActiveRecord::Base
   
   # Validations

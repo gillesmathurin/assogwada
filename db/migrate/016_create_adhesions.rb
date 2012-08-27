@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 class CreateAdhesions < ActiveRecord::Migration
   def self.up
     create_table :adhesions do |t|

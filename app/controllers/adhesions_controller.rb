@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 class AdhesionsController < ApplicationController
   # GET /adhesions
   # GET /adhesions.xml

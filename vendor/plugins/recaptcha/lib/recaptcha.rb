@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 require 'recaptcha/client_helper'
 require 'recaptcha/verify'
 

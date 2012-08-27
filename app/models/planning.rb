@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 class Planning < ActiveRecord::Base
   belongs_to :activite
   attr_accessor :should_destroy

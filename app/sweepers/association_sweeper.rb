@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 class AssociationSweeper < ActionController::Caching::Sweeper
   observe Association
   

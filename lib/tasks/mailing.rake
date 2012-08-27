@@ -1,3 +1,5 @@
+# -*- encoding : utf-8 -*-
+
 desc "Send Mailing"
 task :send_mailing => :environment do
   logger = Logger.new("#{RAILS_ROOT}/log/rake.log")

@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 class PlanningLocal < Planning
   belongs_to :local
   attr_accessor :should_destroy

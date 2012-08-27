@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 class LocalsController < ApplicationController
   
   before_filter :find_association, :load_enumeration_data

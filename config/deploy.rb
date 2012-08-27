@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 set :application, "annuaire"
 set :user, "root"
 set :domain, '208.88.125.46'

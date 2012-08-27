@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 class Convention < ActiveRecord::Base
   has_many :associations
   

@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 class AssociationsController < ApplicationController
   layout 'application', :except => :export_xls_csv
   

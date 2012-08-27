@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 class AjoutColonnesNomContactEtCoordonneesContactATableAssociations < ActiveRecord::Migration
   def self.up
     add_column :associations, :nom_contact, :string

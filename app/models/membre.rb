@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 class Membre < ActiveRecord::Base
   # validations
   # validates_presence_of :nom, :prenom, :on => :create, :message => "ne peut être vide"

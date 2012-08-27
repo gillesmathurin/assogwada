@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 class SuppColonnesDansLocals < ActiveRecord::Migration
   def self.up
     remove_column :locals, :jour_recep_debut

@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 class PlanningManif < Planning
   belongs_to :manifestation
   attr_accessor :should_destroy

@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 class CreateDispositifs < ActiveRecord::Migration
   def self.up
     create_table :dispositifs do |t|

@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 class AgrementsController < ApplicationController
   
   before_filter :find_association, :find_orgahab

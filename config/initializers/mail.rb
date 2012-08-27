@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 # ActionMailer::Base.delivery_method = :smtp
 # ActionMailer::Base.smtp_settings = { 
 #   :address => "mail.asso-guadeloupe.fr", 
