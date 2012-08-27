@@ -151,7 +151,7 @@
 			<fieldset id="nom_convention", style="display: none">
 				<legend>Convention collective</legend>
 				<%= f.select :convention_id, @conventions, { :include_blank => true } %><br/><br/>
-				Si votre convention ne figure pas dans la liste, <%= link_to_function ("ajoutez la", "$('champconv').toggle();") %>
+				Si votre convention ne figure pas dans la liste, <%= link_to_function("ajoutez la", "$('champconv').toggle();") %>
 				<div id="champconv", style="display: none">
 					<p><%= text_field_tag :conv_co %></p>
 				</div>

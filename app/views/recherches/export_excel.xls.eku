@@ -1,8 +1,0 @@
-__filename = @filename
-
-sheet1 = xls.create_worksheet
-sheet1[0,0] = "Liste d'associations"
-
-@associations.each_with_index do |a,i|
-	sheet1.update_row i+2, a.nom, a.adresse_siegesocial, a.ville, a.telephone, a.fax, a.email, a.website_url
-end

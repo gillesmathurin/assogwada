@@ -57,7 +57,7 @@ class AssociationsController < ApplicationController
     
     respond_to do |format|
       format.xls 
-      format.csv { send_data @associations.to_csv(:only => [:nom, :adresse_siegesocial, :code_postal, :ville, :email, :telephone, :fax]), :filename => (@filename+".csv") }
+      format.csv { send_data @associations.to_comma, :filename => (@filename+".csv") }
     end
   end  
   

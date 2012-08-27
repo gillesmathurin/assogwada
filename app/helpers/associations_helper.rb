@@ -1,5 +1,6 @@
 # -*- encoding : utf-8 -*-
 module AssociationsHelper
+
   # def ajout_champ_intervention(nom)
   #    link_to_function nom do |page|
   #       page.insert_html :bottom, :champs, :partial => 'champ_inter',
@@ -29,7 +30,7 @@ module AssociationsHelper
   
   def validation_links(number)
     unless number == 0
-          link_to( "Voir Liste", verify_associations_path) + "<br/>" + link_to( "Retour Listing complet", associations_path)
+      link_to( "Voir Liste", verify_associations_path) + " " +  link_to( "Retour Listing complet", associations_path)
     end
   end
   

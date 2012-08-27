@@ -51,6 +51,16 @@ class Association < ActiveRecord::Base
   belongs_to :convention
    
   attr_accessor :inscription_cis
+
+  comma do
+    nom
+    adresse_siegesocial
+    code_postal
+    ville
+    email
+    telephone
+    fax
+  end
   
   def cp_ville
     code_postal + " " + ville

@@ -21,9 +21,12 @@ GEM
       net-ssh (>= 2.0.14)
       net-ssh-gateway (>= 1.1.0)
     chronic (0.7.0)
+    comma (2.1.1)
+      fastercsv (~> 1.5.4)
     daemons (1.1.9)
     delayed_job (2.0.3)
       daemons
+    fastercsv (1.5.5)
     highline (1.6.14)
     mysql2 (0.2.18)
     net-scp (1.0.4)
@@ -45,8 +48,10 @@ GEM
     ruby-ole (1.2.11.4)
     rvm-capistrano (1.2.5)
       capistrano (>= 2.0.0)
-    spreadsheet (0.6.4.1)
-      ruby-ole
+    spreadsheet (0.7.3)
+      ruby-ole (>= 1.0)
+    to_xls (1.5.1)
+      spreadsheet
     whenever (0.4.1)
       chronic (>= 0.2.3)
     will_paginate (2.3.16)
@@ -58,11 +63,13 @@ DEPENDENCIES
   aasm
   activerecord-mysql2-adapter
   capistrano
+  comma
   delayed_job (= 2.0.3)
   mysql2
   rails (= 2.3.8)
   rake (= 0.8.7)
   rvm-capistrano
-  spreadsheet (= 0.6.4.1)
+  spreadsheet
+  to_xls
   whenever (= 0.4.1)
   will_paginate (~> 2.3.16)

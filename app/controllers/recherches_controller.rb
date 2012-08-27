@@ -75,12 +75,12 @@ class RecherchesController < ApplicationController
     
     @resultats = session[:resultats]
     @resultats.each do |array|
-      association = Association.find(array[0], :select => ("nom, adresse_siegesocial, ville,
+      association = Association.find(array[0], :select => ("nom, adresse_siegesocial, ville, code_postal,
         telephone, fax, email, website_url"))
       # formatted_name(association)
       @associations << association
     end
-    @associations_csv = @associations.to_csv(:only => [:nom, :adresse_siegesocial, :code_postal, :ville, :email, :telephone, :fax])
+    @associations_csv = @associations.to_comma
             
     respond_to do |format|
       format.csv { send_data @associations_csv, :filename => filename }
@@ -100,13 +100,12 @@ class RecherchesController < ApplicationController
     @resultats = session[:resultats]
     
     @resultats.each do |array|
-      association = Association.find(array[0], :select => ("nom, adresse_siegesocial, ville,
-        telephone, fax, email, website_url"))
+      association = Association.find(array[0], :select => ("nom, adresse_siegesocial, ville, code_postal,telephone, fax, email, website_url"))
       @associations << association
     end
     
     respond_to do |format|
-      format.xls
+      format.xls { send_data @associations.to_xls(:columns => [:nom, :adresse_siegesocial, :ville, :code_postal, :telephone, :fax, :email, :website_url]) }
     end
   end
       
