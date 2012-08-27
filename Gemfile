@@ -3,8 +3,8 @@ source 'https://rubygems.org'
 gem 'rails', '2.3.8'
 gem 'rake', '0.8.7'
 
-gem 'mysql2'#, '0.2.18'
-gem 'activerecord-mysql2-adapter'
+gem 'mysql2', '0.2.18'
+# gem 'activerecord-mysql2-adapter'
 # gem 'mysql'
 
 gem 'delayed_job', '2.0.3'
