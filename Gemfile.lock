@@ -9,6 +9,8 @@ GEM
       rack (~> 1.1.0)
     activerecord (2.3.8)
       activesupport (= 2.3.8)
+    activerecord-mysql2-adapter (0.0.3)
+      mysql2
     activeresource (2.3.8)
       activesupport (= 2.3.8)
     activesupport (2.3.8)
@@ -26,7 +28,7 @@ GEM
       daemons
     fastercsv (1.5.5)
     highline (1.6.14)
-    mysql2 (0.2.18)
+    mysql2 (0.3.11)
     net-scp (1.0.4)
       net-ssh (>= 1.99.1)
     net-sftp (2.0.5)
@@ -59,10 +61,11 @@ PLATFORMS
 
 DEPENDENCIES
   aasm
+  activerecord-mysql2-adapter
   capistrano
   comma (~> 2.1.1)
   delayed_job (= 2.0.3)
-  mysql2 (= 0.2.18)
+  mysql2
   rails (= 2.3.8)
   rake (= 0.8.7)
   rvm-capistrano
