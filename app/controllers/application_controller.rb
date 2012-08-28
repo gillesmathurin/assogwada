@@ -10,7 +10,7 @@ class ApplicationController < ActionController::Base
   # Uncomment the :secret if you're not using the cookie session store
   # protect_from_forgery # :secret => '558085ee089970a5b52075f2a6a02a6c'
   
-  include AuthenticatedSystem
+  # include AuthenticatedSystem
 
   def call_rake(task, options = {})
     options[:rails_env] ||= RAILS_ENV

@@ -12,6 +12,6 @@
 <% end %>
 
 <%= link_to 'Voir la fiche', association_path(@association) %> |
-<% if logged_in? %>
+<% if user_signed_in? %>
 <%= link_to 'Retour au listing des associations', associations_path %>
 <% end %>

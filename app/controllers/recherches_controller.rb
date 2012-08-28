@@ -1,5 +1,7 @@
 # -*- encoding : utf-8 -*-
 class RecherchesController < ApplicationController
+  respond_to :html, :js
+
   layout 'application', :except => :export_excel
   # caches_page :new
       
@@ -57,9 +59,9 @@ class RecherchesController < ApplicationController
     session[:resultats] = resultats
     session[:commune] = @commune
     
-    # Si Javascript est désactivé afficher liste.rhtml
-    unless request.xhr?
-       render :template => "recherches/liste"
+    respond_to do |format|
+      format.html { render :template => "recherches/liste" }
+      format.js { render :layout => false }
     end
   end
   

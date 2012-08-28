@@ -4,7 +4,7 @@
 <div id="col-form-recherche">
 	<strong>Recherche par criteres</strong>	
 	
-	<% remote_form_for :rechercher, :url => recherches_path(), :before => "Element.show('spinner');", :complete => "Element.hide('spinner');" do |f| %>
+	<%= form_for :rechercher, :url => recherches_path(), :remote => true, do |f| %>
 		<table border="0" cellspacing="0" cellpadding="0" class="recherche">
 			<tr>
 				<td class="nomchamp">Qui ?</td>

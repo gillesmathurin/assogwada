@@ -7,6 +7,7 @@ gem 'mysql2'
 gem 'activerecord-mysql2-adapter'
 # gem 'mysql'
 
+gem 'devise', '1.5.3'
 gem 'delayed_job'
 gem 'delayed_job_active_record'
 gem 'whenever', :require => false

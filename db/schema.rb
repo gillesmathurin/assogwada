@@ -1,16 +1,17 @@
-# -*- encoding : utf-8 -*-
-# This file is auto-generated from the current state of the database. Instead of editing this file, 
-# please use the migrations feature of Active Record to incrementally modify your database, and
-# then regenerate this schema definition.
+# encoding: UTF-8
+# This file is auto-generated from the current state of the database. Instead
+# of editing this file, please use the migrations feature of Active Record to
+# incrementally modify your database, and then regenerate this schema definition.
 #
-# Note that this schema.rb definition is the authoritative source for your database schema. If you need
-# to create the application database on another system, you should be using db:schema:load, not running
-# all the migrations from scratch. The latter is a flawed and unsustainable approach (the more migrations
+# Note that this schema.rb definition is the authoritative source for your
+# database schema. If you need to create the application database on another
+# system, you should be using db:schema:load, not running all the migrations
+# from scratch. The latter is a flawed and unsustainable approach (the more migrations
 # you'll amass, the slower it'll run and the greater likelihood for issues).
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20100506152020) do
+ActiveRecord::Schema.define(:version => 20120828011845) do
 
   create_table "abonnes", :force => true do |t|
     t.string   "nom_abonne"
@@ -59,8 +60,8 @@ ActiveRecord::Schema.define(:version => 20100506152020) do
     t.string   "email"
     t.string   "website_url"
     t.text     "objet_social"
-    t.integer  "cotisation_annuelle",     :limit => 10, :precision => 10, :scale => 0
-    t.integer  "droit_entree",            :limit => 10, :precision => 10, :scale => 0
+    t.decimal  "cotisation_annuelle",     :precision => 10, :scale => 0
+    t.decimal  "droit_entree",            :precision => 10, :scale => 0
     t.integer  "nb_adherent_homme"
     t.integer  "nb_adherent_femme"
     t.integer  "nb_adherent_enfant"
@@ -86,9 +87,9 @@ ActiveRecord::Schema.define(:version => 20100506152020) do
     t.string   "permalink"
     t.string   "state"
     t.boolean  "incomplete"
-    t.integer  "locals_count",                                                         :default => 0
-    t.integer  "activites_count",                                                      :default => 0
-    t.integer  "conseiladmins_count",                                                  :default => 0
+    t.integer  "locals_count",                                           :default => 0
+    t.integer  "activites_count",                                        :default => 0
+    t.integer  "conseiladmins_count",                                    :default => 0
     t.string   "email2"
   end
 
@@ -274,14 +275,26 @@ ActiveRecord::Schema.define(:version => 20100506152020) do
   create_table "users", :force => true do |t|
     t.string   "login"
     t.string   "email"
-    t.string   "crypted_password",          :limit => 40
-    t.string   "salt",                      :limit => 40
+    t.string   "encrypted_password",     :limit => 128, :default => "", :null => false
+    t.string   "password_salt",                         :default => "", :null => false
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.string   "remember_token"
-    t.datetime "remember_token_expires_at"
-    t.string   "activation_code",           :limit => 40
+    t.string   "activation_code",        :limit => 40
     t.datetime "activated_at"
+    t.string   "confirmation_token"
+    t.datetime "confirmed_at"
+    t.datetime "confirmation_sent_at"
+    t.string   "reset_password_token"
+    t.datetime "remember_created_at"
+    t.datetime "reset_password_sent_at"
+    t.integer  "sign_in_count",                         :default => 0
+    t.datetime "current_sign_in_at"
+    t.datetime "last_sign_in_at"
+    t.string   "current_sign_in_ip"
+    t.string   "last_sign_in_ip"
   end
+
+  add_index "users", ["email"], :name => "index_users_on_email", :unique => true
+  add_index "users", ["reset_password_token"], :name => "index_users_on_reset_password_token", :unique => true
 
 end

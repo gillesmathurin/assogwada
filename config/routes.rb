@@ -1,105 +1,122 @@
 # -*- encoding : utf-8 -*-
-ActionController::Routing::Routes.draw do |map|
-  map.resources :newsletters
+Assogwada::Application.routes.draw do
+  devise_for :users
+
+  resources :newsletters
   
-  map.resources :mailings
+  resources :mailings
   
-  map.resources :quests
+  resources :quests
 
-  map.resources :conventions
+  resources :conventions
 
-  map.resources :associations_champ_interventions
+  resources :associations_champ_interventions
 
-  map.resources :conv_pluris
+  resources :conv_pluris
 
-  map.resources :dispositifs do |dispositifs|
-    dispositifs.resources :regroupements, :name_prefix => "dispositif_"
+  resources :dispositifs do
+    resources :regroupements
   end
 
-  map.resources :plannings
+  resources :plannings
   
-  map.resources :associations,
-   :collection => {:add_ci => :get, :remove_ci => :post,
-      :inscription => :get, :download_quest => :get, :test_exception => :get,
-      :envoi => :post, :envoi_inscription => :post, :accueil => :get, :verify => :get,
-      :export_xls_csv => :get, :incomplete => :get, :form_abonnement => :get,
-      :envoi_formabonnement => :post, :newsletter => :post },
-    :member => { :accept => :put, :reject => :put, :unsuspend => :put, :suspend => :put } do |associations|
-    associations.resources :salaries, :name_prefix => "association_",
-     :singular => 'salarie'
-    associations.resources :locals, :name_prefix => "association_"
-    associations.resources :besoin_humains, :name_prefix => "association_"
-    associations.resources :besoin_materiels, :name_prefix => "association_"
-    associations.resources :activites, :name_prefix => "association_"
-    associations.resources :regroupements, :name_prefix => "association_"
-    associations.resources :dispositifs, :name_prefix => "association_"
-    associations.resources :agrements, :name_prefix => "association_"
-    associations.resources :orgahabs, :name_prefix => "association_"
-    associations.resources :adhesions, :name_prefix => "association_"
-    associations.resources :assoc_manifs, :name_prefix => "association_"
-    associations.resources :manifestations, :name_prefix => "association_"
-    associations.resources :assoc_champintervs, :name_prefix => "association_"
-    associations.resources :champ_interventions, :name_prefix => "association_"
-    associations.resources :membres, :name_prefix => "association_"
-    associations.resources :conseiladmins, :name_prefix => "association_"
-    associations.resources :conv_pluris, :name_prefix => "association_"
+  resources :associations do
+    collection do
+      get 'add_ci'
+      get 'inscription'
+      get 'download_quest'
+      get 'test_exception'
+      get 'accueil'
+      get 'verify'
+      get 'export_xls_csv'
+      get 'incomplete'
+      get 'form_abonnement'
+      post 'remove_ci'
+      post 'envoi'
+      post 'envoi_inscription'
+      post 'envoi_formabonnement'
+      post 'newsletter'
+    end
+    member do
+      put 'accept'
+      put 'reject'
+      put 'unsuspend'
+      put 'suspend'
+    end
+    resources :salaries, :singular => 'salarie'
+    resources :locals
+    resources :besoin_humains
+    resources :besoin_materiels
+    resources :activites
+    resources :regroupements
+    resources :dispositifs
+    resources :agrements
+    resources :orgahabs
+    resources :adhesions
+    resources :assoc_manifs
+    resources :manifestations
+    resources :assoc_champintervs
+    resources :champ_interventions
+    resources :membres
+    resources :conseiladmins
+    resources :conv_pluris
   end
   
-  map.resources :conseiladmins do |conseiladmins|
-    conseiladmins.resources :presidents, :name_prefix => "conseiladmin_"
-    conseiladmins.resources :premier_vicepresidents, :name_prefix => "conseiladmin_"
-    conseiladmins.resources :second_vicepresidents, :name_prefix => "conseiladmin_"
-    conseiladmins.resources :secretaires, :name_prefix => "conseiladmin_"
-    conseiladmins.resources :secretaire_adjoints, :name_prefix => "conseiladmin_"
-    conseiladmins.resources :tresoriers, :name_prefix => "conseiladmin_"
-    conseiladmins.resources :tresorier_adjoints, :name_prefix => "conseiladmin_"
-    conseiladmins.resources :membres, :name_prefix => "conseiladmin_"
+  resources :conseiladmins do
+    resources :presidents
+    resources :premier_vicepresidents
+    resources :second_vicepresidents
+    resources :secretaires
+    resources :secretaire_adjoints
+    resources :tresoriers
+    resources :tresorier_adjoints
+    resources :membres
   end
   
-  map.resources :regroupements
+  resources :regroupements
 
-  map.resources :agrements
+  resources :agrements
 
-  map.resources :orgahabs do |orgahabs|
-    orgahabs.resources :agrements, :name_prefix => "orgabhab_"
-    orgahabs.resources :conv_pluris, :name_prefix => "orgabhab_"
+  resources :orgahabs do
+    resources :agrements
+    resources :conv_pluris
   end
 
-  map.resources :adhesions
+  resources :adhesions
 
-  map.resources :assoc_manifs
+  resources :assoc_manifs
 
-  map.resources :membres
+  resources :membres
 
-  map.resources :manifestations do |manif|
-    manif.resources :associations, :name_prefix => "manifestation_"
+  resources :manifestations do
+    resources :associations
   end
 
-  map.resources :champ_interventions
+  resources :champ_interventions
 
-  map.resources :salaries, :singular => 'salarie'
+  resources :salaries, :singular => 'salarie'
 
-  map.resources :activites do |activites|
-    activites.resources :plannings, :name_prefix => "activite_"
+  resources :activites do
+    resources :plannings
   end
 
-  map.resources :besoin_materiels
+  resources :besoin_materiels
   
-  map.resources :besoin_humains
+  resources :besoin_humains
   
-  map.resources :locals
+  resources :locals
   
-  map.resources :users
+  resources :users
   
-  map.resource :session, :controller => 'sessions'
+  resource :session, :controller => 'sessions'
   
-  map.resources :recherches, :controller => 'recherches',
+  resources :recherches, :controller => 'recherches',
    :collection => {:liste => :get, :commune => :post, :export_result => :get, :export_excel => :get}
    
-  map.signup '/signup', :controller => 'users', :action => 'new'
-  map.login  '/login', :controller => 'sessions', :action => 'new'
-  map.logout '/logout', :controller => 'sessions', :action => 'destroy'
-  map.demande_abonnement '/demande_abonnement', :controller => 'associations', :action => 'form_abonnement'
+  match '/signup', :controller => 'users', :action => 'new'
+  match  '/login', :controller => 'sessions', :action => 'new'
+  match '/logout', :controller => 'sessions', :action => 'destroy'
+  match '/demande_abonnement', :controller => 'associations', :action => 'form_abonnement'
   
   # map.commune 'commune/:id', :controller => 'recherches', :action => 'commune'
   
@@ -115,13 +132,13 @@ ActionController::Routing::Routes.draw do |map|
 
   # You can have the root of your site routed by hooking up '' 
   # -- just remember to delete public/index.html.
-  map.connect '', :controller => "associations", :action => "accueil"
+  # map.connect '', :controller => "associations", :action => "accueil"
+  root :to => 'associations#accueil'
 
   # Allow downloading Web Service WSDL as a file with an extension
   # instead of a file named 'wsdl'
-  map.connect ':controller/service.wsdl', :action => 'wsdl'
+  match ':controller/service.wsdl', :action => 'wsdl'
 
   # Install the default route as the lowest priority.
-  map.connect ':controller/:action/:id.:format'
-  map.connect ':controller/:action/:id'
+  match ':controller(/:action(/:id(.:format)))'
 end
