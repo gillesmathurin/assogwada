@@ -33,7 +33,7 @@
 		<% end %>
 	</table>
 
-	<% if user_signed_in? %>
+	<%# if user_signed_in? %>
 		<% unless @associations.empty? %>
 		<p id="export-button" align="center">
 			<%= link_to "<< Export CSV Résultats >>", export_result_recherches_path(:format => :csv) %><br/>
@@ -42,7 +42,7 @@
 			<%#= link_to "<< Export Excel Résultats >>", export_excel_recherches_path(:format => :xls) %>
 		</p> -->
 		<% end %>
-	<% end %>
+	<%# end %>
 
 <% else %>
 

@@ -2,7 +2,7 @@
 class AssociationsController < ApplicationController
   layout 'application', :except => :export_xls_csv
   
-  before_filter :login_required, :except => [:accueil, :inscription, :envoi, :download_quest,
+  before_filter :authenticate_user!, :except => [:accueil, :inscription, :envoi, :download_quest,
      :add_ci, :remove_ci, :envoi_inscription, :test_exception, :show, :edit, :form_abonnement, :envoi_formabonnement, :newsletter]
   before_filter :find_ci, :find_conventions, :last_recorded
   # after_filter :after_validation

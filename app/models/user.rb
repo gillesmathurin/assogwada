@@ -14,7 +14,7 @@ class User < ActiveRecord::Base
   attr_accessible :login, :email, :password, :password_confirmation
   
   # after_filter qui empêche la suppression du dernier Administrateur
-  after_destroy :verif_nb_admin
+  # after_destroy :verif_nb_admin
   
   protected
     

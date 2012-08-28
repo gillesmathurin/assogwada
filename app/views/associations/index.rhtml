@@ -25,8 +25,8 @@
 			Nombre d'associations enregistrées : <strong><%=h Association.count %></strong><br/>
 		</p>
 		<p class="export_csv">
-			<%= link_to "Export Excel", formatted_export_xls_csv_associations_url(:xls) %><br/>
-			<%= link_to "Export CSV", formatted_export_xls_csv_associations_url(:csv) %><br/>
+			<%#= link_to "Export Excel", export_xls_csv_associations_url(:xls, :format => :xls) %><br/>
+			<%= link_to "Export CSV", export_xls_csv_associations_url(:format => :csv) %><br/>
 			<%= link_to "Gestion Mailings", mailings_path() %><br/>
 			<%= link_to "Gestion des Newsletters", newsletters_path() %>
 		</p>

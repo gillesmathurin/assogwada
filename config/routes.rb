@@ -107,14 +107,21 @@ Assogwada::Application.routes.draw do
   resources :locals
   
   resources :users
-  
-  resource :session, :controller => 'sessions'
-  
-  resources :recherches, :controller => 'recherches',
-   :collection => {:liste => :get, :commune => :post, :export_result => :get, :export_excel => :get}
+    
+  # resources :recherches, :controller => 'recherches',
+  #  :collection => {:liste => :get, :commune => :post, :export_result => :get, :export_excel => :get}
+
+  resource :recherches do
+    collection do
+      get 'liste'
+      post 'commune'
+      get 'export_result'
+      get 'export_excel'
+    end
+  end
    
-  match '/signup', :controller => 'users', :action => 'new'
-  match  '/login', :controller => 'sessions', :action => 'new'
+  # match '/signup', :controller => 'users', :action => 'new'
+  # match  '/login', :controller => 'sessions', :action => 'new'
   match '/logout', :controller => 'sessions', :action => 'destroy'
   match '/demande_abonnement', :controller => 'associations', :action => 'form_abonnement'
   
