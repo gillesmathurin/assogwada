@@ -124,7 +124,7 @@ Assogwada::Application.routes.draw do
    
   # match '/signup', :controller => 'users', :action => 'new'
   # match  '/login', :controller => 'sessions', :action => 'new'
-  match '/logout', :controller => 'sessions', :action => 'destroy'
+  # match '/logout', :controller => 'sessions', :action => 'destroy'
   match '/demande_abonnement', :controller => 'associations', :action => 'form_abonnement'
   
   # map.commune 'commune/:id', :controller => 'recherches', :action => 'commune'

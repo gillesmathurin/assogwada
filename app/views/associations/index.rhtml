@@ -3,10 +3,10 @@
 		&nbsp;		
 	</div>
 	<div class="side-menu">
-		<p><%= link_to "Déconnexion", logout_path %></p>
+		<p><%= link_to "Déconnexion", destroy_user_session_path %></p>
 		<p>
 			<b>Recherche rapide</b><br/>
-			<% form_tag associations_path, :method => 'get' do %>
+			<%= form_tag associations_path, :method => 'get' do %>
 				<%= text_field_tag :search, params[:search] %><br/><br/>
 				<%= submit_tag "Trouver", :name => nil %>
 			<% end %>
