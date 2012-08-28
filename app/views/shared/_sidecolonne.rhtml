@@ -1,7 +1,7 @@
 <!-- transformation de la colonne de droite (menu) en shared partial -->
 		<div class="actions-fiche">
 			<% if user_signed_in? %>
-			<p><%= link_to "Déconnexion", destroy_user_session_path %></p>
+			<p><%= link_to "Déconnexion", destroy_user_session_path, :method => :delete %></p>
 			<p><%= link_to 'Listing des associations', associations_path %></p>
 			<% end %>
 			<p><%= link_to 'Modifier la fiche', edit_association_path(@association) %></p>

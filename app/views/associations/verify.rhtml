@@ -3,7 +3,7 @@
 		&nbsp;		
 	</div>
 	<div class="side-menu">
-		<p><%= link_to "Déconnexion", destroy_user_session_path %></p>
+		<p><%= link_to "Déconnexion", destroy_user_session_path, :method => :delete %></p>
 		<p>
 			<b>Recherche rapide</b><br/>
 			<% form_tag associations_path, :method => 'get' do %>
