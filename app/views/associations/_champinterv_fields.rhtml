@@ -1,6 +1,6 @@
 <div id="champ_<%= index %>">
-	<% fields_for "champ_interventions[#{index}]", ci do |f| %>
+	<%= fields_for "champ_interventions[#{index}]", ci do |f| %>
 		<p><%#= index  %>- : <%= f.select :id, @ci_liste, {:prompt=>"Sélectionner un champ d'intervention"} %>
-		<%= link_to 'supprimer', :url => { :action=>'remove_ci', :index => index }, :remote => true %>
+		<%= link_to 'supprimer', remove_ci_associations_path(:index => index), :remote => true %>
 	<% end %>
 </div>

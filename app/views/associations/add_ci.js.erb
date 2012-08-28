@@ -1,0 +1,5 @@
+$("champs").insert({
+	bottom: "<%= escape_javascript(render :partial => 'champinterv_fields', :locals => { :ci => @ci, :index => params[:index] }) %>"
+});
+
+$("add_ci_link").update("<%= escape_javascript(render :partial =>'add_ci_link', :locals => { :index => (params[:index].to_i + 1) }) %>");

@@ -1,1 +1,0 @@
-page["champ_#{params[:index]}"].remove

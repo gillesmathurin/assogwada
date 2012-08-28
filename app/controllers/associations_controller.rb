@@ -194,6 +194,9 @@ class AssociationsController < ApplicationController
   
   def add_ci
     @ci = ChampIntervention.new
+    respond_to do |wants|
+      wants.js { render :layout => false }
+    end
   end
   
   def remove_ci
@@ -209,7 +212,6 @@ class AssociationsController < ApplicationController
   # GET /associations/inscription
   # retourne la page d'inscription avec le formulaire d'envoi par mail
   def inscription
-    debugger
     @association = Association.new
     @ci = ChampIntervention.new
     @convention = Convention.new
