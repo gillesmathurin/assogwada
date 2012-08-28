@@ -42,10 +42,9 @@ class RecherchesController < ApplicationController
     end
 
     # Si Javascript est désactivé afficher liste.rhtml
-    unless request.xhr?
-      respond_to do |format|
-       format.html {render :template => "recherches/liste"}
-     end
+    respond_to do |format|
+      format.html {render :template => "recherches/liste"}
+      format.js { render :layout => false }
     end
   end
   

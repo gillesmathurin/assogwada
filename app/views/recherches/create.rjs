@@ -1,2 +1,0 @@
-page.replace_html("resultats", :partial => 'resultats', :object => @associations)
-page.visual_effect :blind_down, "resultats"
