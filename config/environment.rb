@@ -56,6 +56,9 @@ Rails::Initializer.run do |config|
   config.i18n.default_locale = :fr
 end
 
+Encoding.default_external = Encoding::UTF_8
+Encoding.default_internal = Encoding::UTF_8
+
 # reCAPTCHA Keys
 ENV['RECAPTCHA_PUBLIC_KEY']  = '6LecK7sSAAAAANHZLw61YKk-FL8Iuvy_jCDiz71c'
 ENV['RECAPTCHA_PRIVATE_KEY'] = '6LecK7sSAAAAAGB1p81MJrYTwAP5yr8B81YAn68z'
