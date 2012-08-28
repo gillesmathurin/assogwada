@@ -119,6 +119,8 @@ Assogwada::Application.routes.draw do
       get 'export_excel'
     end
   end
+
+  match '/recherch/:id' => 'recherches#show', :as => 'recherch'
    
   # match '/signup', :controller => 'users', :action => 'new'
   # match  '/login', :controller => 'sessions', :action => 'new'

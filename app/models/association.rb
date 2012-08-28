@@ -1,7 +1,7 @@
 # -*- encoding : utf-8 -*-
 class Association < ActiveRecord::Base
   include AASM
-  @@callback_after_find = true
+  # @@callback_after_find = true
   attr_reader :callback_after_find
   
   # Validations
@@ -10,7 +10,7 @@ class Association < ActiveRecord::Base
   validates_associated :champ_interventions
   validates_format_of :email, :email2, :with => /^[\w\.%\+\-]+@(?:[A-Z0-9\-]+\.)+(?:[A-Z]{2}|com|org|net|edu|gov|mil|biz|info|mobi|name|aero|jobs|museum|fr)\z/i , :on => :create, :message => "non valide"
   
-  before_validation_on_create :set_permalink
+  before_validation :set_permalink, :on => :create
   
   # def after_validation
   #   # Iterate through the errors

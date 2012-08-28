@@ -21,3 +21,7 @@ gem 'comma'
 # Deploy with Capistrano
 gem 'capistrano'
 gem 'rvm-capistrano'
+
+group :development do
+	gem 'debugger'
+end

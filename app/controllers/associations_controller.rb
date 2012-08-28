@@ -209,6 +209,7 @@ class AssociationsController < ApplicationController
   # GET /associations/inscription
   # retourne la page d'inscription avec le formulaire d'envoi par mail
   def inscription
+    debugger
     @association = Association.new
     @ci = ChampIntervention.new
     @convention = Convention.new

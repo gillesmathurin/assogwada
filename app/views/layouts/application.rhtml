@@ -7,6 +7,7 @@
   <title>Annuaire Associations de Guadeloupe</title>
   <%= stylesheet_link_tag 'base', :cache => true %>
   <%= javascript_include_tag :defaults, :cache => true %>
+  <%= csrf_meta_tag %>
 </head>
 <body onload="preloadImages();">
 	<div id="contenu">
@@ -24,8 +25,11 @@
 					<li class="recherche"><a href="/recherches/new">Recherche</a></li>
 					<li class="inscription"><a href="/associations/inscription">Inscrire son association</a></li>
 					<li class="services"><a href="/services.html">Nos Services</a></li>
-					<!-- <li class="admin"><a href="/associations">Administration</a></li> -->
-					<li class="admin"><%= link_to "Administration", new_user_session_path() %> </li>
+					<% if !user_signed_in? %>
+						<li class="admin"><%= link_to "Administration", new_user_session_path() %> </li>
+					<% else %>
+						<li class="admin"><%= link_to "Administration", associations_path() %> </li>
+					<% end %>
 				</ul>
 			</div>
 		</div>

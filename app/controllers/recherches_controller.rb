@@ -21,7 +21,10 @@ class RecherchesController < ApplicationController
   end
 
   def new
-    @rechercher = Recherch.new()
+    @rechercher = Recherch.new
+    respond_to do |wants|
+      wants.html {  }
+    end
   end
   
   def create
@@ -58,7 +61,6 @@ class RecherchesController < ApplicationController
     end
     session[:resultats] = resultats
     session[:commune] = @commune
-    
     respond_to do |format|
       format.html { render :template => "recherches/liste" }
       format.js { render :layout => false }

@@ -9,15 +9,10 @@ class User < ActiveRecord::Base
   # Setup accessible (or protected) attributes for your model
   attr_accessible :email, :password, :password_confirmation, :remember_me, :login
   
-  # prevents a user from submitting a crafted form that bypasses activation
-  # anything else you want your user to change should be added here.
-  attr_accessible :login, :email, :password, :password_confirmation
-  
   # after_filter qui empêche la suppression du dernier Administrateur
   # after_destroy :verif_nb_admin
   
-  protected
-    
+  protected    
     # after filter qui empêche la suppression du dernier Administrateur
     def verif_nb_admin
       if User.find(:all, :conditions => ["categorie = ?", "1"]).size.zero?

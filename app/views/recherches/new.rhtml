@@ -88,6 +88,6 @@
 	<img src="/images/spinner.gif" width="91" height="63">
 </div>
 
-<% hidden_div_if(@associations.nil?, :id => "resultats") do %>
+<%= hidden_div_if(@associations.nil?, :id => "resultats") do %>
 	<%= render(:partial => "resultats", :collection => @associations) %>
 <% end %>
