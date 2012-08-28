@@ -17,6 +17,7 @@ gem 'aasm'
 gem 'will_paginate', '~> 3.0'
 gem 'to_xls'
 gem 'comma'
+gem "recaptcha", :require => "recaptcha/rails"
 
 # Deploy with Capistrano
 gem 'capistrano'
