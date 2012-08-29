@@ -1,0 +1,54 @@
+fr:
+  errors:
+    messages:
+      not_found: "non trouvé"
+      already_confirmed: "était déjà confirmé. Vous pouvez vous authentifier."
+      not_locked: "n'était pas verrouillé"
+      not_saved:
+        one: "1 erreur a empêché %{resource} d'être enregistré(e)"
+        other: "%{count} erreurs ont empêché %{resource} d'être enregistré(e):"
+  devise:
+    remember_me: "Se souvenir de moi"
+    sign_in: "Connexion"
+    failure:
+      unauthenticated: "Vous devez vous identifier ou vous inscrire avant de continuer"
+      unconfirmed: "Vous devez confirmer votre compte pour vous identifier."
+      locked: "Votre compte est bloqué."
+      invalid: "Email ou mot de passe invalide"
+      invalid_token: "Clé d'authentification invalide."
+      timeout: "Votre session a expiré, vous devez vous réidentifier."
+      inactive: "Votre compte n'est pas encore activé."
+      already_authenticated: "Vous êtes déjà connecté."
+    sessions:
+      signed_in: "Vous êtes connecté"
+      signed_out: "Vous êtes déconnecté"
+    passwords:
+      forgotten_password: "Vous avez oublié votre mot de passe ?"
+      password: "Mot de passe"
+      send_instructions: "Vous allez recevoir un email avec les instructions pour changer votre mot de passe dans quelques secondes."
+      send_reset_instructions: "Envoyez les instructions pour le changement de mot de passe"
+      updated: "Votre mot de passe a été changé et vous êtes désormais connecté."
+      change_your_password: "Changez votre mot de passe"
+    confirmations:
+      send_instructions: "Vous allez recevoir un email avec les instructions d'activation de compte dans quelques secondes."
+      confirmed: "Votre compte a été confirmé et vous êtes désormais connecté."
+    registrations:
+      signed_up: "Bienvenue, votre inscription est terminée."
+      signed_up_but_unconfirmed: 'A message with a confirmation link has been sent to your email address. Please open the link to activate your account.'
+      signed_up_but_inactive: 'You have signed up successfully. However, we could not sign you in because your account is not yet activated.'
+      signed_up_but_locked: 'You have signed up successfully. However, we could not sign you in because your account is locked.'
+      updated: "Votre compte a été mis à jour."
+      destroyed: "Votre compte a été supprimé."
+    unlocks:
+      send_instructions: "Vous allez recevoir un email avec les instructions pour débloquer votre compte dans quelques secondes."
+      unlocked: "Votre compte a été débloqué. Vous pouvez désormais vous connecter."
+    omniauth_callbacks:
+      success: "Votre compte a été autorisé"
+      failure: "L'autorisation depuis %{kind} a échoué (%{reason})."
+    mailer:
+      confirmation_instructions:
+        subject: "Instructions de confirmation"
+      reset_password_instructions:
+        subject: "Instructions de réinitialisation de mot de passe"
+      unlock_instructions:
+        subject: "Instructions de déblocage"

@@ -280,3 +280,8 @@ fr:
         odd: "doit être impair"
         even: "doit être pair"
         record_invalid: "La validation a échoué : %{errors}"
+
+  will_paginate:
+  previous_label: "&#8592; Précedent"
+  next_label: "Suivant &#8594;"
+  page_gap: "&hellip;"
